@@ -14,6 +14,8 @@
 		24C9A00B23503D2C00A083FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C9A00923503D2C00A083FE /* LaunchScreen.storyboard */; };
 		24C9A01623503D2C00A083FE /* MemeGenieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A01523503D2C00A083FE /* MemeGenieTests.swift */; };
 		24C9A02123503D2C00A083FE /* MemeGenieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A02023503D2C00A083FE /* MemeGenieUITests.swift */; };
+		24C9A02F23503DB600A083FE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A02E23503DB600A083FE /* SignUpViewController.swift */; };
+		24C9A03123503DC100A083FE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A03023503DC100A083FE /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		24C9A01C23503D2C00A083FE /* MemeGenieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeGenieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C9A02023503D2C00A083FE /* MemeGenieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeGenieUITests.swift; sourceTree = "<group>"; };
 		24C9A02223503D2C00A083FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24C9A02E23503DB600A083FE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		24C9A03023503DC100A083FE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				24C9A00023503D2800A083FE /* AppDelegate.swift */,
-				24C9A00223503D2800A083FE /* ViewController.swift */,
+				24C9A03223503DC600A083FE /* ViewControllers */,
 				24C9A00423503D2800A083FE /* Main.storyboard */,
 				24C9A00723503D2C00A083FE /* Assets.xcassets */,
 				24C9A00923503D2C00A083FE /* LaunchScreen.storyboard */,
@@ -123,6 +127,16 @@
 				24C9A02223503D2C00A083FE /* Info.plist */,
 			);
 			path = MemeGenieUITests;
+			sourceTree = "<group>";
+		};
+		24C9A03223503DC600A083FE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				24C9A00223503D2800A083FE /* ViewController.swift */,
+				24C9A02E23503DB600A083FE /* SignUpViewController.swift */,
+				24C9A03023503DC100A083FE /* LoginViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24C9A03123503DC100A083FE /* LoginViewController.swift in Sources */,
+				24C9A02F23503DB600A083FE /* SignUpViewController.swift in Sources */,
 				24C9A00323503D2800A083FE /* ViewController.swift in Sources */,
 				24C9A00123503D2800A083FE /* AppDelegate.swift in Sources */,
 			);
