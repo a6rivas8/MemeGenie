@@ -16,6 +16,9 @@
 		24C9A02123503D2C00A083FE /* MemeGenieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A02023503D2C00A083FE /* MemeGenieUITests.swift */; };
 		24C9A02F23503DB600A083FE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A02E23503DB600A083FE /* SignUpViewController.swift */; };
 		24C9A03123503DC100A083FE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A03023503DC100A083FE /* LoginViewController.swift */; };
+		24C9A0342350414400A083FE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A0332350414400A083FE /* HomeViewController.swift */; };
+		24C9A036235053BA00A083FE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A035235053BA00A083FE /* CustomButton.swift */; };
+		24C9A03B2350592200A083FE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A03A2350592200A083FE /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		24C9A02223503D2C00A083FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C9A02E23503DB600A083FE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		24C9A03023503DC100A083FE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		24C9A0332350414400A083FE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		24C9A035235053BA00A083FE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		24C9A03A2350592200A083FE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 		24C99FFF23503D2800A083FE /* MemeGenie */ = {
 			isa = PBXGroup;
 			children = (
+				24C9A0372350588300A083FE /* Utilities */,
 				24C9A00023503D2800A083FE /* AppDelegate.swift */,
 				24C9A03223503DC600A083FE /* ViewControllers */,
 				24C9A00423503D2800A083FE /* Main.storyboard */,
@@ -135,8 +142,18 @@
 				24C9A00223503D2800A083FE /* ViewController.swift */,
 				24C9A02E23503DB600A083FE /* SignUpViewController.swift */,
 				24C9A03023503DC100A083FE /* LoginViewController.swift */,
+				24C9A0332350414400A083FE /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		24C9A0372350588300A083FE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				24C9A035235053BA00A083FE /* CustomButton.swift */,
+				24C9A03A2350592200A083FE /* CustomTextField.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +287,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24C9A03B2350592200A083FE /* CustomTextField.swift in Sources */,
+				24C9A0342350414400A083FE /* HomeViewController.swift in Sources */,
 				24C9A03123503DC100A083FE /* LoginViewController.swift in Sources */,
+				24C9A036235053BA00A083FE /* CustomButton.swift in Sources */,
 				24C9A02F23503DB600A083FE /* SignUpViewController.swift in Sources */,
 				24C9A00323503D2800A083FE /* ViewController.swift in Sources */,
 				24C9A00123503D2800A083FE /* AppDelegate.swift in Sources */,
