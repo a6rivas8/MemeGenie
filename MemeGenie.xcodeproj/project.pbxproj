@@ -16,10 +16,10 @@
 		24C9A02123503D2C00A083FE /* MemeGenieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A02023503D2C00A083FE /* MemeGenieUITests.swift */; };
 		24C9A02F23503DB600A083FE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A02E23503DB600A083FE /* SignUpViewController.swift */; };
 		24C9A03123503DC100A083FE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A03023503DC100A083FE /* LoginViewController.swift */; };
-		24C9A0342350414400A083FE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A0332350414400A083FE /* HomeViewController.swift */; };
 		24C9A036235053BA00A083FE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A035235053BA00A083FE /* CustomButton.swift */; };
 		24C9A03B2350592200A083FE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A03A2350592200A083FE /* CustomTextField.swift */; };
 		24D5880D235655000099CC2B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D5880C235655000099CC2B /* Constants.swift */; };
+		24D5880F23566DF90099CC2B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D5880E23566DF90099CC2B /* HomeViewController.swift */; };
 		24EF607623555FD8005FE3A2 /* credentialValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EF607523555FD8005FE3A2 /* credentialValidator.swift */; };
 		24F033D6235546C0002DB897 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24F033D5235546C0002DB897 /* GoogleService-Info.plist */; };
 		5C13E7267E0FB5667A4F084F /* Pods_MemeGenie_MemeGenieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2FDF0B27E608AE38347BDB /* Pods_MemeGenie_MemeGenieUITests.framework */; };
@@ -62,10 +62,10 @@
 		24C9A02223503D2C00A083FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C9A02E23503DB600A083FE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		24C9A03023503DC100A083FE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		24C9A0332350414400A083FE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		24C9A035235053BA00A083FE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		24C9A03A2350592200A083FE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		24D5880C235655000099CC2B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		24D5880E23566DF90099CC2B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../Utilities/HomeViewController.swift; sourceTree = "<group>"; };
 		24EF607523555FD8005FE3A2 /* credentialValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = credentialValidator.swift; sourceTree = "<group>"; };
 		24F033D5235546C0002DB897 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5F8AE0B3731A7B52C78495B7 /* Pods-MemeGenieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenieTests.release.xcconfig"; path = "Target Support Files/Pods-MemeGenieTests/Pods-MemeGenieTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 				24C9A00223503D2800A083FE /* ViewController.swift */,
 				24C9A02E23503DB600A083FE /* SignUpViewController.swift */,
 				24C9A03023503DC100A083FE /* LoginViewController.swift */,
-				24C9A0332350414400A083FE /* HomeViewController.swift */,
+				24D5880E23566DF90099CC2B /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -446,11 +446,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				24C9A03B2350592200A083FE /* CustomTextField.swift in Sources */,
-				24C9A0342350414400A083FE /* HomeViewController.swift in Sources */,
 				24EF607623555FD8005FE3A2 /* credentialValidator.swift in Sources */,
 				24C9A03123503DC100A083FE /* LoginViewController.swift in Sources */,
 				24C9A036235053BA00A083FE /* CustomButton.swift in Sources */,
 				24C9A02F23503DB600A083FE /* SignUpViewController.swift in Sources */,
+				24D5880F23566DF90099CC2B /* HomeViewController.swift in Sources */,
 				24C9A00323503D2800A083FE /* ViewController.swift in Sources */,
 				24C9A00123503D2800A083FE /* AppDelegate.swift in Sources */,
 				24D5880D235655000099CC2B /* Constants.swift in Sources */,
