@@ -10,6 +10,9 @@ target 'MemeGenie' do
   # add the Firebase pod for Google Analytics
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 
   target 'MemeGenieTests' do
     inherit! :search_paths
