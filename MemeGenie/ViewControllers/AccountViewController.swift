@@ -16,7 +16,8 @@ class AccountViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBOutlet weak var acctInfoLabel: UILabel!
+    
     /*
     // MARK: - Navigation
 
