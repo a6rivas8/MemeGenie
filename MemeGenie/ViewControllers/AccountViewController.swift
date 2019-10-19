@@ -16,7 +16,52 @@ class AccountViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBOutlet weak var acctInfoLabel: UILabel!
+    //Fist Name Text Box
+    @IBAction func firstNameText(_ sender: UITextField) {
+    }
+    //First Name Label
+    @IBOutlet weak var firstNameLabel: UILabel!
+    
+    //Last Name Text Box
+    @IBAction func lastNameText(_ sender: UITextField) {
+    }
+    //Last Name Label
+    @IBOutlet weak var lastNameLabel: UILabel!
+    
+    //User ID Text Box
+    @IBAction func userIDText(_ sender: UITextField) {
+    }
+    //User ID Label
+    @IBOutlet weak var userIDLabel: UILabel!
+    
+    //email Text Box
+    @IBAction func emailText(_ sender: UITextField) {
+    }
+    //email Label
+    @IBOutlet weak var emailLabel: UILabel!
+    
+    //Change Password Label
+    @IBOutlet weak var changePasswordLabel: UILabel!
+    //New Password Text
+    @IBAction func newPasswordText(_ sender: UITextField) {
+    }
+    //Confirm Password Text
+    @IBAction func confirmPasswordText(_ sender: UITextField) {
+    }
+    
+    //Chenge Password (Save) Button
+    @IBAction func changePasswordButton(_ sender: UIButton) {
+    }
+    
+    //Sign Out Icon
+    @IBOutlet weak var signOutIcon: UIImageView!
+    //Sign Out Button
+    @IBAction func signOutButton(_ sender: UIButton) {
+    }
+    
+    
+    
+    
     
     /*
     // MARK: - Navigation
