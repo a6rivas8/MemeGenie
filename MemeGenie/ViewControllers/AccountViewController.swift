@@ -9,11 +9,12 @@
 import UIKit
 
 class AccountViewController: UIViewController {
-
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        changePasswordButton.layer.cornerRadius = 25
     }
     
     //Fist Name Text Box
@@ -48,20 +49,14 @@ class AccountViewController: UIViewController {
     //Confirm Password Text
     @IBAction func confirmPasswordText(_ sender: UITextField) {
     }
-    
-    //Chenge Password (Save) Button
-    @IBAction func changePasswordButton(_ sender: UIButton) {
-    }
-    
+    //Change Password (Save) Button
+    @IBOutlet weak var changePasswordButton: UIButton!
+
     //Sign Out Icon
     @IBOutlet weak var signOutIcon: UIImageView!
     //Sign Out Button
     @IBAction func signOutButton(_ sender: UIButton) {
     }
-    
-    
-    
-    
     
     /*
     // MARK: - Navigation
