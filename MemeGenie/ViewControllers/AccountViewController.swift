@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class AccountViewController: UIViewController {
   
@@ -14,32 +16,49 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //Button radius
         changePasswordButton.layer.cornerRadius = 25
+        
+        //Set User Info in Labels
+        self.firstNameText.text = firstName;
+        self.lastNameText.text = lastName;
+        self.userIDText.text = userID;
+        self.emailText.text = email;
+        self.phoneText.text = phone;
     }
     
-    //Fist Name Text Box
-    @IBAction func firstNameText(_ sender: UITextField) {
-    }
+    //User Info
+    let userID = Auth.auth().currentUser?.uid
+    let firstName = Auth.auth().currentUser?.displayName
+    let lastName = Auth.auth().currentUser?.displayName
+    let email = Auth.auth().currentUser?.email
+    let phone = Auth.auth().currentUser?.phoneNumber
+    
     //First Name Label
     @IBOutlet weak var firstNameLabel: UILabel!
+    //First Name Info
+    @IBOutlet weak var firstNameText: UILabel!
     
-    //Last Name Text Box
-    @IBAction func lastNameText(_ sender: UITextField) {
-    }
     //Last Name Label
     @IBOutlet weak var lastNameLabel: UILabel!
+    //Last Name Info
+    @IBOutlet weak var lastNameText: UILabel!
     
-    //User ID Text Box
-    @IBAction func userIDText(_ sender: UITextField) {
-    }
     //User ID Label
     @IBOutlet weak var userIDLabel: UILabel!
+    //User ID Info
+    @IBOutlet weak var userIDText: UILabel!
     
-    //email Text Box
-    @IBAction func emailText(_ sender: UITextField) {
-    }
     //email Label
     @IBOutlet weak var emailLabel: UILabel!
+    //email Info
+    @IBOutlet weak var emailText: UILabel!
+    
+    //phone Label
+    @IBOutlet weak var phoneLabel: UILabel!
+    //phone Info
+    @IBOutlet weak var phoneText: UILabel!
     
     //Change Password Label
     @IBOutlet weak var changePasswordLabel: UILabel!
