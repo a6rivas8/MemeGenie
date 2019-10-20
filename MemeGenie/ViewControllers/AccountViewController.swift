@@ -29,11 +29,14 @@ class AccountViewController: UIViewController {
     }
     
     //User Info
-    let userID = Auth.auth().currentUser?.uid
-    let firstName = Auth.auth().currentUser?.displayName
-    let lastName = Auth.auth().currentUser?.displayName
-    let email = Auth.auth().currentUser?.email
-    let phone = Auth.auth().currentUser?.phoneNumber
+    let userID = Auth.auth().currentUser!.uid
+    let firstName = Auth.auth().currentUser!.displayName
+    let lastName = Auth.auth().currentUser!.displayName
+    let email = Auth.auth().currentUser!.email
+    let phone = Auth.auth().currentUser!.phoneNumber
+    
+    
+    
     
     //First Name Label
     @IBOutlet weak var firstNameLabel: UILabel!
