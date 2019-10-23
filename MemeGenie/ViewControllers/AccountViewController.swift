@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 
 class AccountViewController: UIViewController {
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,22 +21,29 @@ class AccountViewController: UIViewController {
         changePasswordButton.layer.cornerRadius = 25
         
         //Set User Info in Labels
-        self.firstNameText.text = firstName;
-        self.lastNameText.text = lastName;
-        self.userIDText.text = userID;
-        self.emailText.text = email;
-        self.phoneText.text = phone;
+        let user = Auth.auth().currentUser
+        let db = Firestore.firestore()
+           
+        if let user = user {
+            let uid = user.uid
+            let email = user.email
+            
+            db.collection("users").whereField("uid", isEqualTo: uid).getDocuments(){(querySnapshot, err) in
+                if let err = err{
+                    print("Error getting documents: \(err)")
+                } else {
+                    let document = querySnapshot!.documents[0]
+                    
+                    let firstname = document.get("first_name")
+                    let lastname = document.get("last_name")
+                    
+                    self.firstNameText.text = " "+(firstname as! String);
+                    self.lastNameText.text = " "+(lastname as! String);
+                    self.emailText.text = " "+(email!);
+                }
+            }
+        }
     }
-    
-    //User Info
-    let userID = Auth.auth().currentUser!.uid
-    let firstName = Auth.auth().currentUser!.displayName
-    let lastName = Auth.auth().currentUser!.displayName
-    let email = Auth.auth().currentUser!.email
-    let phone = Auth.auth().currentUser!.phoneNumber
-    
-    
-    
     
     //First Name Label
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -48,20 +55,10 @@ class AccountViewController: UIViewController {
     //Last Name Info
     @IBOutlet weak var lastNameText: UILabel!
     
-    //User ID Label
-    @IBOutlet weak var userIDLabel: UILabel!
-    //User ID Info
-    @IBOutlet weak var userIDText: UILabel!
-    
     //email Label
     @IBOutlet weak var emailLabel: UILabel!
     //email Info
     @IBOutlet weak var emailText: UILabel!
-    
-    //phone Label
-    @IBOutlet weak var phoneLabel: UILabel!
-    //phone Info
-    @IBOutlet weak var phoneText: UILabel!
     
     //Change Password Label
     @IBOutlet weak var changePasswordLabel: UILabel!
@@ -74,10 +71,22 @@ class AccountViewController: UIViewController {
     //Change Password (Save) Button
     @IBOutlet weak var changePasswordButton: UIButton!
 
-    //Sign Out Icon
-    @IBOutlet weak var signOutIcon: UIImageView!
     //Sign Out Button
     @IBAction func signOutButton(_ sender: UIButton) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            self.transitionToViewController()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
+    // transition to login/sign up screen
+    func transitionToViewController() {
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "LoginSignUp") as? ViewController
+            view.window?.rootViewController = viewController
+            view.window?.makeKeyAndVisible()
     }
     
     /*
