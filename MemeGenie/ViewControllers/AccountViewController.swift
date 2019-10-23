@@ -5,7 +5,6 @@
 //  Created by Team6 on 10/15/19.
 //  Copyright © 2019 Team6. All rights reserved.
 //
-
 import UIKit
 import Firebase
 import FirebaseAuth
@@ -18,7 +17,7 @@ class AccountViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //Button radius
-        changePasswordButton.layer.cornerRadius = 25
+        //saveNewPassword.layer.cornerRadius = 25
         
         //Set User Info in Labels
         let user = Auth.auth().currentUser
@@ -63,14 +62,46 @@ class AccountViewController: UIViewController {
     //Change Password Label
     @IBOutlet weak var changePasswordLabel: UILabel!
     //New Password Text
-    @IBAction func newPasswordText(_ sender: UITextField) {
-    }
+    @IBOutlet weak var newPasswordText: UITextField!
     //Confirm Password Text
-    @IBAction func confirmPasswordText(_ sender: UITextField) {
+    @IBOutlet weak var confirmPasswordText: UITextField!
+    
+    //Confirmation Label
+    @IBOutlet weak var confirmationLabel: UILabel!
+    
+    //Error Label
+    @IBOutlet weak var errorLabel: UILabel!
+    
+    func showError(_ message:String) {
+        errorLabel.text = message
+        errorLabel.alpha = 1
     }
+    
+    func showConfirmation(){
+        confirmationLabel.text = "Your password has successfully been updated."
+    }
+    
     //Change Password (Save) Button
-    @IBOutlet weak var changePasswordButton: UIButton!
+    @IBAction func saveNewPassword(_ sender: UIButton) {
+        let error = validateFields()
+        
+        if error != nil {
+            showError(error!)
+            print("Error changing password!")
+        } else{
+            let user = Auth.auth().currentUser;
+            let newPassword = newPasswordText.text!;
 
+            //Clear error message (if there is one)
+            errorLabel.text = ""
+    
+            //Update Password
+            user?.updatePassword(to: newPassword)
+            print("Password successfully updated.")
+            showConfirmation()
+        }
+    }
+    
     //Sign Out Button
     @IBAction func signOutButton(_ sender: UIButton) {
         let firebaseAuth = Auth.auth()
@@ -82,6 +113,22 @@ class AccountViewController: UIViewController {
         }
     }
     
+    // Check the fields and validate that data is correct.
+    // Returns nil if all is correct.
+    // Returns error message else.
+    func validateFields() -> String? {
+        // Check if passwords match and are strong
+        if newPasswordText.text! != confirmPasswordText.text! {
+            return "*Please make sure passwords match."
+        }
+        
+        let cleanedPassword = newPasswordText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        if credentialValidator.isPasswordValid(cleanedPassword) == false {
+            return "*Please make sure your password is at least 8 characters and contains 1 Uppercase Alphabet, 1 Lowercase Alphabet, 1 Number and 1 Special Character."
+        }
+        return nil
+    }
+    
     // transition to login/sign up screen
     func transitionToViewController() {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "LoginSignUp") as? ViewController
@@ -91,7 +138,6 @@ class AccountViewController: UIViewController {
     
     /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
