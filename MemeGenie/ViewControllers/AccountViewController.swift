@@ -104,13 +104,21 @@ class AccountViewController: UIViewController {
     
     //Sign Out Button
     @IBAction func signOutButton(_ sender: UIButton) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            self.transitionToViewController()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
+        let alert = UIAlertController(title: "Log Current User Out?", message: nil, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Sign Out", style: .default, handler: {action in
+            
+            let firebaseAuth = Auth.auth()
+            do {
+                try firebaseAuth.signOut()
+                self.transitionToViewController()
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
     }
     
     // Check the fields and validate that data is correct.
