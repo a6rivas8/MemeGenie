@@ -140,8 +140,13 @@ class AccountViewController: UIViewController {
     // transition to login/sign up screen
     func transitionToViewController() {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "LoginSignUp") as? ViewController
-            view.window?.rootViewController = viewController
-            view.window?.makeKeyAndVisible()
+        view.window?.rootViewController = viewController
+        view.window?.makeKeyAndVisible()
+        
+        /*var rootVC : UIViewController?
+        rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginSignUp") as! ViewController
+         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+         appDelegate.window?.rootViewController = rootVC*/
     }
     
     /*
