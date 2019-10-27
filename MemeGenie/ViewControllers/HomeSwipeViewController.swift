@@ -7,24 +7,24 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class HomeSwipeViewController: UIViewController {
-
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var captionLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func memeLiked(_ sender: Any) {
+        
     }
-    */
-
+    
+    @IBAction func memePassed(_ sender: Any) {
+        
+    }
 }
