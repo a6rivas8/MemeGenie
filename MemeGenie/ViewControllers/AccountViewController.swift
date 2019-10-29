@@ -11,10 +11,45 @@ import FirebaseAuth
 
 class AccountViewController: UIViewController {
     
+    //First Name Label
+    @IBOutlet weak var firstNameLabel: UILabel!
+    //First Name Info
+    @IBOutlet weak var firstNameText: UILabel!
+    
+    //Last Name Label
+    @IBOutlet weak var lastNameLabel: UILabel!
+    //Last Name Info
+    @IBOutlet weak var lastNameText: UILabel!
+    
+    //email Label
+    @IBOutlet weak var emailLabel: UILabel!
+    //email Info
+    @IBOutlet weak var emailText: UILabel!
+    
+    //Change Password Label
+    @IBOutlet weak var changePasswordLabel: UILabel!
+    //New Password Text
+    @IBOutlet weak var newPasswordText: UITextField!
+    //Confirm Password Text
+    @IBOutlet weak var confirmPasswordText: UITextField!
+    
+    //Confirmation Label
+    @IBOutlet weak var confirmationLabel: UILabel!
+    
+    //Error Label
+    @IBOutlet weak var errorLabel: UILabel!
+    
+    //Save Button
+    @IBOutlet weak var saveButton: UIButton!
+    
+    //View memes user has posted (button)
+    @IBOutlet weak var viewMemesPosted: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setUpElements()
         
         //Button radius
         //saveNewPassword.layer.cornerRadius = 25
@@ -44,33 +79,16 @@ class AccountViewController: UIViewController {
         }
     }
     
-    //First Name Label
-    @IBOutlet weak var firstNameLabel: UILabel!
-    //First Name Info
-    @IBOutlet weak var firstNameText: UILabel!
-    
-    //Last Name Label
-    @IBOutlet weak var lastNameLabel: UILabel!
-    //Last Name Info
-    @IBOutlet weak var lastNameText: UILabel!
-    
-    //email Label
-    @IBOutlet weak var emailLabel: UILabel!
-    //email Info
-    @IBOutlet weak var emailText: UILabel!
-    
-    //Change Password Label
-    @IBOutlet weak var changePasswordLabel: UILabel!
-    //New Password Text
-    @IBOutlet weak var newPasswordText: UITextField!
-    //Confirm Password Text
-    @IBOutlet weak var confirmPasswordText: UITextField!
-    
-    //Confirmation Label
-    @IBOutlet weak var confirmationLabel: UILabel!
-    
-    //Error Label
-    @IBOutlet weak var errorLabel: UILabel!
+    func setUpElements() {
+        // hide error label
+        //errorTextField.alpha = 0
+        
+        // style elements
+        CustomButton.styleButton(saveButton)
+        CustomButton.styleButton(viewMemesPosted)
+        CustomTextField.styleTextField(newPasswordText)
+        CustomTextField.styleTextField(confirmPasswordText)
+    }
     
     func showError(_ message:String) {
         errorLabel.text = message

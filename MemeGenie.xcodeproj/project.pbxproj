@@ -27,6 +27,7 @@
 		24EF607623555FD8005FE3A2 /* credentialValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EF607523555FD8005FE3A2 /* credentialValidator.swift */; };
 		24F033D6235546C0002DB897 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24F033D5235546C0002DB897 /* GoogleService-Info.plist */; };
 		5C13E7267E0FB5667A4F084F /* Pods_MemeGenie_MemeGenieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2FDF0B27E608AE38347BDB /* Pods_MemeGenie_MemeGenieUITests.framework */; };
+		70B38BA123682AD40087FED7 /* ViewMemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B38BA023682AD40087FED7 /* ViewMemesViewController.swift */; };
 		7DE1DB5C66F807D0A87909D9 /* Pods_MemeGenieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DBB7232B87FDEA6826DD8B8 /* Pods_MemeGenieTests.framework */; };
 		AE91729C1FD746DB7235DB31 /* Pods_MemeGenie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90B394286047E9313199DA3 /* Pods_MemeGenie.framework */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		24EF607523555FD8005FE3A2 /* credentialValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = credentialValidator.swift; sourceTree = "<group>"; };
 		24F033D5235546C0002DB897 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5F8AE0B3731A7B52C78495B7 /* Pods-MemeGenieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenieTests.release.xcconfig"; path = "Target Support Files/Pods-MemeGenieTests/Pods-MemeGenieTests.release.xcconfig"; sourceTree = "<group>"; };
+		70B38BA023682AD40087FED7 /* ViewMemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMemesViewController.swift; sourceTree = "<group>"; };
 		70D7162F2701B23DC2D176BB /* Pods-MemeGenie-MemeGenieUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenie-MemeGenieUITests.release.xcconfig"; path = "Target Support Files/Pods-MemeGenie-MemeGenieUITests/Pods-MemeGenie-MemeGenieUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8E0364304285E1ADCFF512D2 /* Pods-MemeGenie-MemeGenieUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenie-MemeGenieUITests.debug.xcconfig"; path = "Target Support Files/Pods-MemeGenie-MemeGenieUITests/Pods-MemeGenie-MemeGenieUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F2FDF0B27E608AE38347BDB /* Pods_MemeGenie_MemeGenieUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemeGenie_MemeGenieUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +181,7 @@
 				24D58812235684690099CC2B /* UploadMemeViewController.swift */,
 				24D58814235684890099CC2B /* TrendingViewController.swift */,
 				24D58816235684A00099CC2B /* AccountViewController.swift */,
+				70B38BA023682AD40087FED7 /* ViewMemesViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				24D58811235684280099CC2B /* HomeSwipeViewController.swift in Sources */,
 				24C9A03B2350592200A083FE /* CustomTextField.swift in Sources */,
 				24D58817235684A00099CC2B /* AccountViewController.swift in Sources */,
+				70B38BA123682AD40087FED7 /* ViewMemesViewController.swift in Sources */,
 				24EF607623555FD8005FE3A2 /* credentialValidator.swift in Sources */,
 				24C9A03123503DC100A083FE /* LoginViewController.swift in Sources */,
 				24C9A036235053BA00A083FE /* CustomButton.swift in Sources */,
