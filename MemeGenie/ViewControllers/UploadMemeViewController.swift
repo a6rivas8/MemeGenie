@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class UploadMemeViewController:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let memeTags = ["Sad", "Happy","love","angry"]
     
     @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet weak var progressView: UIProgressView!
+           
     
      var originalImage = UIImage(named: "noimage")
     
@@ -20,13 +22,13 @@ class UploadMemeViewController:UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var tagLabel: UILabel!
     override func viewDidLoad(){
     super.viewDidLoad()
-        
+    progressView.isHidden = true
     picker.delegate = self
         
           }
           
           func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-              
+             
             guard let selectedImage = info[.originalImage] as? UIImage else {
                      fatalError("Expected an image, but was provided the following: \(info)")
                  }
@@ -40,6 +42,7 @@ class UploadMemeViewController:UIViewController, UIImagePickerControllerDelegate
 
     
     @IBAction func uploadMeme(_ sender: Any) {
+        progressView.isHidden = true
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             picker.allowsEditing=false
             picker.sourceType = .photoLibrary
@@ -61,6 +64,28 @@ class UploadMemeViewController:UIViewController, UIImagePickerControllerDelegate
         
     
     }
+    
+    @IBAction func uploadImg(_ sender: Any) {
+        progressView.isHidden = false
+        let ramdomID = UUID.init().uuidString
+        let uploadRef = Storage.storage().reference(withPath: "memes/\(ramdomID).jpg")
+        guard let imageData = imageView.image?.jpegData(compressionQuality: 0.75) else { return }
+        let uploadMetadata = StorageMetadata.init()
+        uploadMetadata.contentType = "image/jpeg"
+        
+      let taskReference = uploadRef.putData(imageData, metadata: uploadMetadata) {(downloadMetadata, error) in
+            if let error = error {
+                print("Error uploading the meme! \(error.localizedDescription)")
+                return
+            }
+            print(" completion and this is what we got back:  \(String(describing: downloadMetadata))")
+    }
+        taskReference.observe(.progress) { [weak self] (Snapshot) in
+            guard let pctThere = Snapshot.progress?.fractionCompleted else { return }
+            print("you are \(pctThere) complete")
+            self?.progressView.progress = Float(pctThere)
+        }
+    
     /*
     // MARK: - Navigation
 
@@ -71,4 +96,5 @@ class UploadMemeViewController:UIViewController, UIImagePickerControllerDelegate
     }
     */
 
+}
 }
