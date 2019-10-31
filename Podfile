@@ -13,6 +13,9 @@ target 'MemeGenie' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
+  pod 'Canvas'
+
+
 
   target 'MemeGenieTests' do
     inherit! :search_paths
