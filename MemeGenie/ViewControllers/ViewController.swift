@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import Canvas
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var memegenieView: CSAnimationView!
+    @IBOutlet weak var pepeLeft: CSAnimationView!
+    @IBOutlet weak var pepeRight: CSAnimationView!
+    @IBOutlet weak var Logo: CSAnimationView!
+    
+    
     @IBOutlet weak var signUpTextButton: UIButton!
     @IBOutlet weak var loginTextButton: UIButton!
     
@@ -25,5 +31,15 @@ class ViewController: UIViewController {
         CustomButton.styleButton(loginTextButton)
     }
 
+    
+    @IBAction func pressed(_ sender: Any) {
+        memegenieView.startCanvasAnimation()
+        pepeLeft.startCanvasAnimation()
+        pepeRight.startCanvasAnimation()
+        Logo.startCanvasAnimation()
+        
+    }
+    
+    
 }
 
