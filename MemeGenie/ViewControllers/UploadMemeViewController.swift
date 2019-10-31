@@ -72,6 +72,8 @@ class UploadMemeViewController:UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func uploadImg(_ sender: Any) {
+        let user = Auth.auth().currentUser
+        let uid = user!.uid
         if imageView.image == defaultImage {
         
         progressView.isHidden = false
@@ -96,7 +98,9 @@ class UploadMemeViewController:UIViewController, UIImagePickerControllerDelegate
                            "date_uploaded": downloadMetadata?.timeCreated! ?? Timestamp(date: Date()),
                            "likes": 0,
                            "passes": 0,
+                        
                            "rank": 0,
+                           "memeID": randomID
                        ]) { err in
                            if let err = err {
                                print("Error writing meme document: \(err.localizedDescription)")
