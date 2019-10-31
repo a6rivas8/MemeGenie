@@ -11,8 +11,10 @@ import FirebaseAuth
 
 class ViewMemesViewController: UIViewController {
     
-    //Meme
+    //Meme Caption
     @IBOutlet weak var meme: UILabel!
+    //Meme Image
+    @IBOutlet weak var memeImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,18 +29,32 @@ class ViewMemesViewController: UIViewController {
         if let user = user {
             let uid = user.uid
             
-            db.collection("users").whereField("uid", isEqualTo: uid).getDocuments(){(querySnapshot, err) in
+            db.collection("memes").whereField("posted_by", isEqualTo: uid).getDocuments(){(querySnapshot, err) in
                 if let err = err{
-                    print("Error getting documents: \(err)")
+                    print("Error getting images: \(err)")
                 } else {
                     let document = querySnapshot!.documents[0]
                     
-                    let memeText = document.get("memes_posted")
+                    let memeID = document.get("memeID")
+                    let caption = document.get("caption")
                     
-                    self.meme.text = " "+(memeText as! String);
+                    self.meme.text = memeID as? String
+                    
+                    
+                    let storageRef = Storage.storage().reference(withPath: "memes/"+(memeID as! String)+".jpg")
+                    storageRef.getData(maxSize: 4 * 1024 * 1024) {(data, error) in
+                        if let error = error {
+                            print("Got an error fetching image: \(error.localizedDescription)")
+                            return
+                        }
+                        if let data = data {
+                            self.memeImageView.image = UIImage(data: data)
+                        }
+                        }
                 }
             }
-        }
+    
+        
     }
     
     func setUpElements() {
@@ -51,4 +67,5 @@ class ViewMemesViewController: UIViewController {
         //CustomTextField.styleTextField(newPasswordText)
         //CustomTextField.styleTextField(confirmPasswordText)
     }
+}
 }

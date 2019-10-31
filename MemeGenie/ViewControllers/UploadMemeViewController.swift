@@ -29,6 +29,7 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
         picker.delegate = self
         
         let user = Auth.auth().currentUser
+        let uid = user?.uid
         //print(user?.metadata)
     }
     
@@ -78,6 +79,8 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
     
     
     @IBAction func uploadMeme(_ sender: Any) {
+        let user = Auth.auth().currentUser
+        let uid = user!.uid
         if uploadImageView.image != defaultImage && uploadImageCaption.text != "" && uploadImageTags.text != "" {
             let randomID = UUID.init().uuidString
             let uploadRef = Storage.storage().reference(withPath: "memes/\(randomID).jpg")
@@ -98,8 +101,10 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
                     "date_uploaded": downloadMetadata?.timeCreated! ?? Timestamp(date: Date()),
                     "likes": 0,
                     "passes": 0,
+                    "posted_by": uid,
                     "rank": 0,
-                    "tags": [self.uploadImageTags.text!]
+                    "tags": [self.uploadImageTags.text!],
+                    "memeID": randomID
                 ]) { err in
                     if let err = err {
                         print("Error writing meme document: \(err.localizedDescription)")
