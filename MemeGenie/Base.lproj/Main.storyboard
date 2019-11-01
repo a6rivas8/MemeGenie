@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -434,45 +435,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your Memes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="414" translatesAutoresizingMaskIntoConstraints="NO" id="FL4-Kn-8B1">
-                                <rect key="frame" x="0.0" y="60" width="414" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="k6X-Nt-iTU">
-                                <rect key="frame" x="20" y="120" width="374" height="419"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meme" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOQ-Dw-ibt">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="k76-JW-AQ8"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mV7-9b-2IM">
-                                        <rect key="frame" x="0.0" y="45" width="374" height="374"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="374" id="Bub-yn-YmJ"/>
-                                            <constraint firstAttribute="height" constant="374" id="k0N-Oj-Zg2"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                            </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4XS-LL-b3L">
+                                <rect key="frame" x="0.0" y="47" width="414" height="643"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="a5p-QW-Zaf">
+                                    <size key="itemSize" width="180" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="C8x-7r-0zM" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JBH-f2-2SF" customClass="UICollectionViewCell">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WfJ-2c-yzr">
+                                                    <rect key="frame" x="8" y="36" width="164" height="131"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaH-lQ-Deq">
+                                                    <rect key="frame" x="8" y="8" width="172" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date Posted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TI0-fL-Wrc">
+                                                    <rect key="frame" x="8" y="175" width="172" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="180" height="200"/>
+                                        <connections>
+                                            <outlet property="memeCaption" destination="OaH-lQ-Deq" id="lWg-cm-9cy"/>
+                                            <outlet property="memeDate" destination="TI0-fL-Wrc" id="x5Y-FO-bZc"/>
+                                            <outlet property="memeImage" destination="WfJ-2c-yzr" id="ows-E7-T2d"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9NJ-bl-ZlZ">
+                                        <rect key="frame" x="234" y="0.0" width="180" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tAK-Cr-bvk">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="fcK-rl-f2h" id="sRb-dV-Zlo"/>
+                                    <outlet property="delegate" destination="fcK-rl-f2h" id="it6-LO-IhP"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="FL4-Kn-8B1" firstAttribute="centerX" secondItem="YZi-m4-dgw" secondAttribute="centerX" id="SmV-Ii-9hf"/>
-                            <constraint firstItem="k6X-Nt-iTU" firstAttribute="top" secondItem="FL4-Kn-8B1" secondAttribute="bottom" constant="25" id="hUg-cO-i6d"/>
-                            <constraint firstItem="FL4-Kn-8B1" firstAttribute="top" secondItem="AvH-IO-4dE" secondAttribute="top" constant="15" id="lM9-Sd-J3c"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="AvH-IO-4dE"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xqk-Ys-FPK"/>
+                    <navigationItem key="navigationItem" title="Your Memes" id="xqk-Ys-FPK"/>
                     <connections>
-                        <outlet property="meme" destination="XOQ-Dw-ibt" id="KPo-C2-vWb"/>
-                        <outlet property="memeImageView" destination="mV7-9b-2IM" id="4wm-rs-OjO"/>
+                        <outlet property="collectionView" destination="4XS-LL-b3L" id="EXU-t6-T0Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0D-ib-KYc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

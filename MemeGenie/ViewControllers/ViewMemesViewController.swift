@@ -9,17 +9,30 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class ViewMemesViewController: UIViewController {
+class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    //Meme Caption
-    @IBOutlet weak var meme: UILabel!
-    //Meme Image
-    @IBOutlet weak var memeImageView: UIImageView!
+    //CollectionView
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    //Meme IDs Array
+    var memeIDsArray = [String]()
+    //Meme Captions Array
+    var captionsArray = [String]()
+    //Meme Images Array
+    var imagesArray = [UIImage]()
+    //Meme Dates Posted Array
+    var datesArray = [String]()
+    
+    //Variables
+    var captionText = ""
+    var memeImage = UIImage()
+    var dateText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        collectionView.dataSource = self
+        collectionView.delegate = self
         //setUpElements()
         
         //Set User Info in Labels
@@ -33,39 +46,61 @@ class ViewMemesViewController: UIViewController {
                 if let err = err{
                     print("Error getting images: \(err)")
                 } else {
-                    let document = querySnapshot!.documents[0]
-                    
-                    let memeID = document.get("memeID")
-                    let caption = document.get("caption")
-                    
-                    self.meme.text = memeID as? String
+                    let documents = querySnapshot!.documents
                     
                     
-                    let storageRef = Storage.storage().reference(withPath: "memes/"+(memeID as! String)+".jpg")
-                    storageRef.getData(maxSize: 4 * 1024 * 1024) {(data, error) in
-                        if let error = error {
-                            print("Got an error fetching image: \(error.localizedDescription)")
-                            return
+                    //Get info from Firebase documents
+                    for id in documents{
+                        //Get memeIDs
+                        let memeID = id.get("memeID")
+                        self.memeIDsArray.append(memeID as! String)
+                        
+                        //Get memeCaptions
+                        let memeCaption = id.get("caption")
+                        self.captionsArray.append(memeCaption as! String)
+                        
+                        //Get memeDatesPosted
+                        //let memeDate = id.get("date_uploaded") as! String
+                        //self.datesArray.append(memeDate)
+                        
+                        //Get memeImages
+                        let storageRef = Storage.storage().reference(withPath: "memes/"+(memeID as! String)+".jpg")
+                        storageRef.getData(maxSize: 2 * 1024 * 1024) {(data, error) in
+                            if let error = error {
+                                print("Got an error fetching image: \(error.localizedDescription)")
+                                return
+                            }
+                            if let data = data {
+                                self.memeImage = UIImage(data: data)!
+                            }
                         }
-                        if let data = data {
-                            self.memeImageView.image = UIImage(data: data)
-                        }
-                        }
+                        self.imagesArray.append(self.memeImage)
+                    }
+                    /*print("Meme IDs Array count:")
+                    print(self.memeIDsArray.count)
+                    print("Memes (Images) Array count:")
+                    print(self.imagesArray.count)
+                    print("Memes Captions Array count:")
+                    print(self.captionsArray.count)*/
+
+                    //print("Memes Dates Array count:")
+                    //print(self.datesArray.count)
                 }
             }
-    
-        
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.memeIDsArray.count
     }
     
-    func setUpElements() {
-        // hide error label
-        //errorTextField.alpha = 0
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         
-        // style elements
-        //CustomButton.styleButton(saveButton)
-        //CustomButton.styleButton(viewMemesPosted)
-        //CustomTextField.styleTextField(newPasswordText)
-        //CustomTextField.styleTextField(confirmPasswordText)
+        cell.memeCaption.text = self.captionsArray[indexPath.item]
+        cell.memeImage.image = self.imagesArray[indexPath.item]
+        //cell.memeDate.text = self.datesArray[indexPath.item]
+        
+        return cell
     }
-}
 }
