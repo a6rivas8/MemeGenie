@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrendingViewController: UIViewController {
+class TrendingViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +16,33 @@ class TrendingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "rankCell", for: indexPath)
+
+        // Configure the cell...
+        let rankLabel = cell.viewWithTag(1) as! UILabel
+        let imageView = cell.viewWithTag(2) as! UIImageView
+        let captionLabel = cell.viewWithTag(3) as! UILabel
+
+        rankLabel.text = "100."
+        imageView.image = UIImage(named: "flower")
+        captionLabel.text = "cool flower"
+
+        return cell
+    }
 
     /*
     // MARK: - Navigation
