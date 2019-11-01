@@ -24,24 +24,23 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
     var datesArray = [String]()
     
     //Variables
-    var captionText = ""
     var memeImage = UIImage()
-    var dateText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
         collectionView.delegate = self
-        //setUpElements()
         
-        //Set User Info in Labels
+        //Get User Info
         let user = Auth.auth().currentUser
         let db = Firestore.firestore()
            
         if let user = user {
             let uid = user.uid
             
+            //Get all memes that user has posted
             db.collection("memes").whereField("posted_by", isEqualTo: uid).getDocuments(){(querySnapshot, err) in
                 if let err = err{
                     print("Error getting images: \(err)")
@@ -51,21 +50,22 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
                     
                     //Get info from Firebase documents
                     for id in documents{
-                        //Get memeIDs
+                        
+                        //Get memeIDs and add to array
                         let memeID = id.get("memeID")
                         self.memeIDsArray.append(memeID as! String)
                         
-                        //Get memeCaptions
+                        //Get memeCaptions and add to array
                         let memeCaption = id.get("caption")
                         self.captionsArray.append(memeCaption as! String)
                         
-                        //Get memeDatesPosted
+                        //Get memeDatesPosted and add to array
                         //let memeDate = id.get("date_uploaded") as! String
                         //self.datesArray.append(memeDate)
                         
-                        //Get memeImages
+                        //Get memeImages and add to array
                         let storageRef = Storage.storage().reference(withPath: "memes/"+(memeID as! String)+".jpg")
-                        storageRef.getData(maxSize: 2 * 1024 * 1024) {(data, error) in
+                        storageRef.getData(maxSize: 4 * 1024 * 1024) {(data, error) in
                             if let error = error {
                                 print("Got an error fetching image: \(error.localizedDescription)")
                                 return
@@ -76,12 +76,12 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
                         }
                         self.imagesArray.append(self.memeImage)
                     }
-                    /*print("Meme IDs Array count:")
-                    print(self.memeIDsArray.count)
-                    print("Memes (Images) Array count:")
-                    print(self.imagesArray.count)
-                    print("Memes Captions Array count:")
-                    print(self.captionsArray.count)*/
+                    print("Meme IDs:")
+                    print(self.memeIDsArray)
+                    print("Memes (Images):")
+                    print(self.imagesArray)
+                    print("Memes Captions:")
+                    print(self.captionsArray)
 
                     //print("Memes Dates Array count:")
                     //print(self.datesArray.count)
@@ -96,7 +96,7 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-        
+        //Populate cell with info
         cell.memeCaption.text = self.captionsArray[indexPath.item]
         cell.memeImage.image = self.imagesArray[indexPath.item]
         //cell.memeDate.text = self.datesArray[indexPath.item]
