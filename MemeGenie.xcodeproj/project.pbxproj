@@ -27,6 +27,9 @@
 		24EF607623555FD8005FE3A2 /* credentialValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EF607523555FD8005FE3A2 /* credentialValidator.swift */; };
 		24F033D6235546C0002DB897 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24F033D5235546C0002DB897 /* GoogleService-Info.plist */; };
 		5C13E7267E0FB5667A4F084F /* Pods_MemeGenie_MemeGenieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2FDF0B27E608AE38347BDB /* Pods_MemeGenie_MemeGenieUITests.framework */; };
+		5C92DAC22370F9F8005E7B86 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C92DAC12370F9F8005E7B86 /* TagsViewController.swift */; };
+		5C92DAC8237104EA005E7B86 /* ArrayChoiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C92DAC6237104EA005E7B86 /* ArrayChoiceTableViewController.swift */; };
+		5C92DAC9237104EA005E7B86 /* AlwaysShowPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C92DAC7237104EA005E7B86 /* AlwaysShowPopup.swift */; };
 		70B38BA123682AD40087FED7 /* ViewMemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B38BA023682AD40087FED7 /* ViewMemesViewController.swift */; };
 		7DE1DB5C66F807D0A87909D9 /* Pods_MemeGenieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DBB7232B87FDEA6826DD8B8 /* Pods_MemeGenieTests.framework */; };
 		8F5DBD7B236A357800831766 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 8F5DBD7A236A357800831766 /* Podfile */; };
@@ -78,6 +81,9 @@
 		24D58816235684A00099CC2B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		24EF607523555FD8005FE3A2 /* credentialValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = credentialValidator.swift; sourceTree = "<group>"; };
 		24F033D5235546C0002DB897 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5C92DAC12370F9F8005E7B86 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = SOURCE_ROOT; };
+		5C92DAC6237104EA005E7B86 /* ArrayChoiceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayChoiceTableViewController.swift; path = ../Helper/ArrayChoiceTableViewController.swift; sourceTree = "<group>"; };
+		5C92DAC7237104EA005E7B86 /* AlwaysShowPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlwaysShowPopup.swift; path = ../Helper/AlwaysShowPopup.swift; sourceTree = "<group>"; };
 		5F8AE0B3731A7B52C78495B7 /* Pods-MemeGenieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenieTests.release.xcconfig"; path = "Target Support Files/Pods-MemeGenieTests/Pods-MemeGenieTests.release.xcconfig"; sourceTree = "<group>"; };
 		70B38BA023682AD40087FED7 /* ViewMemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMemesViewController.swift; sourceTree = "<group>"; };
 		70D7162F2701B23DC2D176BB /* Pods-MemeGenie-MemeGenieUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenie-MemeGenieUITests.release.xcconfig"; path = "Target Support Files/Pods-MemeGenie-MemeGenieUITests/Pods-MemeGenie-MemeGenieUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 		24C9A03223503DC600A083FE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5C92DAC12370F9F8005E7B86 /* TagsViewController.swift */,
 				24C9A00223503D2800A083FE /* ViewController.swift */,
 				24C9A02E23503DB600A083FE /* SignUpViewController.swift */,
 				24C9A03023503DC100A083FE /* LoginViewController.swift */,
@@ -200,6 +207,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		5C92DAC5237104D2005E7B86 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5C92DAC7237104EA005E7B86 /* AlwaysShowPopup.swift */,
+				5C92DAC6237104EA005E7B86 /* ArrayChoiceTableViewController.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		797814DAE26420E0C5D27DF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +229,7 @@
 		C190B2A1B5CC4E81D07C3F9C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				5C92DAC5237104D2005E7B86 /* Helper */,
 				BD03BBBECF6C54E38E5294AF /* Pods-MemeGenie.debug.xcconfig */,
 				DD71B33BAE9AE1D5E9CC34D4 /* Pods-MemeGenie.release.xcconfig */,
 				8E0364304285E1ADCFF512D2 /* Pods-MemeGenie-MemeGenieUITests.debug.xcconfig */,
@@ -464,8 +481,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C92DAC8237104EA005E7B86 /* ArrayChoiceTableViewController.swift in Sources */,
 				24D58811235684280099CC2B /* HomeSwipeViewController.swift in Sources */,
 				24C9A03B2350592200A083FE /* CustomTextField.swift in Sources */,
+				5C92DAC22370F9F8005E7B86 /* TagsViewController.swift in Sources */,
 				24D58817235684A00099CC2B /* AccountViewController.swift in Sources */,
 				70B38BA123682AD40087FED7 /* ViewMemesViewController.swift in Sources */,
 				24EF607623555FD8005FE3A2 /* credentialValidator.swift in Sources */,
@@ -477,6 +496,7 @@
 				24C9A00323503D2800A083FE /* ViewController.swift in Sources */,
 				24C9A00123503D2800A083FE /* AppDelegate.swift in Sources */,
 				24D5880D235655000099CC2B /* Constants.swift in Sources */,
+				5C92DAC9237104EA005E7B86 /* AlwaysShowPopup.swift in Sources */,
 				24D58813235684690099CC2B /* UploadMemeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -654,14 +674,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6M6Q64VDPQ;
+				DEVELOPMENT_TEAM = ASP87PCC76;
 				INFOPLIST_FILE = MemeGenie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = team.MemeGenie;
+				PRODUCT_BUNDLE_IDENTIFIER = jovani.MemeGenie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -674,14 +694,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6M6Q64VDPQ;
+				DEVELOPMENT_TEAM = ASP87PCC76;
 				INFOPLIST_FILE = MemeGenie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = team.MemeGenie;
+				PRODUCT_BUNDLE_IDENTIFIER = jovani.MemeGenie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
