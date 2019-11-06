@@ -95,31 +95,47 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
                     return
                 }
                 print("Put is complete & I got this back: \(String(describing: downloadMetadata))")
-                // Create meme reference in Firestore database
-                self.db.collection("memes").document(randomID).setData([
-                    "caption": self.uploadImageCaption.text!,
-                    "date_uploaded": downloadMetadata?.timeCreated! ?? Timestamp(date: Date()),
-                    "likes": 0,
-                    "passes": 0,
-                    "posted_by": uid,
-                    "rank": 0,
-                    "tags": [self.uploadImageTags.text!],
-                    "memeID": randomID
-                ]) { err in
-                    if let err = err {
-                        print("Error writing meme document: \(err.localizedDescription)")
-                    } else {
-                        print("Document meme succesfully written")
-                        // reference meme to user
-                        
-                        
-                        let alert = UIAlertController(title: "Noice", message: "Meme uploaded succesfully", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: {_ in
-                            self.dismiss(animated: true, completion: nil)
-                        }))
-                        self.present(alert, animated: true, completion: nil)
+                
+                uploadRef.downloadURL(completion: { (url, error) in
+                    if let error = error {
+                        print("Got an error generating the URL: \(error.localizedDescription)")
+                        return
                     }
-                }
+                    if let url = url {
+                        print("Here is your download URL: \(url.absoluteString)")
+                        
+                        // Create meme reference in Firestore database
+                        self.db.collection("memes").document(randomID).setData([
+                            "caption": self.uploadImageCaption.text!,
+                            "date_uploaded": downloadMetadata?.timeCreated! ?? Timestamp(date: Date()),
+                            "likes": 0,
+                            "passes": 0,
+                            "posted_by": uid,
+                            "rank": 0,
+                            "tags": [self.uploadImageTags.text!],
+                            "memeID": randomID,
+                            "download_url": url.absoluteString
+                        ]) { err in
+                            if let err = err {
+                                print("Error writing meme document: \(err.localizedDescription)")
+                            } else {
+                                print("Document meme succesfully written")
+                                // reference meme to user
+                                
+                                
+                                let alert = UIAlertController(title: "Noice", message: "Meme uploaded succesfully", preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: {_ in
+                                    self.dismiss(animated: true, completion: nil)
+                                }))
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                        }
+                    }
+                })
+                
+                
+                
+                
             }
         } else {
             let alert = UIAlertController(title: "Missing Fields", message: "Make sure image is selected and caption and tag fields are filled", preferredStyle: .alert)
