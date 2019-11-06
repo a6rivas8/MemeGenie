@@ -587,7 +587,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KTi-Oe-zUm"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Trending" id="FCQ-rC-wIh" userLabel="Trending"/>
+                    <tabBarItem key="tabBarItem" title="Trending" image="fire" selectedImage="fire" id="FCQ-rC-wIh" userLabel="Trending"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7iy-Zs-BmW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -654,7 +654,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Faa-GL-K0F"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Upload" id="cie-kA-xT2" userLabel="Upload Meme"/>
+                    <tabBarItem key="tabBarItem" title="Upload" image="add" selectedImage="add" id="cie-kA-xT2" userLabel="Upload Meme"/>
                     <connections>
                         <outlet property="uploadImageCaption" destination="Bw7-cW-59c" id="SfX-Y8-ngC"/>
                         <outlet property="uploadImageProgress" destination="qny-2s-aZh" id="r20-8t-JCY"/>
@@ -735,7 +735,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aGV-Vy-cFF"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="QB4-Uh-YTh" userLabel="Home Swipe"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" selectedImage="home" id="QB4-Uh-YTh" userLabel="Home Swipe"/>
                     <connections>
                         <outlet property="captionLabel" destination="gWa-8K-a2m" id="wDL-f4-Bnm"/>
                         <outlet property="imageView" destination="8xt-SX-oN3" id="Nbx-z8-JKa"/>
@@ -754,6 +754,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.48589616050000001" blue="0.97508500649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.0" green="0.48589616050000001" blue="0.97508500649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="MiS-aa-1yi" kind="relationship" relationship="viewControllers" id="rPi-KN-DxG"/>
@@ -770,7 +777,7 @@
         <scene sceneID="aSw-f4-Isi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bmH-mI-XlF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" id="MrR-57-YE8" userLabel="Account"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="account" selectedImage="account" id="MrR-57-YE8" userLabel="Account"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cpM-YH-Q6O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -789,7 +796,11 @@
     <resources>
         <image name="Genie Transparent" width="720" height="511"/>
         <image name="Meme Genie1" width="355" height="52"/>
+        <image name="account" width="26" height="24"/>
+        <image name="add" width="26" height="24"/>
         <image name="checkmark-flat" width="256" height="256"/>
+        <image name="fire" width="20" height="28"/>
+        <image name="home" width="26" height="29"/>
         <image name="nasa" width="464" height="452"/>
         <image name="pepe1" width="492" height="672"/>
         <image name="pepe3" width="362" height="465"/>
