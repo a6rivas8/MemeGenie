@@ -71,56 +71,82 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MOU-jr-82z" customClass="CSAnimationView">
-                                <rect key="frame" x="0.0" y="77" width="101" height="111"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="173" translatesAutoresizingMaskIntoConstraints="NO" id="sRi-qE-EGV">
+                                <rect key="frame" x="0.0" y="77" width="375" height="111"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pepe1" translatesAutoresizingMaskIntoConstraints="NO" id="ck8-ot-ufo">
-                                        <rect key="frame" x="8" y="0.0" width="101" height="111"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOU-jr-82z" customClass="CSAnimationView">
+                                        <rect key="frame" x="0.0" y="0.0" width="101" height="111"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pepe1" translatesAutoresizingMaskIntoConstraints="NO" id="ck8-ot-ufo">
+                                                <rect key="frame" x="8" y="0.0" width="101" height="111"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="101" id="WTk-i1-Uux"/>
+                                                    <constraint firstAttribute="height" constant="111" id="XKF-j2-lLJ"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="ck8-ot-ufo" firstAttribute="leading" secondItem="MOU-jr-82z" secondAttribute="leadingMargin" id="F2m-KP-AXO"/>
+                                            <constraint firstItem="ck8-ot-ufo" firstAttribute="centerY" secondItem="MOU-jr-82z" secondAttribute="centerY" id="Sbb-MY-ydN"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="type" value="zoomIn"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afP-jF-ctJ" customClass="CSAnimationView">
+                                        <rect key="frame" x="274" y="0.0" width="101" height="111"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pepe3" translatesAutoresizingMaskIntoConstraints="NO" id="AOL-1P-2HR">
+                                                <rect key="frame" x="-8" y="0.0" width="101" height="111"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="101" id="UFg-TQ-YjX"/>
+                                                    <constraint firstAttribute="height" constant="111" id="lbc-Ux-OVP"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="AOL-1P-2HR" firstAttribute="centerY" secondItem="afP-jF-ctJ" secondAttribute="centerY" id="3wE-yP-8J1"/>
+                                            <constraint firstItem="AOL-1P-2HR" firstAttribute="trailing" secondItem="afP-jF-ctJ" secondAttribute="trailingMargin" id="x5I-ya-mT1"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="type" value="zoomIn"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="zoomIn"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="afP-jF-ctJ" customClass="CSAnimationView">
-                                <rect key="frame" x="274" y="77" width="101" height="111"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pepe3" translatesAutoresizingMaskIntoConstraints="NO" id="AOL-1P-2HR">
-                                        <rect key="frame" x="-8" y="0.0" width="101" height="111"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="zoomIn"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YEq-8i-mcZ" customClass="CSAnimationView">
+                                <constraints>
+                                    <constraint firstItem="afP-jF-ctJ" firstAttribute="leading" secondItem="sRi-qE-EGV" secondAttribute="leading" constant="274" id="ynb-un-xxG"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEq-8i-mcZ" customClass="CSAnimationView">
                                 <rect key="frame" x="26" y="223" width="323" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Meme Genie1" translatesAutoresizingMaskIntoConstraints="NO" id="4qV-pe-uYe">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Meme Genie1" translatesAutoresizingMaskIntoConstraints="NO" id="4qV-pe-uYe">
                                         <rect key="frame" x="6" y="-9" width="311" height="105"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="105" id="Iwe-fc-MWU"/>
+                                            <constraint firstAttribute="width" constant="311" id="qUz-5O-Lmo"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="4qV-pe-uYe" firstAttribute="centerY" secondItem="YEq-8i-mcZ" secondAttribute="centerY" id="hG5-9F-pRC"/>
+                                    <constraint firstItem="4qV-pe-uYe" firstAttribute="centerX" secondItem="YEq-8i-mcZ" secondAttribute="centerX" id="vnb-p3-bRT"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="zoomOut"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="duration">
@@ -134,11 +160,19 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="MMC-fK-h3F" firstAttribute="top" secondItem="YEq-8i-mcZ" secondAttribute="bottom" constant="33" id="0W1-lJ-Uby"/>
                             <constraint firstItem="MMC-fK-h3F" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3s4-nO-Zko"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xde-Qs-xzl" secondAttribute="trailing" constant="40" id="CiG-hg-Q4h"/>
                             <constraint firstItem="Xde-Qs-xzl" firstAttribute="top" secondItem="MMC-fK-h3F" secondAttribute="bottom" constant="54" id="IGx-bA-5Ya"/>
                             <constraint firstItem="Xde-Qs-xzl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="LFn-RF-Qoz"/>
+                            <constraint firstItem="sRi-qE-EGV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QhE-Eb-MJf"/>
+                            <constraint firstItem="YEq-8i-mcZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="26" id="UAS-02-m6N"/>
+                            <constraint firstItem="YEq-8i-mcZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="223" id="UI3-te-gHK"/>
+                            <constraint firstItem="sRi-qE-EGV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UcO-lG-qWy"/>
+                            <constraint firstItem="sRi-qE-EGV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="33" id="coc-38-ZdO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xde-Qs-xzl" secondAttribute="bottom" constant="40" id="d4x-Tf-Q99"/>
+                            <constraint firstItem="YEq-8i-mcZ" firstAttribute="centerX" secondItem="sRi-qE-EGV" secondAttribute="centerX" id="iqG-5K-0nY"/>
+                            <constraint firstItem="YEq-8i-mcZ" firstAttribute="top" secondItem="sRi-qE-EGV" secondAttribute="bottom" constant="35" id="rjW-0l-CGv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
