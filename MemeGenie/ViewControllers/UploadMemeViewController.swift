@@ -103,11 +103,11 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
                     }
                     if let url = url {
                         print("Here is your download URL: \(url.absoluteString)")
-                        
+                        print("Date/Time posted: \(String(describing: downloadMetadata?.timeCreated))")
                         // Create meme reference in Firestore database
                         self.db.collection("memes").document(randomID).setData([
                             "caption": self.uploadImageCaption.text!,
-                            "date_uploaded": downloadMetadata?.timeCreated! ?? Timestamp(date: Date()),
+                            "date_uploaded": String(describing: downloadMetadata?.timeCreated),
                             "likes": 0,
                             "passes": 0,
                             "posted_by": uid,

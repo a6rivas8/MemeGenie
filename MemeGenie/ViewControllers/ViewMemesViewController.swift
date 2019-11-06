@@ -36,7 +36,7 @@ class ViewMemesViewController: UIViewController {
     //Meme Images Array
     var imagesArray = [String]()
     //Meme Dates Posted Array
-    var datesArray = [Timestamp]()
+    var datesArray = [String]()
     //Meme Likes Array
     var likesArray = [Int]()
     
@@ -82,8 +82,8 @@ class ViewMemesViewController: UIViewController {
                         
                     //Get memeDatesPosted and add to array
                     let memeDate = document.get("date_uploaded")
-                    //self.firstDate.text = (memeDate as! String)
-                    self.datesArray.append(memeDate as! Timestamp)
+                    self.firstDate.text = "Posted: \(memeDate!)"
+                    self.datesArray.append(memeDate as! String)
                         
                     //Get meme likes and add to array
                     let memeLikes = document.get("likes") as! Int
@@ -92,7 +92,6 @@ class ViewMemesViewController: UIViewController {
                         
                     //Get meme images and add to array
                     let memeImg = document.get("download_url") as! String
-                    //let realUrl = NSURL(fileURLWithPath: memeImg as! String)
                     let realUrl = URL(string: memeImg)
                     self.firstMeme.load(url: realUrl!)
                     self.imagesArray.append(memeImg)
@@ -111,8 +110,8 @@ class ViewMemesViewController: UIViewController {
                         
                     //Get memeDatesPosted and add to array
                     let memeDateTwo = documentTwo.get("date_uploaded")
-                    //self.secondDate.text = (memeDateTwo as! String)
-                    self.datesArray.append(memeDateTwo as! Timestamp)
+                    self.secondDate.text = "Posted: \(memeDateTwo!)"
+                    self.datesArray.append(memeDateTwo as! String)
                         
                     //Get meme likes and add to array
                     let memeLikesTwo = documentTwo.get("likes") as! Int
@@ -121,7 +120,6 @@ class ViewMemesViewController: UIViewController {
                         
                     //Get meme images and add to array
                     let memeImgTwo = documentTwo.get("download_url") as! String
-                    //let realUrl = NSURL(fileURLWithPath: memeImg as! String)
                     let realUrlTwo = URL(string: memeImgTwo)
                     self.secondMeme.load(url: realUrlTwo!)
                     self.imagesArray.append(memeImgTwo)
