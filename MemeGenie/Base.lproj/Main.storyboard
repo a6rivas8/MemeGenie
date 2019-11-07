@@ -530,6 +530,7 @@
                             <constraint firstItem="nBK-qJ-1Mc" firstAttribute="top" secondItem="vR7-FO-jCp" secondAttribute="bottom" constant="20" id="brV-SC-grm"/>
                             <constraint firstItem="t2k-d9-WDe" firstAttribute="leading" secondItem="xTW-3w-3UL" secondAttribute="leading" constant="25" id="dvY-V7-Gyc"/>
                             <constraint firstItem="xTW-3w-3UL" firstAttribute="trailing" secondItem="t2k-d9-WDe" secondAttribute="trailing" constant="25" id="eV5-FU-cE7"/>
+                            <constraint firstItem="0UQ-bt-hWn" firstAttribute="centerX" secondItem="jCO-RZ-kk0" secondAttribute="centerX" id="mfE-Jj-pe2"/>
                             <constraint firstItem="xTW-3w-3UL" firstAttribute="trailing" secondItem="tKl-eg-rDK" secondAttribute="trailing" constant="25" id="rGm-7S-P9T"/>
                             <constraint firstItem="0UQ-bt-hWn" firstAttribute="top" secondItem="nBK-qJ-1Mc" secondAttribute="bottom" constant="10" id="sAS-z3-zgI"/>
                             <constraint firstItem="vR7-FO-jCp" firstAttribute="leading" secondItem="xTW-3w-3UL" secondAttribute="leading" constant="25" id="vSr-Nz-Uvh"/>
@@ -638,7 +639,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="9vg-Ym-78e">
                                 <rect key="frame" x="37.5" y="23.5" width="300" height="620"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ae9-h8-Po0">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="ae9-h8-Po0">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="420"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="KWR-Lu-LVt"/>
@@ -708,8 +709,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="qqc-DU-gct">
-                                <rect key="frame" x="57" y="70" width="300" height="484"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="qqc-DU-gct">
+                                <rect key="frame" x="37.5" y="70" width="300" height="484"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nasa" translatesAutoresizingMaskIntoConstraints="NO" id="8xt-SX-oN3">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="420"/>
@@ -718,7 +719,7 @@
                                             <constraint firstAttribute="width" constant="300" id="ZGH-31-Rs8"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some long and descriptive caption to read here" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWa-8K-a2m">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some long and descriptive caption to read here" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWa-8K-a2m">
                                         <rect key="frame" x="0.0" y="439" width="300" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="SDf-ez-kot"/>
@@ -765,6 +766,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="aGV-Vy-cFF" firstAttribute="bottom" secondItem="ZLH-W7-Txm" secondAttribute="bottom" constant="50" id="8Zz-7R-EmY"/>
+                            <constraint firstItem="qqc-DU-gct" firstAttribute="centerX" secondItem="tKz-TG-MwA" secondAttribute="centerX" id="kbj-vI-CWt"/>
                             <constraint firstItem="ZLH-W7-Txm" firstAttribute="centerX" secondItem="tKz-TG-MwA" secondAttribute="centerX" id="v8M-Nf-Sxy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aGV-Vy-cFF"/>
@@ -836,6 +838,7 @@
         <image name="fire" width="20" height="28"/>
         <image name="home" width="26" height="29"/>
         <image name="nasa" width="464" height="452"/>
+        <image name="noImage" width="369" height="462"/>
         <image name="pepe1" width="492" height="672"/>
         <image name="pepe3" width="362" height="465"/>
         <image name="x-mark" width="256" height="256"/>
