@@ -15,7 +15,6 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var userIDTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
@@ -36,7 +35,6 @@ class SignUpViewController: UIViewController {
         // style elements
         CustomTextField.styleTextField(firstNameTextField)
         CustomTextField.styleTextField(lastNameTextField)
-        CustomTextField.styleTextField(userIDTextField)
         CustomTextField.styleTextField(emailTextField)
         CustomTextField.styleTextField(passwordTextField)
         CustomTextField.styleTextField(confirmPasswordTextField)
@@ -51,7 +49,6 @@ class SignUpViewController: UIViewController {
         // Check all fields are not empty
         if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         || lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
-        || userIDTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         || confirmPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
@@ -86,7 +83,6 @@ class SignUpViewController: UIViewController {
         } else {
             let firstname = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let lastname = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let userID = userIDTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
@@ -99,7 +95,7 @@ class SignUpViewController: UIViewController {
                 } else {
                     let db = Firestore.firestore()
                     
-                    db.collection("users").addDocument(data: ["first_name":firstname, "last_name":lastname, "user_id":userID, "uid":result!.user.uid], completion: { (error) in
+                    db.collection("users").addDocument(data: ["first_name":firstname, "last_name":lastname, "uid":result!.user.uid], completion: { (error) in
                         if error != nil {
                             self.showError("Error saving data")
                         }
