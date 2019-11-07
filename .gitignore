@@ -2,8 +2,13 @@
 *.swp
 *~.nib
 
+xcuserdata/
 build/
 Pods/
+
+*.ipa
+*.dSYM.zip
+*.dSYM
 
 *.pbxuser
 *.perspective
