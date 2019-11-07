@@ -42,7 +42,9 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func selectPhotoForMeme(_ sender: Any) {
     
         let actionAlert = UIAlertController(title: "Picker", message: "Choose one", preferredStyle: .actionSheet)
-        actionAlert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: {_ in
+        // To open camara but we are only using gallerry
+        
+      /*  actionAlert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: {_ in
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 self.picker.allowsEditing = false
                 self.picker.sourceType = .camera
@@ -55,7 +57,8 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
                 alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: {_ in self.dismiss(animated: true, completion: nil)}))
                 self.present(alert, animated: true, completion: nil)
             }
-        }))
+        }))*/
+        
         actionAlert.addAction(UIAlertAction(title: "Open Gallery", style: .default, handler: {_ in
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
                 self.picker.allowsEditing = false
