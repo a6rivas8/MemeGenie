@@ -1,0 +1,10 @@
+.DS_Store
+*.swp
+*~.nib
+
+build/
+Pods/
+
+*.pbxuser
+*.perspective
+*.perspectivev3
