@@ -652,16 +652,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BD03BBBECF6C54E38E5294AF /* Pods-MemeGenie.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6M6Q64VDPQ;
+				DEVELOPMENT_TEAM = B63332742T;
 				INFOPLIST_FILE = MemeGenie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = team.MemeGenie;
+				PRODUCT_BUNDLE_IDENTIFIER = team6.MemeGenie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -672,16 +672,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DD71B33BAE9AE1D5E9CC34D4 /* Pods-MemeGenie.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6M6Q64VDPQ;
+				DEVELOPMENT_TEAM = B63332742T;
 				INFOPLIST_FILE = MemeGenie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = team.MemeGenie;
+				PRODUCT_BUNDLE_IDENTIFIER = team6.MemeGenie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
