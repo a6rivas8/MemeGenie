@@ -29,6 +29,15 @@ class ViewMemesViewController: UIViewController {
     //Second Likes
     @IBOutlet weak var secondLikes: UILabel!
     
+    //Third Caption
+    @IBOutlet weak var thirdCaption: UILabel!
+    //Third Date Posted
+    @IBOutlet weak var thirdDate: UILabel!
+    //Third Meme
+    @IBOutlet weak var thirdMeme: UIImageView!
+    //Third Likes
+    @IBOutlet weak var thirdLikes: UILabel!
+    
     //Meme IDs Array
     var memeIDsArray = [String]()
     //Meme Captions Array
@@ -65,6 +74,7 @@ class ViewMemesViewController: UIViewController {
                     // WE WILL HAVE TO FIX THIS!!
                     let document = querySnapshot!.documents[0]
                     let documentTwo = querySnapshot!.documents[1]
+                    //let documentThree = querySnapshot!.documents[2]
                     
                     //Get info from Firebase documents
                     //for id in documents{
@@ -123,6 +133,33 @@ class ViewMemesViewController: UIViewController {
                     let realUrlTwo = URL(string: memeImgTwo)
                     self.secondMeme.load(url: realUrlTwo!)
                     self.imagesArray.append(memeImgTwo)
+                    
+                    /*/* GET THE INFO FOR THE THIRD MEME */
+                    
+                    //Get memeIDs and add to array
+                    let memeIDThree = documentThree.get("memeID")
+                    self.memeIDsArray.append(memeIDThree as! String)
+                        
+                    //Get memeCaptions and add to array
+                    let memeCaptionThree = documentThree.get("caption")
+                    self.thirdCaption.text = (memeCaptionThree as! String)
+                    self.captionsArray.append(memeCaptionThree as! String)
+                        
+                    //Get memeDatesPosted and add to array
+                    let memeDateThree = documentThree.get("date_uploaded")
+                    self.thirdDate.text = "Posted: \(memeDateThree!)"
+                    self.datesArray.append(memeDateThree as! String)
+                        
+                    //Get meme likes and add to array
+                    let memeLikesThree = documentThree.get("likes") as! Int
+                    self.thirdLikes.text = "Likes: \(memeLikesThree.description)"
+                    self.likesArray.append(memeLikesThree)
+                        
+                    //Get meme images and add to array
+                    let memeImgThree = documentThree.get("download_url") as! String
+                    let realUrlThree = URL(string: memeImgThree)
+                    self.thirdMeme.load(url: realUrlThree!)
+                    self.imagesArray.append(memeImgThree)*/
                     
                         
                     //Get memeImages and add to array
