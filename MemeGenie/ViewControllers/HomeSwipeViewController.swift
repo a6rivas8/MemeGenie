@@ -17,13 +17,24 @@ class HomeSwipeViewController: UIViewController {
     let storage = Storage.storage()
     let db = Firestore.firestore()
     
+    
     // hold current image uid so we can reference to it
     // in Firestore database and Cloud Storage
     var currentImageID = "kuZKP0HzVTtKRi7Bet0j"
+    var memeArr: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        db.collection("memes").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    self.memeArr.append(document.documentID)
+                }
+            }
+        }
     }
     
     // gets the next meme to display
@@ -60,6 +71,8 @@ class HomeSwipeViewController: UIViewController {
                 print("Document does not exist")
             }
         }
+        
+        print(memeArr)
         
         getNextMeme()
     }
