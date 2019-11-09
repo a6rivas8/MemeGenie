@@ -11,20 +11,11 @@ import FirebaseAuth
 
 class AccountViewController: UIViewController {
     
-    //First Name Label
-    @IBOutlet weak var firstNameLabel: UILabel!
-    //First Name Info
-    @IBOutlet weak var firstNameText: UILabel!
+    //First Name
+    @IBOutlet weak var nameText: UITextField!
     
-    //Last Name Label
-    @IBOutlet weak var lastNameLabel: UILabel!
-    //Last Name Info
-    @IBOutlet weak var lastNameText: UILabel!
-    
-    //email Label
-    @IBOutlet weak var emailLabel: UILabel!
-    //email Info
-    @IBOutlet weak var emailText: UILabel!
+    //email
+    @IBOutlet weak var emailText: UITextField!
     
     //Change Password Label
     @IBOutlet weak var changePasswordLabel: UILabel!
@@ -41,6 +32,9 @@ class AccountViewController: UIViewController {
     
     //Save Button
     @IBOutlet weak var saveButton: UIButton!
+    
+    //User Activity Label
+    @IBOutlet weak var userActivityLabel: UILabel!
     
     //View memes user has posted (button)
     @IBOutlet weak var viewMemesPosted: UIButton!
@@ -71,8 +65,8 @@ class AccountViewController: UIViewController {
                     let firstname = document.get("first_name")
                     let lastname = document.get("last_name")
                     
-                    self.firstNameText.text = " "+(firstname as! String);
-                    self.lastNameText.text = " "+(lastname as! String);
+                    self.nameText.text = " "+(firstname as! String)+" "+(lastname as! String);
+                    //self.lastNameText.text = " "+(lastname as! String);
                     self.emailText.text = " "+(email!);
                 }
             }
@@ -84,10 +78,16 @@ class AccountViewController: UIViewController {
         //errorTextField.alpha = 0
         
         // style elements
-        CustomButton.styleButton(saveButton)
-        CustomButton.styleButton(viewMemesPosted)
-        CustomTextField.styleTextField(newPasswordText)
-        CustomTextField.styleTextField(confirmPasswordText)
+        //CustomButton.styleButton(saveButton)
+        //CustomButton.styleButton(viewMemesPosted)
+        
+        //CustomTextField.styleTextField(nameText)
+        nameText.font = UIFont.boldSystemFont(ofSize: 20)
+        userActivityLabel.font = UIFont.boldSystemFont(ofSize: 18)
+
+        //CustomTextField.styleTextField(emailText)
+        //CustomTextField.styleTextField(newPasswordText)
+        //CustomTextField.styleTextField(confirmPasswordText)
     }
     
     func showError(_ message:String) {
