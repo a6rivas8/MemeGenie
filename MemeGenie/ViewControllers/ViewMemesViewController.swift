@@ -34,9 +34,6 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
     //Meme Likes Array
     var likesArray = [Int]()
     
-    //Variables
-    //var memeImage = UIImage()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,8 +85,6 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
                             
                         //Get meme images and add to array
                         let memeImg = id.get("download_url") as! String
-                        //let realUrl = URL(string: memeImg)
-                        //self.memeImage.load(url: realUrl!)
                         self.imagesArray.append(memeImg)
                         print("Images Count: \(self.imagesArray.count)")
                         
@@ -106,6 +101,9 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
                     print(self.captionsArray)
                     print("Memes Dates:")
                     print(self.datesArray)
+                    print("Memes Likes:")
+                    print(self.likesArray)
+                    
                 }
             }
         }
@@ -113,25 +111,21 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
 
     /* NEED THESE FOR COLLECTION VIEW!!! */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        /* CANNOT ACCESS self.imagesArray HERE!! */
-        //print("check count: \(self.captionsArray.count)")
         return self.captionsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         
-        /* CANNOT ACCESS self.imagesArray OR self.captionsArray HERE!! */
-        //print("Still checking: \(self.captionsArray.count)")
         cell.memeCaption.text = captionsArray[indexPath.item]
         
         let mImg = imagesArray[indexPath.item]
         let rUrl = URL(string: mImg)
-        //self.memeImage.load(url: rUrl!)
         cell.memeImageView.load(url: rUrl!)
-        
+                
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5
+        cell.layer.cornerRadius = 10
         
         return cell
     }
