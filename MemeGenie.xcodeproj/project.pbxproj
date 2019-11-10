@@ -29,6 +29,7 @@
 		5C13E7267E0FB5667A4F084F /* Pods_MemeGenie_MemeGenieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2FDF0B27E608AE38347BDB /* Pods_MemeGenie_MemeGenieUITests.framework */; };
 		702B4F192375D34000F2D499 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702B4F182375D34000F2D499 /* CollectionViewCell.swift */; };
 		70B38BA123682AD40087FED7 /* ViewMemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B38BA023682AD40087FED7 /* ViewMemesViewController.swift */; };
+		70C759CD2377E65A001B358C /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C759CC2377E65A001B358C /* ChangePasswordViewController.swift */; };
 		7DE1DB5C66F807D0A87909D9 /* Pods_MemeGenieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DBB7232B87FDEA6826DD8B8 /* Pods_MemeGenieTests.framework */; };
 		8F5DBD7B236A357800831766 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 8F5DBD7A236A357800831766 /* Podfile */; };
 		AE91729C1FD746DB7235DB31 /* Pods_MemeGenie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90B394286047E9313199DA3 /* Pods_MemeGenie.framework */; };
@@ -82,6 +83,7 @@
 		5F8AE0B3731A7B52C78495B7 /* Pods-MemeGenieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenieTests.release.xcconfig"; path = "Target Support Files/Pods-MemeGenieTests/Pods-MemeGenieTests.release.xcconfig"; sourceTree = "<group>"; };
 		702B4F182375D34000F2D499 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		70B38BA023682AD40087FED7 /* ViewMemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMemesViewController.swift; sourceTree = "<group>"; };
+		70C759CC2377E65A001B358C /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		70D7162F2701B23DC2D176BB /* Pods-MemeGenie-MemeGenieUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenie-MemeGenieUITests.release.xcconfig"; path = "Target Support Files/Pods-MemeGenie-MemeGenieUITests/Pods-MemeGenie-MemeGenieUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8E0364304285E1ADCFF512D2 /* Pods-MemeGenie-MemeGenieUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenie-MemeGenieUITests.debug.xcconfig"; path = "Target Support Files/Pods-MemeGenie-MemeGenieUITests/Pods-MemeGenie-MemeGenieUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F5DBD7A236A357800831766 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
@@ -148,6 +150,7 @@
 				24C9A03223503DC600A083FE /* ViewControllers */,
 				24C9A00023503D2800A083FE /* AppDelegate.swift */,
 				24C9A00423503D2800A083FE /* Main.storyboard */,
+				70C759CC2377E65A001B358C /* ChangePasswordViewController.swift */,
 				702B4F182375D34000F2D499 /* CollectionViewCell.swift */,
 				8F5DBD7A236A357800831766 /* Podfile */,
 				24C9A00723503D2C00A083FE /* Assets.xcassets */,
@@ -476,6 +479,7 @@
 				24C9A03123503DC100A083FE /* LoginViewController.swift in Sources */,
 				24C9A036235053BA00A083FE /* CustomButton.swift in Sources */,
 				24D58815235684890099CC2B /* TrendingViewController.swift in Sources */,
+				70C759CD2377E65A001B358C /* ChangePasswordViewController.swift in Sources */,
 				24C9A02F23503DB600A083FE /* SignUpViewController.swift in Sources */,
 				24D5880F23566DF90099CC2B /* HomeViewController.swift in Sources */,
 				24C9A00323503D2800A083FE /* ViewController.swift in Sources */,

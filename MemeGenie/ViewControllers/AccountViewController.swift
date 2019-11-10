@@ -17,27 +17,15 @@ class AccountViewController: UIViewController {
     //email
     @IBOutlet weak var emailText: UITextField!
     
-    //Change Password Label
-    @IBOutlet weak var changePasswordLabel: UILabel!
-    //New Password Text
-    @IBOutlet weak var newPasswordText: UITextField!
-    //Confirm Password Text
-    @IBOutlet weak var confirmPasswordText: UITextField!
-    
-    //Confirmation Label
-    @IBOutlet weak var confirmationLabel: UILabel!
-    
-    //Error Label
-    @IBOutlet weak var errorLabel: UILabel!
-    
-    //Save Button
-    @IBOutlet weak var saveButton: UIButton!
-    
-    //User Activity Label
-    @IBOutlet weak var userActivityLabel: UILabel!
-    
     //View memes user has posted (button)
     @IBOutlet weak var viewMemesPosted: UIButton!
+    
+    //
+    @IBOutlet weak var viewMemesArrow: UIImageView!
+    
+    //
+    @IBOutlet weak var changePasswordArrow: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,44 +70,14 @@ class AccountViewController: UIViewController {
         //CustomButton.styleButton(viewMemesPosted)
         
         //CustomTextField.styleTextField(nameText)
-        nameText.font = UIFont.boldSystemFont(ofSize: 20)
-        userActivityLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        nameText.font = UIFont.boldSystemFont(ofSize: 25)
+        //userActivityLabel.font = UIFont.boldSystemFont(ofSize: 18)
 
         //CustomTextField.styleTextField(emailText)
         //CustomTextField.styleTextField(newPasswordText)
         //CustomTextField.styleTextField(confirmPasswordText)
     }
-    
-    func showError(_ message:String) {
-        errorLabel.text = message
-        errorLabel.alpha = 1
-    }
-    
-    func showConfirmation(){
-        confirmationLabel.text = "Your password has successfully been updated."
-    }
-    
-    //Change Password (Save) Button
-    @IBAction func saveNewPassword(_ sender: UIButton) {
-        let error = validateFields()
         
-        if error != nil {
-            showError(error!)
-            print("Error changing password!")
-        } else{
-            let user = Auth.auth().currentUser;
-            let newPassword = newPasswordText.text!;
-
-            //Clear error message (if there is one)
-            errorLabel.text = ""
-    
-            //Update Password
-            user?.updatePassword(to: newPassword)
-            print("Password successfully updated.")
-            showConfirmation()
-        }
-    }
-    
     //Sign Out Button
     @IBAction func signOutButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "Log Current User Out?", message: nil, preferredStyle: .alert)
@@ -138,23 +96,7 @@ class AccountViewController: UIViewController {
 
         self.present(alert, animated: true, completion: nil)
     }
-    
-    // Check the fields and validate that data is correct.
-    // Returns nil if all is correct.
-    // Returns error message else.
-    func validateFields() -> String? {
-        // Check if passwords match and are strong
-        if newPasswordText.text! != confirmPasswordText.text! {
-            return "*Please make sure passwords match."
-        }
         
-        let cleanedPassword = newPasswordText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        if credentialValidator.isPasswordValid(cleanedPassword) == false {
-            return "*Please make sure your password is at least 8 characters and contains 1 Uppercase Alphabet, 1 Lowercase Alphabet, 1 Number and 1 Special Character."
-        }
-        return nil
-    }
-    
     // transition to login/sign up screen
     func transitionToViewController() {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "LoginSignUp") as? ViewController
