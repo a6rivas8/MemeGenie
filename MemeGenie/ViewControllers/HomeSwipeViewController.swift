@@ -11,6 +11,8 @@ import Firebase
 import FirebaseAuth
 
 class HomeSwipeViewController: UIViewController {
+    
+    @IBOutlet weak var memeStack: UIStackView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
     
@@ -25,6 +27,11 @@ class HomeSwipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //assignbackground()
+        
+        memeStack.layer.borderColor = UIColor.black.cgColor
+        memeStack.layer.borderWidth = 2
+        memeStack.layer.cornerRadius = 10
         
         db.collection("memes").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -86,4 +93,18 @@ class HomeSwipeViewController: UIViewController {
         
         getNextMeme()
     }
+    
+    func assignbackground(){
+        let background = UIImage(named: "background")
+
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubviewToBack(imageView)
+    }
+    
 }
