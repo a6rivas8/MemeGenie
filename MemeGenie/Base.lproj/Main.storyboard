@@ -43,7 +43,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMC-fK-h3F" customClass="CSAnimationView">
-                                <rect key="frame" x="67.5" y="343" width="240" height="110"/>
+                                <rect key="frame" x="67.5" y="330" width="240" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOw-X0-Qqe">
                                         <rect key="frame" x="0.0" y="-13" width="240" height="136"/>
@@ -161,10 +161,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="MMC-fK-h3F" firstAttribute="top" secondItem="YEq-8i-mcZ" secondAttribute="bottom" constant="33" id="0W1-lJ-Uby"/>
+                            <constraint firstItem="MMC-fK-h3F" firstAttribute="top" secondItem="YEq-8i-mcZ" secondAttribute="bottom" constant="20" id="0W1-lJ-Uby"/>
                             <constraint firstItem="MMC-fK-h3F" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3s4-nO-Zko"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xde-Qs-xzl" secondAttribute="trailing" constant="40" id="CiG-hg-Q4h"/>
-                            <constraint firstItem="Xde-Qs-xzl" firstAttribute="top" secondItem="MMC-fK-h3F" secondAttribute="bottom" constant="54" id="IGx-bA-5Ya"/>
+                            <constraint firstItem="Xde-Qs-xzl" firstAttribute="top" secondItem="MMC-fK-h3F" secondAttribute="bottom" constant="67" id="IGx-bA-5Ya"/>
                             <constraint firstItem="Xde-Qs-xzl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="LFn-RF-Qoz"/>
                             <constraint firstItem="sRi-qE-EGV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QhE-Eb-MJf"/>
                             <constraint firstItem="YEq-8i-mcZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="26" id="UAS-02-m6N"/>
@@ -483,7 +483,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="vR7-FO-jCp">
-                                <rect key="frame" x="0.0" y="54" width="375" height="538"/>
+                                <rect key="frame" x="0.0" y="219" width="375" height="538"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vEm-tG-hAv">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
@@ -531,12 +531,24 @@
                                     <constraint firstItem="fQY-AH-pME" firstAttribute="top" secondItem="vEm-tG-hAv" secondAttribute="bottom" constant="6" id="PEZ-1r-8cY"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Genie Transparent" translatesAutoresizingMaskIntoConstraints="NO" id="Wi7-uo-dAS">
+                                <rect key="frame" x="0.0" y="54" width="375" height="155"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="155" id="6NE-hU-zig"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="vR7-FO-jCp" firstAttribute="top" secondItem="4xx-JC-20h" secondAttribute="top" constant="10" id="A9Z-yK-HBY"/>
+                            <constraint firstItem="Wi7-uo-dAS" firstAttribute="leading" secondItem="4xx-JC-20h" secondAttribute="leading" id="8lh-U1-7Pc"/>
+                            <constraint firstItem="vR7-FO-jCp" firstAttribute="top" secondItem="Wi7-uo-dAS" secondAttribute="bottom" constant="10" id="AYn-IN-cHb"/>
+                            <constraint firstItem="vR7-FO-jCp" firstAttribute="trailing" secondItem="4xx-JC-20h" secondAttribute="trailing" id="B9O-5d-2jT"/>
+                            <constraint firstItem="Wi7-uo-dAS" firstAttribute="top" secondItem="4xx-JC-20h" secondAttribute="top" constant="10" id="CNR-LO-p7V"/>
                             <constraint firstItem="vR7-FO-jCp" firstAttribute="centerX" secondItem="rBI-Ks-2vW" secondAttribute="centerX" id="Dhk-q6-P87"/>
                             <constraint firstItem="vR7-FO-jCp" firstAttribute="leading" secondItem="4xx-JC-20h" secondAttribute="leading" id="DtL-TA-v13"/>
+                            <constraint firstItem="Wi7-uo-dAS" firstAttribute="trailing" secondItem="4xx-JC-20h" secondAttribute="trailing" id="KrM-h9-izY"/>
+                            <constraint firstItem="Wi7-uo-dAS" firstAttribute="centerX" secondItem="rBI-Ks-2vW" secondAttribute="centerX" id="fWQ-MU-zJK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4xx-JC-20h"/>
                     </view>
@@ -551,7 +563,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWw-NH-h2N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4230" y="1621"/>
+            <point key="canvasLocation" x="4229.6000000000004" y="1620.5397301349326"/>
         </scene>
         <!--Your Memes-->
         <scene sceneID="tTn-Ro-Qgz">

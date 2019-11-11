@@ -11,9 +11,9 @@ import UIKit
 class CustomButton {
     static func styleButton(_ button:UIButton) {
         //setShadow(button)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.systemYellow, for: .normal)
         
-        button.backgroundColor = UIColor.init(red: 39/255, green: 105/255, blue: 161/255, alpha: 1)
+        button.backgroundColor = UIColor.black
         button.titleLabel?.font = UIFont(name: "Calibri", size: 17)
         button.layer.cornerRadius = 25
         button.layer.borderWidth = 1.5
@@ -21,7 +21,7 @@ class CustomButton {
     }
     
     private static func setShadow(_ button: UIButton) {
-        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowColor = UIColor.yellow.cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 1.0)
         button.layer.shadowRadius = 3
         button.layer.shadowOpacity = 0.5

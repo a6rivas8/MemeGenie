@@ -14,7 +14,7 @@ class CustomTextField {
         
         textfield.borderStyle = .none
         bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - 2, width: textfield.frame.width, height: 2)
-        bottomLine.backgroundColor = UIColor.init(red: 60/255, green: 148/255, blue: 152/255, alpha: 1).cgColor
+        bottomLine.backgroundColor = UIColor.black.cgColor
         
         textfield.layer.addSublayer(bottomLine)
     }
