@@ -35,6 +35,7 @@ class ViewMemesViewController: UIViewController {
                     
                     let memeText = document.get("memes_posted")
                     
+                    
                     self.meme.text = " "+(memeText as! String);
                 }
             }
@@ -42,6 +43,7 @@ class ViewMemesViewController: UIViewController {
     }
     
     func setUpElements() {
+        
         // hide error label
         //errorTextField.alpha = 0
         
