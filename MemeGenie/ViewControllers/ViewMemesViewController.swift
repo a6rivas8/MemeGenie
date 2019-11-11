@@ -40,7 +40,7 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+                
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         
         //Get User Info

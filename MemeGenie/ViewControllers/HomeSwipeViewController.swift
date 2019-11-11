@@ -30,7 +30,7 @@ class HomeSwipeViewController: UIViewController {
         //assignbackground()
         
         memeStack.layer.borderColor = UIColor.black.cgColor
-        memeStack.layer.borderWidth = 2
+        memeStack.layer.borderWidth = 20
         memeStack.layer.cornerRadius = 10
         
         db.collection("memes").getDocuments() { (querySnapshot, err) in

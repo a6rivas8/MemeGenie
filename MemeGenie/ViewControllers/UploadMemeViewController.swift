@@ -39,7 +39,7 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
     
       // 3
       let imageView = UIImageView(frame: CGRect(x: 20, y: 0, width: 30, height: 30))
-      imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         
       // 4
       let image = UIImage(named: "Meme Genie")
