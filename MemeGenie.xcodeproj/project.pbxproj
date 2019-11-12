@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24C5E209237A460000AD519E /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5E208237A460000AD519E /* TrendingViewController.swift */; };
 		24C9A00123503D2800A083FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A00023503D2800A083FE /* AppDelegate.swift */; };
 		24C9A00323503D2800A083FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A00223503D2800A083FE /* ViewController.swift */; };
 		24C9A00623503D2800A083FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C9A00423503D2800A083FE /* Main.storyboard */; };
@@ -22,7 +23,6 @@
 		24D5880F23566DF90099CC2B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D5880E23566DF90099CC2B /* HomeViewController.swift */; };
 		24D58811235684280099CC2B /* HomeSwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D58810235684280099CC2B /* HomeSwipeViewController.swift */; };
 		24D58813235684690099CC2B /* UploadMemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D58812235684690099CC2B /* UploadMemeViewController.swift */; };
-		24D58815235684890099CC2B /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D58814235684890099CC2B /* TrendingViewController.swift */; };
 		24D58817235684A00099CC2B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D58816235684A00099CC2B /* AccountViewController.swift */; };
 		24EF607623555FD8005FE3A2 /* credentialValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EF607523555FD8005FE3A2 /* credentialValidator.swift */; };
 		24F033D6235546C0002DB897 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24F033D5235546C0002DB897 /* GoogleService-Info.plist */; };
@@ -55,6 +55,7 @@
 /* Begin PBXFileReference section */
 		0DBB7232B87FDEA6826DD8B8 /* Pods_MemeGenieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemeGenieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22424015BEAFB5679877D2B1 /* Pods-MemeGenieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenieTests.debug.xcconfig"; path = "Target Support Files/Pods-MemeGenieTests/Pods-MemeGenieTests.debug.xcconfig"; sourceTree = "<group>"; };
+		24C5E208237A460000AD519E /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 		24C99FFD23503D2800A083FE /* MemeGenie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeGenie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C9A00023503D2800A083FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24C9A00223503D2800A083FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		24D5880E23566DF90099CC2B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../Utilities/HomeViewController.swift; sourceTree = "<group>"; };
 		24D58810235684280099CC2B /* HomeSwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSwipeViewController.swift; sourceTree = "<group>"; };
 		24D58812235684690099CC2B /* UploadMemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadMemeViewController.swift; sourceTree = "<group>"; };
-		24D58814235684890099CC2B /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 		24D58816235684A00099CC2B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		24EF607523555FD8005FE3A2 /* credentialValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = credentialValidator.swift; sourceTree = "<group>"; };
 		24F033D5235546C0002DB897 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -188,9 +188,9 @@
 				24D5880E23566DF90099CC2B /* HomeViewController.swift */,
 				24D58810235684280099CC2B /* HomeSwipeViewController.swift */,
 				24D58812235684690099CC2B /* UploadMemeViewController.swift */,
-				24D58814235684890099CC2B /* TrendingViewController.swift */,
 				24D58816235684A00099CC2B /* AccountViewController.swift */,
 				70B38BA023682AD40087FED7 /* ViewMemesViewController.swift */,
+				24C5E208237A460000AD519E /* TrendingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -471,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24D58811235684280099CC2B /* HomeSwipeViewController.swift in Sources */,
+				24C5E209237A460000AD519E /* TrendingViewController.swift in Sources */,
 				24C9A03B2350592200A083FE /* CustomTextField.swift in Sources */,
 				24D58817235684A00099CC2B /* AccountViewController.swift in Sources */,
 				70B38BA123682AD40087FED7 /* ViewMemesViewController.swift in Sources */,
@@ -478,7 +479,6 @@
 				702B4F192375D34000F2D499 /* CollectionViewCell.swift in Sources */,
 				24C9A03123503DC100A083FE /* LoginViewController.swift in Sources */,
 				24C9A036235053BA00A083FE /* CustomButton.swift in Sources */,
-				24D58815235684890099CC2B /* TrendingViewController.swift in Sources */,
 				70C759CD2377E65A001B358C /* ChangePasswordViewController.swift in Sources */,
 				24C9A02F23503DB600A083FE /* SignUpViewController.swift in Sources */,
 				24D5880F23566DF90099CC2B /* HomeViewController.swift in Sources */,
