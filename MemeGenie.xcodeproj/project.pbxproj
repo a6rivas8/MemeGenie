@@ -150,8 +150,6 @@
 				24C9A03223503DC600A083FE /* ViewControllers */,
 				24C9A00023503D2800A083FE /* AppDelegate.swift */,
 				24C9A00423503D2800A083FE /* Main.storyboard */,
-				70C759CC2377E65A001B358C /* ChangePasswordViewController.swift */,
-				702B4F182375D34000F2D499 /* CollectionViewCell.swift */,
 				8F5DBD7A236A357800831766 /* Podfile */,
 				24C9A00723503D2C00A083FE /* Assets.xcassets */,
 				24C9A00923503D2C00A083FE /* LaunchScreen.storyboard */,
@@ -191,6 +189,8 @@
 				24D58816235684A00099CC2B /* AccountViewController.swift */,
 				70B38BA023682AD40087FED7 /* ViewMemesViewController.swift */,
 				24C5E208237A460000AD519E /* TrendingViewController.swift */,
+				70C759CC2377E65A001B358C /* ChangePasswordViewController.swift */,
+				702B4F182375D34000F2D499 /* CollectionViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

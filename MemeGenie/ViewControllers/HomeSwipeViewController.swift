@@ -44,7 +44,14 @@ class HomeSwipeViewController: UIViewController {
                 }
                 
                 // setting first image to show
-                self.getNextMeme()
+                let memeReference = self.storage.child("memes/\(self.memeArr[self.currentIndex]).jpg")
+                memeReference.getData(maxSize: 8 * 1024 * 1024) { (data, error) in
+                    if let error = error {
+                        print("ERROR: \(error.localizedDescription)")
+                    } else if let data = data {
+                        self.imageView.image = UIImage(data: data)
+                    }
+                }
                 self.captionLabel.text = querySnapshot!.documents[0].get("caption") as? String
             }
         }
@@ -52,6 +59,8 @@ class HomeSwipeViewController: UIViewController {
     
     // gets the next meme to display
     func getNextMeme() {
+        self.currentIndex += 1
+        
         let memeReference = storage.child("memes/\(memeArr[currentIndex]).jpg")
         memeReference.getData(maxSize: 8 * 1024 * 1024) { (data, error) in
             if let error = error {
@@ -61,7 +70,24 @@ class HomeSwipeViewController: UIViewController {
             }
         }
         
-        self.currentIndex += 1
+        let num = calculateRank()
+        print(num)
+    }
+    
+    // calculate and update the rank of each meme
+    func calculateRank() -> Int {
+        let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
+        
+        currentMemeReference.getDocument { (document, error) in
+            if let error = error {
+                print("Some error: \(error.localizedDescription)")
+            } else {
+                let timestamp: Timestamp = document?.get("date_uploaded") as! Timestamp
+                print("Date Posted: \(timestamp.seconds)")
+            }
+        }
+        
+        return 1
     }
     
     // Task:
@@ -69,24 +95,29 @@ class HomeSwipeViewController: UIViewController {
     // Increment like on meme
     // Display next meme
     @IBAction func memeLiked(_ sender: Any) {
-        let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
+        let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
         
-        currentMemeReference.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "NIL"
-                print("Document data: \(dataDescription)")
-                
-                // Change caption
-                self.captionLabel.text = document.get("caption") as? String
-            } else {
-                print("Document does not exist")
-            }
-        }
+        likedMemeReference.updateData([
+            "likes": FieldValue.increment(Int64(1))
+        ])
         
+        // does it make sense to have it here or after the retrivieng of caption
         if memeArrLength > currentIndex  {
             getNextMeme()
         } else {
             print("WE HAVE REACHED END OF MEMES")
+        }
+        
+        let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
+        currentMemeReference.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "NIL"
+                print("Document data: \(dataDescription)\n\n")
+                
+                self.captionLabel.text = document.get("caption") as? String
+            } else {
+                print("Document does not exist")
+            }
         }
     }
     
@@ -95,9 +126,30 @@ class HomeSwipeViewController: UIViewController {
     // Increment pass on meme
     // Display next meme
     @IBAction func memePassed(_ sender: Any) {
-        //let memesReference = db.collection("memes")
+        let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
         
-        getNextMeme()
+        likedMemeReference.updateData([
+            "passes": FieldValue.increment(Int64(1))
+        ])
+        
+        if memeArrLength > currentIndex  {
+            getNextMeme()
+        } else {
+            print("WE HAVE REACHED END OF MEMES")
+        }
+        
+        let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
+        currentMemeReference.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "NIL"
+                print("Document data: \(dataDescription)\n\n")
+                
+                // Change caption
+                self.captionLabel.text = document.get("caption") as? String
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     func assignbackground() {
