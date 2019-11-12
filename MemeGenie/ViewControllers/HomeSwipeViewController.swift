@@ -29,9 +29,14 @@ class HomeSwipeViewController: UIViewController {
         super.viewDidLoad()
         //assignbackground()
         
-        memeStack.layer.borderColor = UIColor.black.cgColor
-        memeStack.layer.borderWidth = 2
-        memeStack.layer.cornerRadius = 10
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.borderWidth = 2
+        imageView.layer.cornerRadius = 8
+        
+        captionLabel.layer.borderColor = UIColor.black.cgColor
+        captionLabel.layer.backgroundColor = UIColor.black.cgColor
+        captionLabel.layer.borderWidth = 1.5
+        captionLabel.layer.cornerRadius = 8
         
         // grabbing first 50 memes from firestore
         db.collection("memes").limit(to: 50).getDocuments() { (querySnapshot, err) in
