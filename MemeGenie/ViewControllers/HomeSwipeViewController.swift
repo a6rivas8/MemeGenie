@@ -52,7 +52,11 @@ class HomeSwipeViewController: UIViewController {
                 let memeReference = self.storage.child("memes/\(self.memeArr[self.currentIndex]).jpg")
                 memeReference.getData(maxSize: 8 * 1024 * 1024) { (data, error) in
                     if let error = error {
+                        // meme reference in firestore does not exist
+                        // go to next meme
+                        // TODO: handle missing storage references [possibly by deleting from firestore]
                         print("ERROR: \(error.localizedDescription)")
+                        self.getNextMeme()
                     } else if let data = data {
                         self.imageView.image = UIImage(data: data)
                     }
@@ -74,25 +78,48 @@ class HomeSwipeViewController: UIViewController {
                 self.imageView.image = UIImage(data: data)
             }
         }
-        
-        let num = calculateRank()
-        print(num)
+    }
+    
+    func getScoreValue(x: Int, y: Int) -> Int {
+        if (x - y) > 0 {
+            return 1
+        } else if (x - y) == 0 {
+            return 0
+        } else {
+            return -1
+        }
     }
     
     // calculate and update the rank of each meme
-    func calculateRank() -> Int {
+    func calculateRank() -> Double {
+        var rank: Double = 0
+        
         let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
         
         currentMemeReference.getDocument { (document, error) in
             if let error = error {
                 print("Some error: \(error.localizedDescription)")
             } else {
-                let timestamp: Timestamp = document?.get("date_uploaded") as! Timestamp
-                print("Date Posted: \(timestamp.seconds)")
+                // find submission time difference
+                guard let memeTimestamp: Timestamp = document?.get("date_uploaded") as? Timestamp else {
+                    print("Unable to cast timestamp")
+                    return
+                }
+                
+                // difference in likes and passes
+                let likes = document?.get("likes") as! Int
+                let passes = document?.get("passes") as! Int
+                let score = self.getScoreValue(x: likes, y: passes)
+                
+                // maximal value of score
+                let maximal: Double = (abs(likes - passes) >= 1) ? Double(abs(likes - passes)) : 1.0
+                
+                // rank function
+                rank = log10(maximal) + Double(score * Int(memeTimestamp.seconds)) / 45000
             }
         }
         
-        return 1
+        return rank
     }
     
     // Task:
