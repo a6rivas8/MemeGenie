@@ -32,7 +32,7 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CustomButton.styleButton(clearImageButton)
+        //CustomButton.styleButton(clearImageButton)
         
         /* Hide some stuff initially */
         uploadImageProgress.isHidden = true
