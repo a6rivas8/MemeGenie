@@ -30,7 +30,7 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
     //Meme Images Array
     var imagesArray = [String]()
     //Meme Dates Posted Array
-    var datesArray = [String]()
+    var datesArray = [Timestamp]()
     //Meme Likes Array
     var likesArray = [Int]()
     
@@ -76,7 +76,7 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
                         //Get memeDatesPosted and add to array
                         let memeDate = id.get("date_uploaded")
                         self.dateLabel.text = "Posted: \(memeDate!)"
-                        self.datesArray.append(memeDate as! String)
+                        self.datesArray.append(memeDate as! Timestamp)
                             
                         //Get meme likes and add to array
                         let memeLikes = id.get("likes") as! Int

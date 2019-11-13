@@ -15,20 +15,40 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
     let picker = UIImagePickerController()
     let db = Firestore.firestore()
     
+    @IBOutlet weak var uploadMemeButton: UIButton!
+    @IBOutlet weak var addMemeLabel: UILabel!
+    @IBOutlet weak var tagsButton: UIButton!
+    
+    
     @IBOutlet weak var uploadImageView: UIImageView!
     @IBOutlet weak var uploadImageCaption: UITextField!
     
     @IBOutlet weak var uploadImageProgress: UIProgressView!
     
-    var defaultImage = UIImage(named: "noImage")
+    var defaultImage = UIImage(named: "blank")
+    
+    @IBOutlet weak var clearImageButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        CustomButton.styleButton(clearImageButton)
+        
+        /* Hide some stuff initially */
         uploadImageProgress.isHidden = true
+        uploadImageCaption.isHidden = true
+        tagsButton.isHidden = true
+        clearImageButton.isHidden = true
+        
+        uploadImageView.layer.borderColor = UIColor.black.cgColor
+        uploadImageView.layer.borderWidth = 2
+        //uploadImageView.layer.cornerRadius = 8
+        
         // Do any additional setup after loading the view.
         uploadImageView.image = defaultImage
         picker.delegate = self
     }
+    
     override func viewDidAppear(_ animated: Bool) {
       // 1
       //let nav = self.navigationController?.navigationBar
@@ -55,16 +75,25 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
         }
         
         uploadImageView.image = selectedImage
+        /* Un-hide views */
+        uploadImageCaption.isHidden = false
+        uploadImageProgress.isHidden = false
+        tagsButton.isHidden = false
+        clearImageButton.isHidden = false
+        
+        /* Hide upload button and "Add Meme" label */
+        uploadMemeButton.isHidden = true
+        addMemeLabel.isHidden = true
+        
         self.dismiss(animated: true, completion: nil)
     }
     
 
     @IBAction func selectPhotoForMeme(_ sender: Any) {
-    
         let actionAlert = UIAlertController(title: "Picker", message: "Choose one", preferredStyle: .actionSheet)
         // To open camara but we are only using gallerry
         
-      /*  actionAlert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: {_ in
+        actionAlert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: {_ in
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 self.picker.allowsEditing = false
                 self.picker.sourceType = .camera
@@ -77,7 +106,7 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
                 alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: {_ in self.dismiss(animated: true, completion: nil)}))
                 self.present(alert, animated: true, completion: nil)
             }
-        }))*/
+        }))
         
         actionAlert.addAction(UIAlertAction(title: "Open Gallery", style: .default, handler: {_ in
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -98,10 +127,8 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
         actionAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(actionAlert, animated: true, completion: nil)
-    
-    
-    
     }
+    
     
     
     @IBAction func uploadMeme(_ sender: Any) {
@@ -109,7 +136,9 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
         let uid = user!.uid
        
         if uploadImageView.image != defaultImage && uploadImageCaption.text != "" {
+            
             uploadImageProgress.isHidden = false
+            
             let randomID = UUID.init().uuidString
             let uploadRef = Storage.storage().reference(withPath: "memes/\(randomID).jpg")
             guard let imageData = uploadImageView.image?.jpegData(compressionQuality: 0.75) else { return }
@@ -135,7 +164,7 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
                     // Create meme reference in Firestore database
                     self.db.collection("memes").document(randomID).setData([
                         "caption": self.uploadImageCaption.text!,
-                        "date_uploaded": String(describing: downloadMetadata?.timeCreated),
+                        "date_uploaded": downloadMetadata?.timeCreated! ?? Timestamp(date: Date()),
                         "likes": 0,
                         "passes": 0,
                         "posted_by": uid,
@@ -156,6 +185,10 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
                                 self.dismiss(animated: true, completion: nil)
                             }))
                             self.present(alert, animated: true, completion: nil)
+                            
+                            /* reset current imageview */
+                            self.resetScreen()
+                            
                         }
                     }
                 }
@@ -175,19 +208,26 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
             }))
             self.present(alert, animated: true, completion: nil)
         }
-    
 
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
-}
+    
+    @IBAction func clearImage(_ sender: Any) {
+        
+        resetScreen()
+        
+    }
+    
+    
+    func resetScreen(){
+        uploadImageView.image = defaultImage
+        /* Un-Hide upload button and "Add Meme" label */
+        uploadMemeButton.isHidden = false
+        addMemeLabel.isHidden = false
+        
+        /* Re-hide views */
+        uploadImageCaption.isHidden = true
+        uploadImageProgress.isHidden = true
+        tagsButton.isHidden = true
+        clearImageButton.isHidden = true
+    }
 }
