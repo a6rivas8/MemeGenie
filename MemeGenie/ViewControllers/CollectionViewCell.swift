@@ -12,5 +12,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var memeImageView: UIImageView!
     @IBOutlet weak var memeCaption: UILabel!
+    @IBOutlet weak var memeDate: UILabel!
+    @IBOutlet weak var memeLikes: UILabel!
     
 }

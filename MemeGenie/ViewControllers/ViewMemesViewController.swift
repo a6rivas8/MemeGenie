@@ -80,7 +80,7 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
                             
                         //Get meme likes and add to array
                         let memeLikes = id.get("likes") as! Int
-                        self.likesLabel.text = "Likes: \(memeLikes.description)"
+                        self.likesLabel.text = memeLikes.description
                         self.likesArray.append(memeLikes)
                             
                         //Get meme images and add to array
@@ -122,6 +122,10 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
         let mImg = imagesArray[indexPath.item]
         let rUrl = URL(string: mImg)
         cell.memeImageView.load(url: rUrl!)
+        
+        cell.memeDate.text = datesArray[indexPath.item].dateValue().description
+        
+        cell.memeLikes.text = "\(likesArray[indexPath.item])"
                 
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5

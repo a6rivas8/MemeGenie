@@ -46,6 +46,10 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
         
         // Do any additional setup after loading the view.
         uploadImageView.image = defaultImage
+        
+        uploadImageProgress.setProgress(0, animated: false)
+        //uploadImageProgress.progressTintColor = UIColor.black
+        
         picker.delegate = self
     }
     
@@ -229,5 +233,7 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
         uploadImageProgress.isHidden = true
         tagsButton.isHidden = true
         clearImageButton.isHidden = true
+        
+        uploadImageCaption.text = ""
     }
 }
