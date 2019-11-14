@@ -31,7 +31,7 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+         self.hideKeyboardWhenTappedAround()
         CustomButton.styleButton(clearImageButton)
         
         /* Hide some stuff initially */
@@ -78,11 +78,11 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
      @objc func keyboardWillChange(notification: Notification){
          print("keyboard will show: \(notification.name.rawValue)")
         
-        view.frame.origin.y = -200
+        view.frame.origin.y = -150
          
      }
     
-
+   
     override func viewDidAppear(_ animated: Bool) {
       // 1
       //let nav = self.navigationController?.navigationBar
@@ -267,5 +267,16 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
         clearImageButton.isHidden = true
         
         uploadImageCaption.text = ""
+    }
+}
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

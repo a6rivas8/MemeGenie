@@ -23,10 +23,40 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
         setUpElements()
-    }
+        
+        // listen for keyboard
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+                
+            }
+            
+           
+            
+            deinit {
+                //Stop listening for keyboard hide/show events
+                NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+                NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+                NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+            
+        }
+        // hide keyboard
+        
+        func hideKeyboard(){
+           firstNameTextField.resignFirstResponder()
+            
+        }
+        
+        @objc func keyboardWillChange(notification: Notification){
+            print("keyboard will show: \(notification.name.rawValue)")
+           
+           view.frame.origin.y = -75
+            
+        }
+    
     
     func setUpElements() {
         // hide error label
@@ -105,6 +135,7 @@ class SignUpViewController: UIViewController {
             // transition to home or tab bar controller
             self.transitionToHome()
         }
+        hideKeyboard()
     }
     
     func showError(_ message:String) {
