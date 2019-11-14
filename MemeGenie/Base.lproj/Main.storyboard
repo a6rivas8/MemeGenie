@@ -893,10 +893,6 @@
                                     <constraint firstAttribute="height" constant="140" id="Q4V-eG-yIi"/>
                                     <constraint firstAttribute="width" constant="140" id="iNC-9v-ZCp"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="KB4-7q-2zN" appends="YES" id="Z9Q-Li-iCm"/>
-                                    <outletCollection property="gestureRecognizers" destination="Y2Y-IR-RuU" appends="YES" id="l73-JR-6ob"/>
-                                </connections>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3f-Nt-6u8">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -992,16 +988,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4n-WT-Pht" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="Y2Y-IR-RuU">
-                    <connections>
-                        <action selector="swipeFingerLeftAction:" destination="MiS-aa-1yi" id="gPD-3H-RdY"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="KB4-7q-2zN">
-                    <connections>
-                        <action selector="swipeFingerRightAction:" destination="MiS-aa-1yi" id="FuW-jo-NT3"/>
-                    </connections>
-                </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="85t-R0-npq">
                     <connections>
                         <action selector="swipeAction:" destination="MiS-aa-1yi" id="vpq-Ez-c8f"/>
