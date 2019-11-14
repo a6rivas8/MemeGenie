@@ -31,8 +31,8 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //CustomButton.styleButton(clearImageButton)
+         self.hideKeyboardWhenTappedAround()
+        CustomButton.styleButton(clearImageButton)
         
         /* Hide some stuff initially */
         uploadImageProgress.isHidden = true
@@ -51,8 +51,38 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
         //uploadImageProgress.progressTintColor = UIColor.black
         
         picker.delegate = self
-    }
     
+    // listen for keyboard
+         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+             
+         }
+         
+        
+         
+         deinit {
+             //Stop listening for keyboard hide/show events
+             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+         
+     }
+     // hide keyboard
+     
+     func hideKeyboard(){
+        uploadImageCaption.resignFirstResponder()
+         
+     }
+     
+     @objc func keyboardWillChange(notification: Notification){
+         print("keyboard will show: \(notification.name.rawValue)")
+        
+        view.frame.origin.y = -150
+         
+     }
+    
+   
     override func viewDidAppear(_ animated: Bool) {
       // 1
       //let nav = self.navigationController?.navigationBar
@@ -131,6 +161,7 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
         actionAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(actionAlert, animated: true, completion: nil)
+        hideKeyboard()
     }
     
     
@@ -212,12 +243,13 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
             }))
             self.present(alert, animated: true, completion: nil)
         }
-
+        hideKeyboard()
     }
     
     @IBAction func clearImage(_ sender: Any) {
-        
+        hideKeyboard()
         resetScreen()
+       
         
     }
     
@@ -235,5 +267,16 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
         clearImageButton.isHidden = true
         
         uploadImageCaption.text = ""
+    }
+}
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
