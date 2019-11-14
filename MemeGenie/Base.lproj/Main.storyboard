@@ -885,10 +885,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kissclipart-swipe-left-right-icon-clipart-computer-icons-71aa53bcb1c93d89" translatesAutoresizingMaskIntoConstraints="NO" id="8Tr-bu-beJ">
-                                <rect key="frame" x="131.66666666666666" y="536" width="150.99999999999997" height="151"/>
+                                <rect key="frame" x="137" y="547" width="140" height="140"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="151" id="7dV-WY-xNJ"/>
-                                    <constraint firstAttribute="height" constant="151" id="H7J-hC-mZo"/>
+                                    <constraint firstAttribute="height" constant="140" id="Q4V-eG-yIi"/>
+                                    <constraint firstAttribute="width" constant="140" id="iNC-9v-ZCp"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="KB4-7q-2zN" appends="YES" id="Z9Q-Li-iCm"/>
@@ -937,14 +937,14 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="x-mark" translatesAutoresizingMaskIntoConstraints="NO" id="55y-pZ-Aur">
-                                <rect key="frame" x="61.666666666666657" y="547" width="70" height="70"/>
+                                <rect key="frame" x="67" y="547" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="LMU-BN-708"/>
                                     <constraint firstAttribute="height" constant="70" id="ez2-dO-xI3"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark-flat" translatesAutoresizingMaskIntoConstraints="NO" id="HID-Qg-zmv">
-                                <rect key="frame" x="282.66666666666669" y="547" width="70" height="70"/>
+                                <rect key="frame" x="277" y="547" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="2RA-qU-NG7"/>
                                     <constraint firstAttribute="height" constant="70" id="6HZ-QJ-nPo"/>
