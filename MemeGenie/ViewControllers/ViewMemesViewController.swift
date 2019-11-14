@@ -1,5 +1,5 @@
 //
-//  AccountViewController.swift
+//  ViewMemesViewController.swift
 //  MemeGenie
 //
 //  Created by Team6 on 10/29/19.

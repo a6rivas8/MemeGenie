@@ -16,6 +16,24 @@ class HomeSwipeViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
     
+    /* FIX THESE FUNCTIONS !!! */
+    @IBAction func swipeRightAction(_ sender: Any) {
+        print("Swiped Right")
+        getNextMeme()
+    }
+    @IBAction func swipeLeftAction(_ sender: Any) {
+        print("Swiped Left")
+        getNextMeme()
+    }
+    @IBAction func swipeFingerRightAction(_ sender: Any) {
+        print("Swiped Right")
+        getNextMeme()
+    }
+    @IBAction func swipeFingerLeftAction(_ sender: Any) {
+        print("Swiped Left")
+        getNextMeme()
+    }
+    
     let storage = Storage.storage().reference()
     let db = Firestore.firestore()
     
