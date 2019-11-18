@@ -11,7 +11,6 @@
 		24C9A00123503D2800A083FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A00023503D2800A083FE /* AppDelegate.swift */; };
 		24C9A00323503D2800A083FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A00223503D2800A083FE /* ViewController.swift */; };
 		24C9A00623503D2800A083FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C9A00423503D2800A083FE /* Main.storyboard */; };
-		24C9A00823503D2C00A083FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C9A00723503D2C00A083FE /* Assets.xcassets */; };
 		24C9A00B23503D2C00A083FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C9A00923503D2C00A083FE /* LaunchScreen.storyboard */; };
 		24C9A01623503D2C00A083FE /* MemeGenieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A01523503D2C00A083FE /* MemeGenieTests.swift */; };
 		24C9A02123503D2C00A083FE /* MemeGenieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A02023503D2C00A083FE /* MemeGenieUITests.swift */; };
@@ -29,6 +28,7 @@
 		5C13E7267E0FB5667A4F084F /* Pods_MemeGenie_MemeGenieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2FDF0B27E608AE38347BDB /* Pods_MemeGenie_MemeGenieUITests.framework */; };
 		5C62C428237B1ACC00706356 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62C427237B1ACC00706356 /* TagsViewController.swift */; };
 		702B4F192375D34000F2D499 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702B4F182375D34000F2D499 /* CollectionViewCell.swift */; };
+		70367B5D2382FA180094D11C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70367B5C2382FA180094D11C /* Assets.xcassets */; };
 		70B38BA123682AD40087FED7 /* ViewMemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B38BA023682AD40087FED7 /* ViewMemesViewController.swift */; };
 		70B43DEF237DCFD800467995 /* LikedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B43DEE237DCFD800467995 /* LikedCollectionViewCell.swift */; };
 		70B43DF1237DD22A00467995 /* LikedMemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B43DF0237DD22A00467995 /* LikedMemesViewController.swift */; };
@@ -63,7 +63,6 @@
 		24C9A00023503D2800A083FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24C9A00223503D2800A083FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		24C9A00523503D2800A083FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		24C9A00723503D2C00A083FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24C9A00A23503D2C00A083FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24C9A00C23503D2C00A083FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C9A01123503D2C00A083FE /* MemeGenieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeGenieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +85,7 @@
 		5C62C427237B1ACC00706356 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 		5F8AE0B3731A7B52C78495B7 /* Pods-MemeGenieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenieTests.release.xcconfig"; path = "Target Support Files/Pods-MemeGenieTests/Pods-MemeGenieTests.release.xcconfig"; sourceTree = "<group>"; };
 		702B4F182375D34000F2D499 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		70367B5C2382FA180094D11C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Assets.xcassets"; sourceTree = "<group>"; };
 		70B38BA023682AD40087FED7 /* ViewMemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMemesViewController.swift; sourceTree = "<group>"; };
 		70B43DEE237DCFD800467995 /* LikedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedCollectionViewCell.swift; sourceTree = "<group>"; };
 		70B43DF0237DD22A00467995 /* LikedMemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedMemesViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 				24C9A00423503D2800A083FE /* Main.storyboard */,
 				70B43DEE237DCFD800467995 /* LikedCollectionViewCell.swift */,
 				8F5DBD7A236A357800831766 /* Podfile */,
-				24C9A00723503D2C00A083FE /* Assets.xcassets */,
+				70367B5C2382FA180094D11C /* Assets.xcassets */,
 				24C9A00923503D2C00A083FE /* LaunchScreen.storyboard */,
 				24C9A00C23503D2C00A083FE /* Info.plist */,
 				24F033D5235546C0002DB897 /* GoogleService-Info.plist */,
@@ -350,8 +350,8 @@
 				8F5DBD7B236A357800831766 /* Podfile in Resources */,
 				24C9A00B23503D2C00A083FE /* LaunchScreen.storyboard in Resources */,
 				24F033D6235546C0002DB897 /* GoogleService-Info.plist in Resources */,
-				24C9A00823503D2C00A083FE /* Assets.xcassets in Resources */,
 				24C9A00623503D2800A083FE /* Main.storyboard in Resources */,
+				70367B5D2382FA180094D11C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

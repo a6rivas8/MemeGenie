@@ -888,21 +888,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N3f-Nt-6u8">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <color key="barTintColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <navigationItem title="Meme Genie" id="FU8-i2-UJf"/>
-                                </items>
-                            </navigationBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Genie Transparent" translatesAutoresizingMaskIntoConstraints="NO" id="9UX-9j-h70">
-                                <rect key="frame" x="10" y="54" width="394" height="155"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Meme Genie1" translatesAutoresizingMaskIntoConstraints="NO" id="9UX-9j-h70">
+                                <rect key="frame" x="10" y="0.6666666666666714" width="394" height="152"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="155" id="Y4w-k0-P73"/>
+                                    <constraint firstAttribute="height" constant="152" id="pyg-bC-4Eq"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L81-N2-KSJ" userLabel="card">
-                                <rect key="frame" x="10" y="217" width="394" height="414"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L81-N2-KSJ" userLabel="card">
+                                <rect key="frame" x="10" y="161" width="394" height="414"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8xt-SX-oN3">
                                         <rect key="frame" x="10" y="73" width="374" height="325"/>
@@ -920,8 +913,17 @@
                                         <color key="textColor" red="0.96106427910000003" green="0.90638267989999999" blue="0.65093141789999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark-flat" translatesAutoresizingMaskIntoConstraints="NO" id="e9z-D1-Cdg">
+                                        <rect key="frame" x="133" y="143" width="128" height="128"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="JkQ-Yc-667"/>
+                                            <constraint firstAttribute="width" constant="128" id="Pls-JB-bIf"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="gWa-8K-a2m" firstAttribute="leading" secondItem="L81-N2-KSJ" secondAttribute="leading" constant="10" id="991-tp-gcR"/>
@@ -930,6 +932,8 @@
                                     <constraint firstItem="gWa-8K-a2m" firstAttribute="centerX" secondItem="L81-N2-KSJ" secondAttribute="centerX" id="Of9-a0-FaP"/>
                                     <constraint firstAttribute="height" constant="414" id="OrM-Ez-yj1"/>
                                     <constraint firstItem="8xt-SX-oN3" firstAttribute="centerX" secondItem="L81-N2-KSJ" secondAttribute="centerX" id="QP5-XG-KVM"/>
+                                    <constraint firstItem="e9z-D1-Cdg" firstAttribute="centerY" secondItem="L81-N2-KSJ" secondAttribute="centerY" id="T2f-ul-Puk"/>
+                                    <constraint firstItem="e9z-D1-Cdg" firstAttribute="centerX" secondItem="L81-N2-KSJ" secondAttribute="centerX" id="U0X-03-zR2"/>
                                     <constraint firstItem="gWa-8K-a2m" firstAttribute="top" secondItem="L81-N2-KSJ" secondAttribute="top" constant="4" id="aKr-Oa-ADk"/>
                                     <constraint firstItem="8xt-SX-oN3" firstAttribute="leading" secondItem="L81-N2-KSJ" secondAttribute="leading" constant="10" id="bqo-qe-Unx"/>
                                     <constraint firstAttribute="trailing" secondItem="gWa-8K-a2m" secondAttribute="trailing" constant="10" id="xUd-Kv-ZAQ"/>
@@ -939,13 +943,14 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9UX-9j-h70" firstAttribute="top" secondItem="N3f-Nt-6u8" secondAttribute="bottom" constant="10" id="9tE-Qg-Z6J"/>
+                            <constraint firstItem="L81-N2-KSJ" firstAttribute="centerX" secondItem="tKz-TG-MwA" secondAttribute="centerX" id="9x4-pp-3EU"/>
+                            <constraint firstItem="L81-N2-KSJ" firstAttribute="centerY" secondItem="tKz-TG-MwA" secondAttribute="centerY" id="ASv-UR-VRV"/>
+                            <constraint firstItem="9UX-9j-h70" firstAttribute="leading" secondItem="aGV-Vy-cFF" secondAttribute="leading" constant="10" id="ONv-i1-35B"/>
                             <constraint firstItem="L81-N2-KSJ" firstAttribute="leading" secondItem="aGV-Vy-cFF" secondAttribute="leading" constant="10" id="T0W-ql-LLk"/>
-                            <constraint firstItem="9UX-9j-h70" firstAttribute="leading" secondItem="aGV-Vy-cFF" secondAttribute="leading" constant="10" id="Y7w-Hy-zxj"/>
-                            <constraint firstItem="aGV-Vy-cFF" firstAttribute="trailing" secondItem="9UX-9j-h70" secondAttribute="trailing" constant="10" id="cCi-vv-rRK"/>
-                            <constraint firstItem="L81-N2-KSJ" firstAttribute="top" secondItem="9UX-9j-h70" secondAttribute="bottom" constant="8" id="nx4-zx-e6S"/>
+                            <constraint firstItem="9UX-9j-h70" firstAttribute="top" secondItem="aGV-Vy-cFF" secondAttribute="top" constant="0.80000000000000004" id="Z9p-rc-Vd7"/>
+                            <constraint firstItem="aGV-Vy-cFF" firstAttribute="trailing" secondItem="9UX-9j-h70" secondAttribute="trailing" constant="10" id="sie-T0-XYj"/>
                             <constraint firstItem="aGV-Vy-cFF" firstAttribute="trailing" secondItem="L81-N2-KSJ" secondAttribute="trailing" constant="10" id="tyO-Rt-NkE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aGV-Vy-cFF"/>
@@ -956,6 +961,7 @@
                         <outlet property="captionLabel" destination="gWa-8K-a2m" id="wDL-f4-Bnm"/>
                         <outlet property="card" destination="L81-N2-KSJ" id="tEU-U8-fIv"/>
                         <outlet property="imageView" destination="8xt-SX-oN3" id="Nbx-z8-JKa"/>
+                        <outlet property="likePassImageView" destination="e9z-D1-Cdg" id="xAu-fA-VTH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4n-WT-Pht" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1273,6 +1279,7 @@
         <image name="Meme Genie1" width="355" height="52"/>
         <image name="account" width="26" height="24"/>
         <image name="add" width="26" height="24"/>
+        <image name="checkmark-flat" width="256" height="256"/>
         <image name="clock.fill" catalog="system" width="64" height="60"/>
         <image name="fire" width="20" height="28"/>
         <image name="go_to_selection_arrow" width="439" height="35"/>

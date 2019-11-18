@@ -13,6 +13,7 @@ import FirebaseAuth
 class HomeSwipeViewController: UIViewController {
     
     @IBOutlet weak var card: UIView!
+    @IBOutlet weak var likePassImageView: UIImageView!
     
     
     @IBOutlet weak var imageView: UIImageView!
@@ -267,7 +268,19 @@ class HomeSwipeViewController: UIViewController {
     @IBAction func panCard(_ sender: UIPanGestureRecognizer) {
         let card = sender.view!
         let point = sender.translation(in: view)
+        let xFromCenter = card.center.x - view.center.x
+        
         card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
+        
+        if xFromCenter > 0{
+            likePassImageView.image = UIImage(named: "checkmark-flat")
+            likePassImageView.tintColor = UIColor.green
+        } else {
+            likePassImageView.image = UIImage(named: "x-mark")
+            likePassImageView.tintColor = UIColor.red
+        }
+        
+        likePassImageView.alpha = abs(xFromCenter)/view.center.x
         
         if sender.state == UIGestureRecognizer.State.ended {
             
@@ -276,6 +289,7 @@ class HomeSwipeViewController: UIViewController {
                 UIView.animate(withDuration: 0.2, animations: {
                     card.center = CGPoint(x: card.center.x - 300, y: card.center.y + 75)
                     card.alpha = 0
+                    self.likePassImageView.alpha = 0
                 })
                 
                 print("Swiped Left")
@@ -311,6 +325,7 @@ class HomeSwipeViewController: UIViewController {
                 UIView.animate(withDuration: 0.2, animations: {
                     card.center = CGPoint(x: card.center.x + 300, y: card.center.y + 75)
                     card.alpha = 0
+                    self.likePassImageView.alpha = 0
                 })
                 
                 print("Swiped Right")
@@ -355,8 +370,13 @@ class HomeSwipeViewController: UIViewController {
     }
     
     func resetCard(){
-        UIView.animate(withDuration: 0.2, animations: {
+        /*UIView.animate(withDuration: 0.2, animations: {
             self.card.center = CGPoint(x: self.view.frame.width/2, y: 427)
+            self.card.alpha = 1
+        })*/
+        
+        UIView.animate(withDuration: 0.2, delay: 1, options: UIView.AnimationOptions.transitionFlipFromBottom, animations: {
+            self.card.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
             self.card.alpha = 1
         })
     }
