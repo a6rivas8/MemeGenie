@@ -856,7 +856,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <imageView key="tableFooterView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Zay-KP-9NM">
-                            <rect key="frame" x="0.0" y="99.66666793823245" width="414" height="249.99999999999997"/>
+                            <rect key="frame" x="0.0" y="99.666667938232422" width="414" height="250"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <prototypes>
@@ -911,8 +911,8 @@
                                             <constraint firstAttribute="height" constant="325" id="lCP-cX-53J"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWa-8K-a2m">
-                                        <rect key="frame" x="10" y="0.0" width="374" height="65"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWa-8K-a2m">
+                                        <rect key="frame" x="10" y="4" width="374" height="65"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="Yxs-s8-O17"/>
                                         </constraints>
@@ -921,16 +921,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="gWa-8K-a2m" firstAttribute="leading" secondItem="L81-N2-KSJ" secondAttribute="leading" constant="10" id="991-tp-gcR"/>
-                                    <constraint firstItem="8xt-SX-oN3" firstAttribute="top" secondItem="gWa-8K-a2m" secondAttribute="bottom" constant="8" id="AKZ-cq-g1T"/>
+                                    <constraint firstItem="8xt-SX-oN3" firstAttribute="top" secondItem="gWa-8K-a2m" secondAttribute="bottom" constant="4" id="AKZ-cq-g1T"/>
                                     <constraint firstAttribute="trailing" secondItem="8xt-SX-oN3" secondAttribute="trailing" constant="10" id="Ifz-db-Kk0"/>
                                     <constraint firstItem="gWa-8K-a2m" firstAttribute="centerX" secondItem="L81-N2-KSJ" secondAttribute="centerX" id="Of9-a0-FaP"/>
                                     <constraint firstAttribute="height" constant="414" id="OrM-Ez-yj1"/>
                                     <constraint firstItem="8xt-SX-oN3" firstAttribute="centerX" secondItem="L81-N2-KSJ" secondAttribute="centerX" id="QP5-XG-KVM"/>
-                                    <constraint firstItem="gWa-8K-a2m" firstAttribute="top" secondItem="L81-N2-KSJ" secondAttribute="top" id="aKr-Oa-ADk"/>
+                                    <constraint firstItem="gWa-8K-a2m" firstAttribute="top" secondItem="L81-N2-KSJ" secondAttribute="top" constant="4" id="aKr-Oa-ADk"/>
                                     <constraint firstItem="8xt-SX-oN3" firstAttribute="leading" secondItem="L81-N2-KSJ" secondAttribute="leading" constant="10" id="bqo-qe-Unx"/>
                                     <constraint firstAttribute="trailing" secondItem="gWa-8K-a2m" secondAttribute="trailing" constant="10" id="xUd-Kv-ZAQ"/>
                                 </constraints>

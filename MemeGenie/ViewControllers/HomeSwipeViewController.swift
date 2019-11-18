@@ -278,6 +278,41 @@ class HomeSwipeViewController: UIViewController {
                     card.alpha = 0
                 })
                 
+                print("Swiped Left")
+                let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
+                
+                likedMemeReference.updateData([
+                    "passes": FieldValue.increment(Int64(1))
+                ])
+                
+                if memeArrLength > currentIndex  {
+                    getNextMeme()
+                } else {
+                    print("WE HAVE REACHED END OF MEMES")
+                }
+                
+                let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
+                currentMemeReference.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let dataDescription = document.data().map(String.init(describing:)) ?? "NIL"
+                        print("Document data: \(dataDescription)\n\n")
+                        
+                        // Change caption
+                        self.captionLabel.text = document.get("caption") as? String
+                    } else {
+                        print("Document does not exist")
+                    }
+                }
+
+                resetCard()
+                return
+            } else if card.center.x > (self.view.frame.width - 35){
+                //move off right side of screen
+                UIView.animate(withDuration: 0.2, animations: {
+                    card.center = CGPoint(x: card.center.x + 300, y: card.center.y + 75)
+                    card.alpha = 0
+                })
+                
                 print("Swiped Right")
                 //Get User Info
                 //let user = Auth.auth().currentUser
@@ -313,41 +348,6 @@ class HomeSwipeViewController: UIViewController {
                 
                 resetCard()
                 return
-            } else if card.center.x > (self.view.frame.width - 35){
-                //move off right side of screen
-                UIView.animate(withDuration: 0.2, animations: {
-                    card.center = CGPoint(x: card.center.x + 300, y: card.center.y + 75)
-                    card.alpha = 0
-                })
-                
-                print("Swiped Left")
-                let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
-                
-                likedMemeReference.updateData([
-                    "passes": FieldValue.increment(Int64(1))
-                ])
-                
-                if memeArrLength > currentIndex  {
-                    getNextMeme()
-                } else {
-                    print("WE HAVE REACHED END OF MEMES")
-                }
-                
-                let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
-                currentMemeReference.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        let dataDescription = document.data().map(String.init(describing:)) ?? "NIL"
-                        print("Document data: \(dataDescription)\n\n")
-                        
-                        // Change caption
-                        self.captionLabel.text = document.get("caption") as? String
-                    } else {
-                        print("Document does not exist")
-                    }
-                }
-                
-                resetCard()
-                return
             }
                         
         }
@@ -355,7 +355,7 @@ class HomeSwipeViewController: UIViewController {
     }
     
     func resetCard(){
-        UIView.animate(withDuration: 0.0, animations: {
+        UIView.animate(withDuration: 0.2, animations: {
             self.card.center = CGPoint(x: self.view.frame.width/2, y: 427)
             self.card.alpha = 1
         })
