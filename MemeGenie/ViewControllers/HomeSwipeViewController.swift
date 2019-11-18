@@ -12,12 +12,13 @@ import FirebaseAuth
 
 class HomeSwipeViewController: UIViewController {
     
-    @IBOutlet weak var memeStack: UIStackView!
+    @IBOutlet weak var card: UIView!
+    
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
     
-    /* THIS ONLY WORKS WHEN YOU SWIPE THE IMAGE - NOT THE ICONS
-       AT THE BOTTOM OF THE SCREEN !!! */
+    /* THIS ONLY WORKS WHEN YOU SWIPE THE IMAGE */
     @IBAction func swipeAction(_ sender: Any) {
         print("Swiped Right")
         //Get User Info
@@ -28,11 +29,9 @@ class HomeSwipeViewController: UIViewController {
         //    let uid = user.uid
             let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
         
-         print("Test check")
             likedMemeReference.updateData([
             "likes": FieldValue.increment(Int64(1))
             ])
-         print("Test check2345")
         //}
         
         // does it make sense to have it here or after the retrivieng of caption
@@ -263,5 +262,104 @@ class HomeSwipeViewController: UIViewController {
         view.addSubview(imageView)
         self.view.sendSubviewToBack(imageView)
     }
+    
+    
+    @IBAction func panCard(_ sender: UIPanGestureRecognizer) {
+        let card = sender.view!
+        let point = sender.translation(in: view)
+        card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
+        
+        if sender.state == UIGestureRecognizer.State.ended {
+            
+            if card.center.x < 35{
+                //move off left side of screen
+                UIView.animate(withDuration: 0.2, animations: {
+                    card.center = CGPoint(x: card.center.x - 300, y: card.center.y + 75)
+                    card.alpha = 0
+                })
+                
+                print("Swiped Right")
+                //Get User Info
+                //let user = Auth.auth().currentUser
+                //let db = Firestore.firestore()
+                   
+                //if let user = user {
+                //    let uid = user.uid
+                    let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
+                
+                    likedMemeReference.updateData([
+                    "likes": FieldValue.increment(Int64(1))
+                    ])
+                //}
+                
+                // does it make sense to have it here or after the retrivieng of caption
+                if memeArrLength > currentIndex  {
+                    getNextMeme()
+                } else {
+                    print("WE HAVE REACHED END OF MEMES")
+                }
+                
+                let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
+                currentMemeReference.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let dataDescription = document.data().map(String.init(describing:)) ?? "NIL"
+                        print("Document data: \(dataDescription)\n\n")
+                        
+                        self.captionLabel.text = document.get("caption") as? String
+                    } else {
+                        print("Document does not exist")
+                    }
+                }
+                
+                resetCard()
+                return
+            } else if card.center.x > (self.view.frame.width - 35){
+                //move off right side of screen
+                UIView.animate(withDuration: 0.2, animations: {
+                    card.center = CGPoint(x: card.center.x + 300, y: card.center.y + 75)
+                    card.alpha = 0
+                })
+                
+                print("Swiped Left")
+                let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
+                
+                likedMemeReference.updateData([
+                    "passes": FieldValue.increment(Int64(1))
+                ])
+                
+                if memeArrLength > currentIndex  {
+                    getNextMeme()
+                } else {
+                    print("WE HAVE REACHED END OF MEMES")
+                }
+                
+                let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
+                currentMemeReference.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let dataDescription = document.data().map(String.init(describing:)) ?? "NIL"
+                        print("Document data: \(dataDescription)\n\n")
+                        
+                        // Change caption
+                        self.captionLabel.text = document.get("caption") as? String
+                    } else {
+                        print("Document does not exist")
+                    }
+                }
+                
+                resetCard()
+                return
+            }
+                        
+        }
+        
+    }
+    
+    func resetCard(){
+        UIView.animate(withDuration: 0.0, animations: {
+            self.card.center = CGPoint(x: self.view.frame.width/2, y: 427)
+            self.card.alpha = 1
+        })
+    }
+    
     
 }
