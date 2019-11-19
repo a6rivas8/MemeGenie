@@ -131,7 +131,7 @@ class HomeSwipeViewController: UIViewController {
     // Grab meme document from Firestore Database
     // Increment like on meme
     // Display next meme
-    @IBAction func memeLiked(_ sender: Any) {
+    /*@IBAction func memeLiked(_ sender: Any) {
         let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
         
         likedMemeReference.updateData([
@@ -156,13 +156,13 @@ class HomeSwipeViewController: UIViewController {
                 print("Document does not exist")
             }
         }
-    }
+    }*/
     
     // Task:
     // Grab meme document from Firestore Database
     // Increment pass on meme
     // Display next meme
-    @IBAction func memePassed(_ sender: Any) {
+    /*@IBAction func memePassed(_ sender: Any) {
         let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
         
         likedMemeReference.updateData([
@@ -187,7 +187,7 @@ class HomeSwipeViewController: UIViewController {
                 print("Document does not exist")
             }
         }
-    }
+    }*/
     
     @IBAction func panCard(_ sender: UIPanGestureRecognizer) {
         let card = sender.view!
@@ -256,17 +256,18 @@ class HomeSwipeViewController: UIViewController {
                 
                 print("Swiped Right")
                 //Get User Info
-                //let user = Auth.auth().currentUser
-                //let db = Firestore.firestore()
+                let user = Auth.auth().currentUser
+                let db = Firestore.firestore()
                    
-                //if let user = user {
-                //    let uid = user.uid
+                if let user = user {
+                    let uid = user.uid
                     let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
                 
                     likedMemeReference.updateData([
-                    "likes": FieldValue.increment(Int64(1))
+                    "likes": FieldValue.increment(Int64(1)),
+                    "liked_by": FieldValue.arrayUnion([uid])
                     ])
-                //}
+                }
                 
                 // does it make sense to have it here or after the retrivieng of caption
                 if memeArrLength > currentIndex  {

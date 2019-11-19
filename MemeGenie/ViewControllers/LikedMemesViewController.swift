@@ -45,7 +45,8 @@ class LikedMemesViewController: UIViewController, UICollectionViewDelegate, UICo
             let uid = user.uid
             
             //Get all memes that user has posted
-            db.collection("memes").whereField("liked_by", isEqualTo: uid).getDocuments(){(querySnapshot, err) in
+            //db.collection("memes").whereField(<#T##field: String##String#>, arrayContains: <#T##Any#>)
+            db.collection("memes").whereField("liked_by", arrayContains: uid).getDocuments(){(querySnapshot, err) in
                 if let err = err{
                     print("Error getting images: \(err)")
                 } else {
