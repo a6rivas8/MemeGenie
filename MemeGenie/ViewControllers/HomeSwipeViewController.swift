@@ -296,6 +296,7 @@ class HomeSwipeViewController: UIViewController {
     }
     
     func resetCard(){
+        
         UIView.animate(withDuration: 0.2, delay: 1, options: UIView.AnimationOptions.transitionFlipFromBottom, animations: {
             self.card.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
             self.card.alpha = 1
