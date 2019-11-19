@@ -31,9 +31,7 @@ exports.updateRank = functions.https.onRequest((req, res) => {
 				}
 
 				var maximal = (Math.abs(diff) >= 1) ? (Math.abs(diff)) : 1;
-				console.log("Score: ", score);
-				console.log("Maximal: ", maximal);
-				console.log("MEME timestamp: ", data.date_uploaded._seconds);
+				console.log("Current rank: ", data.rank);
 
 				var rank = Math.log10(maximal) + (score * data.date_uploaded._seconds) / 45000;
 				console.log("RANK <rank>: ", rank);
