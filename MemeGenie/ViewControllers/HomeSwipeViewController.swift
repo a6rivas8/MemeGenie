@@ -15,73 +15,10 @@ class HomeSwipeViewController: UIViewController {
     @IBOutlet weak var card: UIView!
     @IBOutlet weak var likePassImageView: UIImageView!
     
+    var divisor: CGFloat!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
-    
-    /* THIS ONLY WORKS WHEN YOU SWIPE THE IMAGE */
-    @IBAction func swipeAction(_ sender: Any) {
-        print("Swiped Right")
-        //Get User Info
-        //let user = Auth.auth().currentUser
-        //let db = Firestore.firestore()
-           
-        //if let user = user {
-        //    let uid = user.uid
-            let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
-        
-            likedMemeReference.updateData([
-            "likes": FieldValue.increment(Int64(1))
-            ])
-        //}
-        
-        // does it make sense to have it here or after the retrivieng of caption
-        if memeArrLength > currentIndex  {
-            getNextMeme()
-        } else {
-            print("WE HAVE REACHED END OF MEMES")
-        }
-        
-        let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
-        currentMemeReference.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "NIL"
-                print("Document data: \(dataDescription)\n\n")
-                
-                self.captionLabel.text = document.get("caption") as? String
-            } else {
-                print("Document does not exist")
-            }
-        }
-    }
-    
-    @IBAction func swipeLeftAction(_ sender: Any) {
-        print("Swiped Left")
-        let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
-        
-        likedMemeReference.updateData([
-            "passes": FieldValue.increment(Int64(1))
-        ])
-        
-        if memeArrLength > currentIndex  {
-            getNextMeme()
-        } else {
-            print("WE HAVE REACHED END OF MEMES")
-        }
-        
-        let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
-        currentMemeReference.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "NIL"
-                print("Document data: \(dataDescription)\n\n")
-                
-                // Change caption
-                self.captionLabel.text = document.get("caption") as? String
-            } else {
-                print("Document does not exist")
-            }
-        }
-    }
     
     let storage = Storage.storage().reference()
     let db = Firestore.firestore()
@@ -94,7 +31,8 @@ class HomeSwipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //assignbackground()
+        
+        divisor = (view.frame.width/2)/0.61
         
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.borderWidth = 2
@@ -251,31 +189,19 @@ class HomeSwipeViewController: UIViewController {
         }
     }
     
-    func assignbackground() {
-        let background = UIImage(named: "background")
-
-        var imageView : UIImageView!
-        imageView = UIImageView(frame: view.bounds)
-        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = background
-        imageView.center = view.center
-        view.addSubview(imageView)
-        self.view.sendSubviewToBack(imageView)
-    }
-    
-    
     @IBAction func panCard(_ sender: UIPanGestureRecognizer) {
         let card = sender.view!
         let point = sender.translation(in: view)
         let xFromCenter = card.center.x - view.center.x
         
         card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
+        /* To rotate */
+        card.transform = CGAffineTransform(rotationAngle: xFromCenter/divisor)
         
         if xFromCenter > 0{
-            likePassImageView.image = UIImage(named: "checkmark-flat")
+            likePassImageView.image = UIImage(named: "green-checkmark")
             likePassImageView.tintColor = UIColor.green
-        } else {
+        } else if xFromCenter < 0 {
             likePassImageView.image = UIImage(named: "x-mark")
             likePassImageView.tintColor = UIColor.red
         }
@@ -370,15 +296,11 @@ class HomeSwipeViewController: UIViewController {
     }
     
     func resetCard(){
-        /*UIView.animate(withDuration: 0.2, animations: {
-            self.card.center = CGPoint(x: self.view.frame.width/2, y: 427)
-            self.card.alpha = 1
-        })*/
-        
         UIView.animate(withDuration: 0.2, delay: 1, options: UIView.AnimationOptions.transitionFlipFromBottom, animations: {
             self.card.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
             self.card.alpha = 1
             self.likePassImageView.alpha = 0
+            self.card.transform = .identity
         })
     }
     

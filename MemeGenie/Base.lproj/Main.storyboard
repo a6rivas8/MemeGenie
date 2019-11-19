@@ -856,7 +856,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <imageView key="tableFooterView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Zay-KP-9NM">
-                            <rect key="frame" x="0.0" y="99.666667938232422" width="414" height="250"/>
+                            <rect key="frame" x="0.0" y="99.66666793823245" width="414" height="249.99999999999997"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <prototypes>
@@ -913,7 +913,7 @@
                                         <color key="textColor" red="0.96106427910000003" green="0.90638267989999999" blue="0.65093141789999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark-flat" translatesAutoresizingMaskIntoConstraints="NO" id="e9z-D1-Cdg">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green-checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="e9z-D1-Cdg">
                                         <rect key="frame" x="133" y="143" width="128" height="128"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1279,10 +1279,10 @@
         <image name="Meme Genie1" width="355" height="52"/>
         <image name="account" width="26" height="24"/>
         <image name="add" width="26" height="24"/>
-        <image name="checkmark-flat" width="256" height="256"/>
         <image name="clock.fill" catalog="system" width="64" height="60"/>
         <image name="fire" width="20" height="28"/>
         <image name="go_to_selection_arrow" width="439" height="35"/>
+        <image name="green-checkmark" width="512" height="512"/>
         <image name="hand.thumbsup.fill" catalog="system" width="64" height="62"/>
         <image name="home" width="26" height="29"/>
         <image name="pepe1" width="492" height="672"/>
