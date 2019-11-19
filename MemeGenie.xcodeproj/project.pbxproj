@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2428F3F32383A52A000D62FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2428F3F22383A52A000D62FA /* Assets.xcassets */; };
 		24C5E209237A460000AD519E /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5E208237A460000AD519E /* TrendingViewController.swift */; };
 		24C9A00123503D2800A083FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A00023503D2800A083FE /* AppDelegate.swift */; };
 		24C9A00323503D2800A083FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A00223503D2800A083FE /* ViewController.swift */; };
@@ -28,7 +29,6 @@
 		5C13E7267E0FB5667A4F084F /* Pods_MemeGenie_MemeGenieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2FDF0B27E608AE38347BDB /* Pods_MemeGenie_MemeGenieUITests.framework */; };
 		5C62C428237B1ACC00706356 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62C427237B1ACC00706356 /* TagsViewController.swift */; };
 		702B4F192375D34000F2D499 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702B4F182375D34000F2D499 /* CollectionViewCell.swift */; };
-		70367B5F23839E4D0094D11C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70367B5E23839E4D0094D11C /* Assets.xcassets */; };
 		70B38BA123682AD40087FED7 /* ViewMemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B38BA023682AD40087FED7 /* ViewMemesViewController.swift */; };
 		70B43DEF237DCFD800467995 /* LikedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B43DEE237DCFD800467995 /* LikedCollectionViewCell.swift */; };
 		70B43DF1237DD22A00467995 /* LikedMemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B43DF0237DD22A00467995 /* LikedMemesViewController.swift */; };
@@ -58,6 +58,7 @@
 /* Begin PBXFileReference section */
 		0DBB7232B87FDEA6826DD8B8 /* Pods_MemeGenieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemeGenieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22424015BEAFB5679877D2B1 /* Pods-MemeGenieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenieTests.debug.xcconfig"; path = "Target Support Files/Pods-MemeGenieTests/Pods-MemeGenieTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2428F3F22383A52A000D62FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../Assets.xcassets; sourceTree = "<group>"; };
 		24C5E208237A460000AD519E /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 		24C99FFD23503D2800A083FE /* MemeGenie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeGenie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C9A00023503D2800A083FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +86,6 @@
 		5C62C427237B1ACC00706356 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 		5F8AE0B3731A7B52C78495B7 /* Pods-MemeGenieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenieTests.release.xcconfig"; path = "Target Support Files/Pods-MemeGenieTests/Pods-MemeGenieTests.release.xcconfig"; sourceTree = "<group>"; };
 		702B4F182375D34000F2D499 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		70367B5E23839E4D0094D11C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../Assets.xcassets; sourceTree = "<group>"; };
 		70B38BA023682AD40087FED7 /* ViewMemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMemesViewController.swift; sourceTree = "<group>"; };
 		70B43DEE237DCFD800467995 /* LikedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedCollectionViewCell.swift; sourceTree = "<group>"; };
 		70B43DF0237DD22A00467995 /* LikedMemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedMemesViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 				24C9A00423503D2800A083FE /* Main.storyboard */,
 				70B43DEE237DCFD800467995 /* LikedCollectionViewCell.swift */,
 				8F5DBD7A236A357800831766 /* Podfile */,
-				70367B5E23839E4D0094D11C /* Assets.xcassets */,
+				2428F3F22383A52A000D62FA /* Assets.xcassets */,
 				24C9A00923503D2C00A083FE /* LaunchScreen.storyboard */,
 				24C9A00C23503D2C00A083FE /* Info.plist */,
 				24F033D5235546C0002DB897 /* GoogleService-Info.plist */,
@@ -351,7 +351,7 @@
 				24C9A00B23503D2C00A083FE /* LaunchScreen.storyboard in Resources */,
 				24F033D6235546C0002DB897 /* GoogleService-Info.plist in Resources */,
 				24C9A00623503D2800A083FE /* Main.storyboard in Resources */,
-				70367B5F23839E4D0094D11C /* Assets.xcassets in Resources */,
+				2428F3F32383A52A000D62FA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,14 +674,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B63332742T;
+				DEVELOPMENT_TEAM = 6M6Q64VDPQ;
 				INFOPLIST_FILE = MemeGenie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = team6.MemeGenie;
+				PRODUCT_BUNDLE_IDENTIFIER = alexander.memegenie.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -694,14 +694,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B63332742T;
+				DEVELOPMENT_TEAM = 6M6Q64VDPQ;
 				INFOPLIST_FILE = MemeGenie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = team6.MemeGenie;
+				PRODUCT_BUNDLE_IDENTIFIER = alexander.memegenie.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

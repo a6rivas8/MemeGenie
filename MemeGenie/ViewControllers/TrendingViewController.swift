@@ -11,7 +11,11 @@ import FirebaseAuth
 import Firebase
 
 class TrendingViewController: UITableViewController {
-
+    let storage = Storage.storage().reference()
+    let db = Firestore.firestore()
+    
+    var memeArr: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +24,25 @@ class TrendingViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        getTrending()
+    }
+    
+    func getTrending() {
+        db.collection("memes").order(by: "rank", descending: true).limit(to: 10).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    self.memeArr.append(document.documentID)
+                    print("rank: \(document.get("rank")!)")
+                }
+
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -31,7 +54,7 @@ class TrendingViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return memeArr.count
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -40,22 +63,33 @@ class TrendingViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "trendCell", for: indexPath)
-
+        
         // Configure the cell...
         let rankLabel = cell.viewWithTag(1) as! UILabel
         let imageView = cell.viewWithTag(2) as! UIImageView
         let captionLabel = cell.viewWithTag(3) as! UILabel
 
-        rankLabel.text = "10."
-        imageView.image = UIImage(named: "flower")
-        captionLabel.text = "cool flower"
-
+        rankLabel.text = String(indexPath.row + 1)
+        
+        db.collection("memes").document(memeArr[indexPath.row]).getDocument { (document, error) in
+            if let document = document, document.exists {
+                captionLabel.text = (document.get("caption") as! String)
+                let imgString = URL(string: (document.get("download_url") as! String))
+                imageView.loadImg(url: imgString!)
+            } else {
+                print("Document does not exist")
+            }
+        }
+        
         return cell
     }
+    
+    
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "trendSegue", sender: self)
     }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
