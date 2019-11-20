@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2428F3F32383A52A000D62FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2428F3F22383A52A000D62FA /* Assets.xcassets */; };
+		2428F3F52384C159000D62FA /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2428F3F42384C159000D62FA /* ExpandedViewController.swift */; };
 		24C5E209237A460000AD519E /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5E208237A460000AD519E /* TrendingViewController.swift */; };
 		24C9A00123503D2800A083FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A00023503D2800A083FE /* AppDelegate.swift */; };
 		24C9A00323503D2800A083FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9A00223503D2800A083FE /* ViewController.swift */; };
@@ -59,6 +60,7 @@
 		0DBB7232B87FDEA6826DD8B8 /* Pods_MemeGenieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemeGenieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22424015BEAFB5679877D2B1 /* Pods-MemeGenieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenieTests.debug.xcconfig"; path = "Target Support Files/Pods-MemeGenieTests/Pods-MemeGenieTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2428F3F22383A52A000D62FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../Assets.xcassets; sourceTree = "<group>"; };
+		2428F3F42384C159000D62FA /* ExpandedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedViewController.swift; sourceTree = "<group>"; };
 		24C5E208237A460000AD519E /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 		24C99FFD23503D2800A083FE /* MemeGenie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeGenie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C9A00023503D2800A083FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				24D58816235684A00099CC2B /* AccountViewController.swift */,
 				70B38BA023682AD40087FED7 /* ViewMemesViewController.swift */,
 				24C5E208237A460000AD519E /* TrendingViewController.swift */,
+				2428F3F42384C159000D62FA /* ExpandedViewController.swift */,
 				70C759CC2377E65A001B358C /* ChangePasswordViewController.swift */,
 				702B4F182375D34000F2D499 /* CollectionViewCell.swift */,
 				5C62C427237B1ACC00706356 /* TagsViewController.swift */,
@@ -490,6 +493,7 @@
 				702B4F192375D34000F2D499 /* CollectionViewCell.swift in Sources */,
 				24C9A03123503DC100A083FE /* LoginViewController.swift in Sources */,
 				24C9A036235053BA00A083FE /* CustomButton.swift in Sources */,
+				2428F3F52384C159000D62FA /* ExpandedViewController.swift in Sources */,
 				70B43DF1237DD22A00467995 /* LikedMemesViewController.swift in Sources */,
 				70C759CD2377E65A001B358C /* ChangePasswordViewController.swift in Sources */,
 				24C9A02F23503DB600A083FE /* SignUpViewController.swift in Sources */,

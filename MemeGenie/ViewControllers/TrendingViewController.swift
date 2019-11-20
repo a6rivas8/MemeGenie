@@ -11,6 +11,7 @@ import FirebaseAuth
 import Firebase
 
 class TrendingViewController: UITableViewController {
+    var selectedMeme: String = ""
     let storage = Storage.storage().reference()
     let db = Firestore.firestore()
     
@@ -35,7 +36,6 @@ class TrendingViewController: UITableViewController {
             } else {
                 for document in querySnapshot!.documents {
                     self.memeArr.append(document.documentID)
-                    print("rank: \(document.get("rank")!)")
                 }
 
                 DispatchQueue.main.async {
@@ -87,7 +87,17 @@ class TrendingViewController: UITableViewController {
     
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "trendSegue", sender: self)
+        selectedMeme = memeArr[indexPath.row]
+        if selectedMeme != "" {
+            performSegue(withIdentifier: "trendSegue", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "trendSegue" {
+            let seg = segue.destination as! ExpandedViewController
+            seg.meme = selectedMeme
+        }
     }
     
     /*
