@@ -8,6 +8,8 @@
 
 import UIKit
 import Canvas
+import Firebase
+import FirebaseAuth
 
 class ViewController: UIViewController {
     @IBOutlet weak var memegenieView: CSAnimationView!
@@ -22,6 +24,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         setUpElements()
     }
 
@@ -30,16 +33,12 @@ class ViewController: UIViewController {
         CustomButton.styleButton(signUpTextButton)
         CustomButton.styleButton(loginTextButton)
     }
-
     
     @IBAction func pressed(_ sender: Any) {
         memegenieView.startCanvasAnimation()
         pepeLeft.startCanvasAnimation()
         pepeRight.startCanvasAnimation()
         Logo.startCanvasAnimation()
-        
     }
-    
-    
 }
 
