@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 
 
-class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate  {
     let picker = UIImagePickerController()
     let db = Firestore.firestore()
     
@@ -31,6 +31,7 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         uploadImageCaption.delegate = self
          self.hideKeyboardWhenTappedAround()
         CustomButton.styleButton(clearImageButton)
         
@@ -74,11 +75,17 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
         uploadImageCaption.resignFirstResponder()
          
      }
+    // PRESSING RETURN WILL HIDE KEYBOARD
+    func textFieldShouldReturn(uploadImageCaption: UITextField) -> Bool {
+
+         uploadImageCaption.resignFirstResponder()
+         return true
+     }
      
      @objc func keyboardWillChange(notification: Notification){
          print("keyboard will show: \(notification.name.rawValue)")
         
-        view.frame.origin.y = -150
+        view.frame.origin.y = -90
          
      }
     
