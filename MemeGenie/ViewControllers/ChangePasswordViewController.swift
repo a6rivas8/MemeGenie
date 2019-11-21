@@ -25,6 +25,9 @@ class ChangePasswordViewController: UIViewController{
     //Error Label
     @IBOutlet weak var errorLabel: UILabel!
     
+    //ErrorCard
+    @IBOutlet weak var errorView: UIView!
+    
     //Save Button
     @IBOutlet weak var saveButton: UIButton!
     
@@ -33,6 +36,15 @@ class ChangePasswordViewController: UIViewController{
 
         // Do any additional setup after loading the view.
         setUpElements()
+        
+        let error = validateFields()
+        showError(error!)
+        
+        errorView.layer.cornerRadius = 3
+        errorView.layer.shadowColor = UIColor(red:0/255.0, green:0/255.0, blue:0/255.0, alpha: 1.0).cgColor
+        errorView.layer.shadowOffset = CGSize(width: 0, height: 1.75)
+        errorView.layer.shadowRadius = 1.7
+        errorView.layer.shadowOpacity = 0.45
             
         //Set User Info in Labels
         let user = Auth.auth().currentUser
@@ -46,34 +58,14 @@ class ChangePasswordViewController: UIViewController{
                 if let err = err{
                     print("Error getting documents: \(err)")
                 } else {
-                    //let document = querySnapshot!.documents[0]
-                        
-                    //let firstname = document.get("first_name")
-                    //let lastname = document.get("last_name")
-                        
-                    //self.nameText.text = " "+(firstname as! String)+" "+(lastname as! String);
-                    //self.lastNameText.text = " "+(lastname as! String);
-                    //self.emailText.text = " "+(email!);
+                    // nothing...
                 }
             }
         }
     }
         
     func setUpElements() {
-            // hide error label
-            //errorTextField.alpha = 0
-            
-            // style elements
-            //CustomButton.styleButton(saveButton)
-            //CustomButton.styleButton(viewMemesPosted)
-            
-            //CustomTextField.styleTextField(nameText)
-            //nameText.font = UIFont.boldSystemFont(ofSize: 25)
-            //userActivityLabel.font = UIFont.boldSystemFont(ofSize: 18)
-
-            //CustomTextField.styleTextField(emailText)
-            //CustomTextField.styleTextField(newPasswordText)
-            //CustomTextField.styleTextField(confirmPasswordText)
+         // nothing...
     }
         
     func showError(_ message:String) {
@@ -90,6 +82,7 @@ class ChangePasswordViewController: UIViewController{
         let error = validateFields()
             
         if error != nil {
+            errorLabel.textColor = UIColor.red
             showError(error!)
             print("Error changing password!")
         } else{
