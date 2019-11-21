@@ -22,6 +22,7 @@ class HomeSwipeViewController: UIViewController {
     
     let storage = Storage.storage().reference()
     let db = Firestore.firestore()
+
     
     // hold current image uid so we can reference to it
     // in Firestore database and Cloud Storage
@@ -32,7 +33,7 @@ class HomeSwipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        divisor = (view.frame.width/2)/0.61
+        divisor = (view.frame.width/2)/0.50
         
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.borderWidth = 2
