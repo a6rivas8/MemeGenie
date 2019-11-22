@@ -80,7 +80,7 @@ class AccountViewController: UIViewController {
         
     //Sign Out Button
     @IBAction func signOutButton(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Log Current User Out?", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Log Out?", message: nil, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Sign Out", style: .default, handler: {action in
             
@@ -92,7 +92,7 @@ class AccountViewController: UIViewController {
                 print ("Error signing out: %@", signOutError)
             }
         }))
-        alert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
         self.present(alert, animated: true, completion: nil)
     }

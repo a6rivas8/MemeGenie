@@ -24,16 +24,18 @@ class HomeSwipeViewController: UIViewController {
     let db = Firestore.firestore()
 
     
-    // hold current image uid so we can reference to it
+    // hold current image id so we can reference to it
     // in Firestore database and Cloud Storage
     var currentIndex: Int = 0
     var memeArr: [String] = []
     var memeArrLength: Int = 0
+    var endOfBatch: Bool = false
+    var lastMostRecentMeme: Any?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        divisor = (view.frame.width/2)/0.50
+        divisor = (view.frame.width / 2) / 0.50
         
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.borderWidth = 2
@@ -45,33 +47,65 @@ class HomeSwipeViewController: UIViewController {
         captionLabel.layer.cornerRadius = 8
         
         // grabbing first 50 memes from firestore
-        db.collection("memes").limit(to: 50).getDocuments() { (querySnapshot, err) in
+        getNextBatch()
+    }
+    
+    func getNextBatch() {
+        db.collection("memes").order(by: "date_uploaded", descending: true).limit(to: 50).getDocuments { (query, err) in
+            self.currentIndex = 0
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    self.memeArr.append(document.documentID)
-                    self.memeArrLength = self.memeArr.count
+                if query!.documents.count < 1 {
+                    self.endOfBatch = true
                 }
                 
-                // setting first image to show
-                let memeReference = self.storage.child("memes/\(self.memeArr[self.currentIndex]).jpg")
-                memeReference.getData(maxSize: 8 * 1024 * 1024) { (data, error) in
-                    if let error = error {
-                        // meme reference in firestore does not exist
-                        // go to next meme
-                        // TODO: handle missing storage references [possibly by deleting from firestore]
-                        print("ERROR: \(error.localizedDescription)")
-                        self.getNextMeme()
-                    } else if let data = data {
-                        self.imageView.image = UIImage(data: data)
+                let user = Auth.auth().currentUser
+                
+                if let user = user {
+                    let uid = user.uid
+                    
+                    for document in query!.documents {
+                        let liked = document.get("liked_by") as? [String]
+                        let passed = document.get("passed_by") as? [String]
+                        
+                        if liked != nil && passed != nil {
+                            if !(liked!.contains(uid) || passed!.contains(uid)) {
+                                self.memeArr.append(document.documentID)
+                            }
+                        } else {
+                            self.memeArr.append(document.documentID)
+                        }
+                    }
+                    // Saving last document snapshot to use .start(at: DocumentSnapshot) query filter
+                    // This way, we can perform consecutive calls for batches until memes deplete in database
+                    self.lastMostRecentMeme = query!.documents[self.memeArr.count-1] as DocumentSnapshot
+                    print("Last doc: \(self.lastMostRecentMeme!)")
+                    
+                    
+                    // first meme of new batch
+                    if self.memeArr.count != 0 {
+                        let memeReference = self.storage.child("memes/\(self.memeArr[self.currentIndex]).jpg")
+                        memeReference.getData(maxSize: 8 * 1024 * 1024) { (data, error) in
+                            if let error = error {
+                                // meme reference in firestore does not exist go to next meme
+                                print("ERROR: \(error.localizedDescription)")
+                                self.getNextMeme()
+                            } else if let data = data {
+                                self.imageView.image = UIImage(data: data)
+                            }
+                        }
+                        self.captionLabel.text = query!.documents[0].get("caption") as? String
+                    } else {
+                        self.imageView.image = UIImage(named: "noImage")
                     }
                 }
-                self.captionLabel.text = querySnapshot!.documents[0].get("caption") as? String
+                self.memeArrLength = self.memeArr.count
             }
         }
     }
     
+    // TASK:
     // gets the next meme to display
     func getNextMeme() {
         self.currentIndex += 1
@@ -96,6 +130,7 @@ class HomeSwipeViewController: UIViewController {
         }
     }
     
+    // TASK:
     // calculate and update the rank of each meme
     func calculateRank() -> Double {
         var rank: Double = 0
@@ -128,7 +163,7 @@ class HomeSwipeViewController: UIViewController {
         return rank
     }
     
-    // Task:
+    // TASK:
     // Grab meme document from Firestore Database
     // Increment like or pass on meme
     @IBAction func panCard(_ sender: UIPanGestureRecognizer) {
@@ -138,9 +173,9 @@ class HomeSwipeViewController: UIViewController {
         
         card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
         /* To rotate */
-        card.transform = CGAffineTransform(rotationAngle: xFromCenter/divisor)
+        card.transform = CGAffineTransform(rotationAngle: xFromCenter / divisor)
         
-        if xFromCenter > 0{
+        if xFromCenter > 0 {
             likePassImageView.image = UIImage(named: "green-checkmark")
             likePassImageView.tintColor = UIColor.green
         } else if xFromCenter < 0 {
@@ -151,8 +186,7 @@ class HomeSwipeViewController: UIViewController {
         likePassImageView.alpha = abs(xFromCenter)/view.center.x
         
         if sender.state == UIGestureRecognizer.State.ended {
-            
-            if card.center.x < 35{
+            if card.center.x < 35 {
                 //move off left side of screen
                 UIView.animate(withDuration: 0.2, animations: {
                     card.center = CGPoint(x: card.center.x - 300, y: card.center.y + 75)
@@ -160,32 +194,43 @@ class HomeSwipeViewController: UIViewController {
                     self.likePassImageView.alpha = 0
                 })
                 
-                print("Swiped Left")
-                let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
+                // Get user
+                let user = Auth.auth().currentUser
+                let db = Firestore.firestore()
                 
-                likedMemeReference.updateData([
-                    "passes": FieldValue.increment(Int64(1))
-                ])
+                if self.memeArr.count != 0 {
+                    if let user = user {
+                        let uid = user.uid
+                        let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
+                        
+                        likedMemeReference.updateData([
+                            "passes": FieldValue.increment(Int64(1)),
+                            "passed_by": FieldValue.arrayUnion([uid])
+                        ])
+                    }
+                }
                 
                 if (memeArrLength - 1) > currentIndex  {
                     getNextMeme()
-                } else {
+                    
+                    let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
+                    currentMemeReference.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            // Change caption
+                            self.captionLabel.text = document.get("caption") as? String
+                        } else {
+                            print("Document does not exist")
+                        }
+                    }
+                } else if endOfBatch {
                     imageView.image = UIImage(named: "noImage")
+                } else {
+                    getNextBatch()
                 }
                 
-                let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
-                currentMemeReference.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        // Change caption
-                        self.captionLabel.text = document.get("caption") as? String
-                    } else {
-                        print("Document does not exist")
-                    }
-                }
-
                 resetCard()
                 return
-            } else if card.center.x > (self.view.frame.width - 35){
+            } else if card.center.x > (self.view.frame.width - 35) {
                 //move off right side of screen
                 UIView.animate(withDuration: 0.2, animations: {
                     card.center = CGPoint(x: card.center.x + 300, y: card.center.y + 75)
@@ -193,41 +238,43 @@ class HomeSwipeViewController: UIViewController {
                     self.likePassImageView.alpha = 0
                 })
                 
-                print("Swiped Right")
                 //Get User Info
                 let user = Auth.auth().currentUser
                 let db = Firestore.firestore()
                    
-                if let user = user {
-                    let uid = user.uid
-                    let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
-                
-                    likedMemeReference.updateData([
-                        "likes": FieldValue.increment(Int64(1)),
-                        "liked_by": FieldValue.arrayUnion([uid])
-                    ])
-                }
-                
-                // does it make sense to have it here or after the retrivieng of caption
-                if (memeArrLength - 1) > currentIndex  {
-                    getNextMeme()
-                } else {
-                    imageView.image = UIImage(named: "noImage")
-                }
-                
-                let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
-                currentMemeReference.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        self.captionLabel.text = document.get("caption") as? String
-                    } else {
-                        print("Document does not exist")
+                if self.memeArr.count != 0 {
+                    if let user = user {
+                        let uid = user.uid
+                        let likedMemeReference = db.collection("memes").document(memeArr[currentIndex])
+                    
+                        likedMemeReference.updateData([
+                            "likes": FieldValue.increment(Int64(1)),
+                            "liked_by": FieldValue.arrayUnion([uid])
+                        ])
                     }
                 }
                 
+                if (memeArrLength - 1) > currentIndex  {
+                    getNextMeme()
+                    
+                    let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
+                    currentMemeReference.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            self.captionLabel.text = document.get("caption") as? String
+                        } else {
+                            print("Document does not exist")
+                        }
+                    }
+                } else if endOfBatch {
+                    imageView.image = UIImage(named: "noImage")
+                } else {
+                    getNextBatch()
+                }
+
                 resetCard()
                 return
             }
-             resetCard()
+            resetCard()
         }
     }
     

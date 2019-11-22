@@ -171,8 +171,6 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
         hideKeyboard()
     }
     
-    
-    
     @IBAction func uploadMeme(_ sender: Any) {
         let user = Auth.auth().currentUser
         let uid = user!.uid
@@ -203,7 +201,9 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
                 if let url = url {
                     print("Here is your download URL: \(url.absoluteString)")
                     print("Date/Time posted: \(String(describing: downloadMetadata?.timeCreated))")
+                    
                     // Create meme reference in Firestore database
+                    // TODO: Tags for memes
                     self.db.collection("memes").document(randomID).setData([
                         "caption": self.uploadImageCaption.text!,
                         "date_uploaded": downloadMetadata?.timeCreated! ?? Timestamp(date: Date()),
@@ -211,7 +211,8 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
                         "passes": 0,
                         "posted_by": uid,
                         "rank": 0,
-                      //  "tags": [self.uploadImageTags.text!],
+                        "liked_by": [],
+                        "passed_by": [],
                         "memeID": randomID,
                         "download_url": url.absoluteString
                     ]) { err in
@@ -220,8 +221,6 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
                         } else {
                             print("Document meme succesfully written")
                             // reference meme to user
-                            
-                            
                             let alert = UIAlertController(title: "SUCCESS", message: "Meme uploaded succesfully", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: {_ in
                                 self.dismiss(animated: true, completion: nil)
@@ -256,10 +255,7 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func clearImage(_ sender: Any) {
         hideKeyboard()
         resetScreen()
-       
-        
     }
-    
     
     func resetScreen(){
         uploadImageView.image = defaultImage
@@ -276,6 +272,7 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
         uploadImageCaption.text = ""
     }
 }
+
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
