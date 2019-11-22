@@ -44,6 +44,8 @@ class HomeSwipeViewController: UIViewController {
         captionLabel.layer.borderWidth = 1.5
         captionLabel.layer.cornerRadius = 8
         
+        card.layer.cornerRadius = 8
+        
         // grabbing first 50 memes from firestore
         db.collection("memes").limit(to: 50).getDocuments() { (querySnapshot, err) in
             if let err = err {
