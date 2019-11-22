@@ -53,18 +53,18 @@ extension Date {
 
         if minuteAgo < self {
             let diff = Calendar.current.dateComponents([.second], from: self, to: Date()).second ?? 0
-            return "\(diff) sec ago"
+            return diff > 1 ? "\(diff) secs ago" : "\(diff) sec ago"
         } else if hourAgo < self {
             let diff = Calendar.current.dateComponents([.minute], from: self, to: Date()).minute ?? 0
-            return "\(diff) min ago"
+            return diff > 1 ? "\(diff) mins ago" : "\(diff) min ago"
         } else if dayAgo < self {
             let diff = Calendar.current.dateComponents([.hour], from: self, to: Date()).hour ?? 0
-            return "\(diff) hrs ago"
+            return diff > 1 ? "\(diff) hrs ago" : "\(diff) hr ago"
         } else if weekAgo < self {
             let diff = Calendar.current.dateComponents([.day], from: self, to: Date()).day ?? 0
-            return "\(diff) days ago"
+            return diff > 1 ? "\(diff) days ago" : "\(diff) day ago"
         }
         let diff = Calendar.current.dateComponents([.weekOfYear], from: self, to: Date()).weekOfYear ?? 0
-        return "\(diff) weeks ago"
+        return diff > 1 ? "\(diff) weeks ago" : "\(diff) week ago"
     }
 }
