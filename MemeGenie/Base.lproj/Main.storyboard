@@ -504,7 +504,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IH6-Xt-K2d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3404.347826086957" y="1619.8369565217392"/>
+            <point key="canvasLocation" x="5183" y="1273"/>
         </scene>
         <!--Change Your Password-->
         <scene sceneID="0TX-do-gRB">
@@ -620,7 +620,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWw-NH-h2N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4228.985507246377" y="1619.8369565217392"/>
+            <point key="canvasLocation" x="5183" y="1979"/>
         </scene>
         <!--Your Memes-->
         <scene sceneID="tTn-Ro-Qgz">
@@ -645,7 +645,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="tSP-tu-qS8" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="tSP-tu-qS8" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="190" height="290"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3Dd-Zn-0vP" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
@@ -749,7 +749,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wd4-3U-gi7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4569.5652173913049" y="2362.5"/>
+            <point key="canvasLocation" x="6886" y="968"/>
         </scene>
         <!--Upload Meme-->
         <scene sceneID="Utj-ar-5bZ">
@@ -891,7 +891,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYM-Nr-DhZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5847.826086956522" y="517.66304347826087"/>
+            <point key="canvasLocation" x="5183" y="-552"/>
         </scene>
         <!--Tags View Controller-->
         <scene sceneID="lsQ-AG-lkh">
@@ -922,7 +922,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPi-hy-TJK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6645" y="518"/>
+            <point key="canvasLocation" x="5983" y="-552"/>
         </scene>
         <!--Home Swipe-->
         <scene sceneID="QvR-fk-gYf">
@@ -1025,7 +1025,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3405.7971014492755" y="225.00000000000003"/>
+            <point key="canvasLocation" x="4399" y="-1339"/>
         </scene>
         <!--Meme Genie-->
         <scene sceneID="QII-xy-Ose">
@@ -1054,7 +1054,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhH-Js-uGl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2500" y="779"/>
+            <point key="canvasLocation" x="2433" y="779"/>
         </scene>
         <!--Account-->
         <scene sceneID="aSw-f4-Isi">
@@ -1073,7 +1073,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X8l-sI-Ea1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2498.5507246376815" y="1620.6521739130435"/>
+            <point key="canvasLocation" x="4399" y="1273"/>
         </scene>
         <!--Upload-->
         <scene sceneID="mBW-g5-zv9">
@@ -1092,7 +1092,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePr-4x-Jue" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4909.6000000000004" y="517.6911544227886"/>
+            <point key="canvasLocation" x="4399" y="-552"/>
         </scene>
         <!--Trending View-->
         <scene sceneID="2kN-Jf-NlW">
@@ -1188,7 +1188,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UdS-Ui-kqJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6171.0144927536239" y="1194.2934782608697"/>
+            <point key="canvasLocation" x="5183" y="227"/>
         </scene>
         <!--Expanded View Controller-->
         <scene sceneID="Ezm-oj-DU1">
@@ -1284,7 +1284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUQ-4V-ABw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6953.6231884057979" y="1193.4782608695652"/>
+            <point key="canvasLocation" x="5983" y="227"/>
         </scene>
         <!--Liked Memes-->
         <scene sceneID="vqd-6p-jgZ">
@@ -1310,7 +1310,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="pbl-FT-0q6" customClass="LikedCollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="pbl-FT-0q6" customClass="LikedCollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
                                         <rect key="frame" x="10" y="10" width="190" height="210"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lWc-bO-oQ6">
@@ -1370,7 +1370,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4QM-IP-p8U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2985.507246376812" y="3058.6956521739135"/>
+            <point key="canvasLocation" x="6886" y="1688"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="j6G-8j-min">
@@ -1390,7 +1390,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqp-Ve-YgR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3796" y="2363"/>
+            <point key="canvasLocation" x="6128" y="968"/>
         </scene>
         <!--Trending-->
         <scene sceneID="4Lz-YI-vNU">
@@ -1409,7 +1409,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qac-Vd-h6w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5232.8000000000002" y="1195.952023988006"/>
+            <point key="canvasLocation" x="4399" y="227"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y3N-hY-AUr">
@@ -1428,7 +1428,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vtG-Pf-uDF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2986" y="2363"/>
+            <point key="canvasLocation" x="6128" y="1688"/>
         </scene>
     </scenes>
     <resources>
