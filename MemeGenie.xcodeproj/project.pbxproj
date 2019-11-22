@@ -34,6 +34,7 @@
 		70B43DEF237DCFD800467995 /* LikedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B43DEE237DCFD800467995 /* LikedCollectionViewCell.swift */; };
 		70B43DF1237DD22A00467995 /* LikedMemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B43DF0237DD22A00467995 /* LikedMemesViewController.swift */; };
 		70C759CD2377E65A001B358C /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C759CC2377E65A001B358C /* ChangePasswordViewController.swift */; };
+		70E1AE1B2387B69E00F95F78 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E1AE1A2387B69D00F95F78 /* CardView.swift */; };
 		7DE1DB5C66F807D0A87909D9 /* Pods_MemeGenieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DBB7232B87FDEA6826DD8B8 /* Pods_MemeGenieTests.framework */; };
 		8F5DBD7B236A357800831766 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 8F5DBD7A236A357800831766 /* Podfile */; };
 		AE91729C1FD746DB7235DB31 /* Pods_MemeGenie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90B394286047E9313199DA3 /* Pods_MemeGenie.framework */; };
@@ -93,6 +94,7 @@
 		70B43DF0237DD22A00467995 /* LikedMemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedMemesViewController.swift; sourceTree = "<group>"; };
 		70C759CC2377E65A001B358C /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		70D7162F2701B23DC2D176BB /* Pods-MemeGenie-MemeGenieUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenie-MemeGenieUITests.release.xcconfig"; path = "Target Support Files/Pods-MemeGenie-MemeGenieUITests/Pods-MemeGenie-MemeGenieUITests.release.xcconfig"; sourceTree = "<group>"; };
+		70E1AE1A2387B69D00F95F78 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		8E0364304285E1ADCFF512D2 /* Pods-MemeGenie-MemeGenieUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenie-MemeGenieUITests.debug.xcconfig"; path = "Target Support Files/Pods-MemeGenie-MemeGenieUITests/Pods-MemeGenie-MemeGenieUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F5DBD7A236A357800831766 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 		9F2FDF0B27E608AE38347BDB /* Pods_MemeGenie_MemeGenieUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemeGenie_MemeGenieUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +205,7 @@
 				702B4F182375D34000F2D499 /* CollectionViewCell.swift */,
 				5C62C427237B1ACC00706356 /* TagsViewController.swift */,
 				70B43DF0237DD22A00467995 /* LikedMemesViewController.swift */,
+				70E1AE1A2387B69D00F95F78 /* CardView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				24D58817235684A00099CC2B /* AccountViewController.swift in Sources */,
 				70B38BA123682AD40087FED7 /* ViewMemesViewController.swift in Sources */,
 				5C62C428237B1ACC00706356 /* TagsViewController.swift in Sources */,
+				70E1AE1B2387B69E00F95F78 /* CardView.swift in Sources */,
 				24EF607623555FD8005FE3A2 /* credentialValidator.swift in Sources */,
 				702B4F192375D34000F2D499 /* CollectionViewCell.swift in Sources */,
 				24C9A03123503DC100A083FE /* LoginViewController.swift in Sources */,

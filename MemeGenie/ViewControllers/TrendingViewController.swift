@@ -17,9 +17,14 @@ class TrendingViewController: UITableViewController {
     
     var memeArr: [String] = []
     
+    @IBOutlet var trendingTableView: UITableView!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        trendingTableView.dataSource = self
+        trendingTableView.delegate = self
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -81,6 +86,8 @@ class TrendingViewController: UITableViewController {
             }
         }
         
+        cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        
         return cell
     }
     
@@ -132,16 +139,6 @@ class TrendingViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
     */
 
