@@ -30,7 +30,7 @@ class HomeSwipeViewController: UIViewController {
     var memeArr: [String] = []
     var memeArrLength: Int = 0
     var endOfBatch: Bool = false
-    var lastMostRecentMeme: Any?
+    var lastMostRecentMeme: DocumentSnapshot?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,12 +48,28 @@ class HomeSwipeViewController: UIViewController {
         
         card.layer.cornerRadius = 8
         
-        // grabbing first 50 memes from firestore
+        // retrieving first document snapshot
+        db.collection("memes").order(by: "date_uploaded", descending: true).limit(to: 1).getDocuments { (query, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.lastMostRecentMeme = query!.documents[0] as DocumentSnapshot
+                print("first doc \(String(describing: self.lastMostRecentMeme))")
+            }
+        }
+        
         getNextBatch()
     }
     
     func getNextBatch() {
+//        print("\n\n\(String(describing: self.lastMostRecentMeme))\n\n")
+//        guard let lastSnapshot = self.lastMostRecentMeme else {
+//            self.endOfBatch = true
+//            return
+//        }
+        
         db.collection("memes").order(by: "date_uploaded", descending: true).limit(to: 50).getDocuments { (query, err) in
+                
             self.currentIndex = 0
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -79,29 +95,30 @@ class HomeSwipeViewController: UIViewController {
                             self.memeArr.append(document.documentID)
                         }
                     }
+                    
                     // Saving last document snapshot to use .start(at: DocumentSnapshot) query filter
                     // This way, we can perform consecutive calls for batches until memes deplete in database
                     self.lastMostRecentMeme = query!.documents[self.memeArr.count-1] as DocumentSnapshot
                     print("Last doc: \(self.lastMostRecentMeme!)")
-                    
-                    
-                    // first meme of new batch
-                    if self.memeArr.count != 0 {
-                        let memeReference = self.storage.child("memes/\(self.memeArr[self.currentIndex]).jpg")
-                        memeReference.getData(maxSize: 8 * 1024 * 1024) { (data, error) in
-                            if let error = error {
-                                // meme reference in firestore does not exist go to next meme
-                                print("ERROR: \(error.localizedDescription)")
-                                self.getNextMeme()
-                            } else if let data = data {
-                                self.imageView.image = UIImage(data: data)
-                            }
-                        }
-                        self.captionLabel.text = query!.documents[0].get("caption") as? String
-                    } else {
-                        self.imageView.image = UIImage(named: "noImage")
-                    }
                 }
+                    
+                // first meme of new batch
+                if self.memeArr.count != 0 {
+                    let memeReference = self.storage.child("memes/\(self.memeArr[self.currentIndex]).jpg")
+                    memeReference.getData(maxSize: 8 * 1024 * 1024) { (data, error) in
+                        if let error = error {
+                            // meme reference in firestore does not exist go to next meme
+                            print("ERROR: \(error.localizedDescription)")
+                            self.getNextMeme()
+                        } else if let data = data {
+                            self.imageView.image = UIImage(data: data)
+                        }
+                    }
+                    self.captionLabel.text = query!.documents[0].get("caption") as? String
+                } else {
+                    self.imageView.image = UIImage(named: "noImage")
+                }
+                
                 self.memeArrLength = self.memeArr.count
             }
         }

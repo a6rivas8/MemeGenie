@@ -123,10 +123,7 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
         let rUrl = URL(string: mImg)
         cell.memeImageView.load(url: rUrl!)
         
-        let str = datesArray[indexPath.item].dateValue().description
-        let index = str.index(str.startIndex, offsetBy: 19)
-        let mySubstring = str[..<index]
-        cell.memeDate.text = String(mySubstring)
+        cell.memeDate.text = datesArray[indexPath.item].dateValue().timeAgoDisplay()
         
         cell.memeLikes.text = "\(likesArray[indexPath.item])"
                 
