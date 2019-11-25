@@ -11,7 +11,6 @@ import Firebase
 import FirebaseAuth
 
 class HomeSwipeViewController: UIViewController {
-    
     @IBOutlet weak var card: UIView!
     @IBOutlet weak var likePassImageView: UIImageView!
     
@@ -28,7 +27,6 @@ class HomeSwipeViewController: UIViewController {
     // in Firestore database and Cloud Storage
     var currentIndex: Int = 0
     var memeArr: [String] = []
-    var memeArrLength: Int = 0
     var endOfBatch: Bool = false
     var lastMostRecentMeme: DocumentSnapshot?
     
@@ -48,35 +46,26 @@ class HomeSwipeViewController: UIViewController {
         
         card.layer.cornerRadius = 8
         
-        // retrieving first document snapshot
-        db.collection("memes").order(by: "date_uploaded", descending: true).limit(to: 1).getDocuments { (query, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                self.lastMostRecentMeme = query!.documents[0] as DocumentSnapshot
-                print("first doc \(String(describing: self.lastMostRecentMeme))")
-            }
-        }
-        
-        getNextBatch()
+        getFirstBatch()
     }
     
-    func getNextBatch() {
-//        print("\n\n\(String(describing: self.lastMostRecentMeme))\n\n")
-//        guard let lastSnapshot = self.lastMostRecentMeme else {
-//            self.endOfBatch = true
-//            return
-//        }
-        
-        db.collection("memes").order(by: "date_uploaded", descending: true).limit(to: 50).getDocuments { (query, err) in
-                
-            self.currentIndex = 0
+    // TODO: Handle end of batch
+    func getFirstBatch() {
+        db.collection("memes").order(by: "date_uploaded", descending: true).limit(to: 10).getDocuments { (query, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 if query!.documents.count < 1 {
                     self.endOfBatch = true
+                    print("END OF BATCH")
+                    return
                 }
+                
+                // Saving last document snapshot to use .start(at: DocumentSnapshot) query filter
+                // This way, we can perform consecutive calls for batches until memes deplete in database
+                self.lastMostRecentMeme = query!.documents.last!
+                print("Last doc FIRST BATCH: \(self.lastMostRecentMeme!.documentID)")
+                print("Last doc caption FIRST BATCH: \(self.lastMostRecentMeme!.get("caption") ?? "No caption; nil value")\n\n")
                 
                 let user = Auth.auth().currentUser
                 
@@ -84,22 +73,20 @@ class HomeSwipeViewController: UIViewController {
                     let uid = user.uid
                     
                     for document in query!.documents {
+                        print(document.documentID)
                         let liked = document.get("liked_by") as? [String]
                         let passed = document.get("passed_by") as? [String]
                         
                         if liked != nil && passed != nil {
                             if !(liked!.contains(uid) || passed!.contains(uid)) {
+                                print("haven't seen, adding")
                                 self.memeArr.append(document.documentID)
                             }
                         } else {
+                            print("haven't seen anything ever, adding")
                             self.memeArr.append(document.documentID)
                         }
                     }
-                    
-                    // Saving last document snapshot to use .start(at: DocumentSnapshot) query filter
-                    // This way, we can perform consecutive calls for batches until memes deplete in database
-                    self.lastMostRecentMeme = query!.documents[self.memeArr.count-1] as DocumentSnapshot
-                    print("Last doc: \(self.lastMostRecentMeme!)")
                 }
                     
                 // first meme of new batch
@@ -109,19 +96,93 @@ class HomeSwipeViewController: UIViewController {
                         if let error = error {
                             // meme reference in firestore does not exist go to next meme
                             print("ERROR: \(error.localizedDescription)")
-                            self.getNextMeme()
                         } else if let data = data {
                             self.imageView.image = UIImage(data: data)
                         }
                     }
                     self.captionLabel.text = query!.documents[0].get("caption") as? String
                 } else {
-                    self.imageView.image = UIImage(named: "noImage")
+                    print("EMPTY FIRST BATCH")
+                    self.getNextBatch()
                 }
-                
-                self.memeArrLength = self.memeArr.count
             }
         }
+    }
+    
+    func getNextBatch() {
+        print("GETTING NEXT BATCH")
+        db.collection("memes").order(by: "date_uploaded", descending: true)
+            .start(afterDocument: self.lastMostRecentMeme!).limit(to: 10).getDocuments { (query, err) in
+                
+            self.currentIndex = 0
+            self.memeArr.removeAll()
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                if query!.documents.count < 1 {
+                    self.endOfBatch = true
+                    print("END OF BATCH")
+                    self.endDisplay()
+                    return
+                }
+    
+                self.lastMostRecentMeme = query!.documents.last!
+                // Saving last document snapshot to use .start(at: DocumentSnapshot) query filter
+                // This way, we can perform consecutive calls for batches until memes deplete in database
+                self.lastMostRecentMeme = query!.documents.last!
+                print("Last doc NEXT BATCH: \(self.lastMostRecentMeme!.documentID)")
+                print("Last doc caption NEXT BATCH: \(self.lastMostRecentMeme!.get("caption") ?? "No caption; nil value")\n\n")
+                
+                let user = Auth.auth().currentUser
+                
+                if let user = user {
+                    let uid = user.uid
+                    
+                    for document in query!.documents {
+                        print(document.documentID)
+                        let liked = document.get("liked_by") as? [String]
+                        let passed = document.get("passed_by") as? [String]
+                        
+                        if liked != nil && passed != nil {
+                            if !(liked!.contains(uid) || passed!.contains(uid)) {
+                                print("haven't seen, adding")
+                                self.memeArr.append(document.documentID)
+                            }
+                        } else {
+                            print("haven't seen anything ever, adding")
+                            self.memeArr.append(document.documentID)
+                        }
+                    }
+                }
+                    
+                // first meme of new batch
+                if self.memeArr.count != 0 {
+                    let memeReference = self.storage.child("memes/\(self.memeArr[self.currentIndex]).jpg")
+                    memeReference.getData(maxSize: 8 * 1024 * 1024) { (data, error) in
+                        if let error = error {
+                            // meme reference in firestore does not exist go to next meme
+                            print("ERROR: \(error.localizedDescription)")
+                        } else if let data = data {
+                            self.imageView.image = UIImage(data: data)
+                        }
+                    }
+                    self.captionLabel.text = query!.documents[0].get("caption") as? String
+                } else {
+                    if !self.endOfBatch {
+                        self.getNextBatch()
+                    } else {
+                        self.endDisplay()
+                    }
+                }
+            }
+        }
+    }
+    
+    // TASK:
+    // Image view and caption will be set to end of batch display
+    func endDisplay() {
+        imageView.image = UIImage(named: "noImage")
+        captionLabel.text = "Come back tomorrow for more memes!"
     }
     
     // TASK:
@@ -135,6 +196,15 @@ class HomeSwipeViewController: UIViewController {
                 print("ERROR: \(error.localizedDescription)")
             } else if let data = data {
                 self.imageView.image = UIImage(data: data)
+            }
+        }
+        
+        let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
+        currentMemeReference.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.captionLabel.text = document.get("caption") as? String
+            } else {
+                print("Document does not exist")
             }
         }
     }
@@ -229,20 +299,11 @@ class HomeSwipeViewController: UIViewController {
                     }
                 }
                 
-                if (memeArrLength - 1) > currentIndex  {
+                if (memeArr.count - 1) > currentIndex  {
+                    print("SWIPED right \(memeArr.count) .. \(currentIndex)")
                     getNextMeme()
-                    
-                    let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
-                    currentMemeReference.getDocument { (document, error) in
-                        if let document = document, document.exists {
-                            // Change caption
-                            self.captionLabel.text = document.get("caption") as? String
-                        } else {
-                            print("Document does not exist")
-                        }
-                    }
                 } else if endOfBatch {
-                    imageView.image = UIImage(named: "noImage")
+                    endDisplay()
                 } else {
                     getNextBatch()
                 }
@@ -273,19 +334,11 @@ class HomeSwipeViewController: UIViewController {
                     }
                 }
                 
-                if (memeArrLength - 1) > currentIndex  {
+                if (memeArr.count - 1) > currentIndex  {
+                    print("SWIPED right \(memeArr.count) .. \(currentIndex)")
                     getNextMeme()
-                    
-                    let currentMemeReference = db.collection("memes").document(memeArr[currentIndex])
-                    currentMemeReference.getDocument { (document, error) in
-                        if let document = document, document.exists {
-                            self.captionLabel.text = document.get("caption") as? String
-                        } else {
-                            print("Document does not exist")
-                        }
-                    }
                 } else if endOfBatch {
-                    imageView.image = UIImage(named: "noImage")
+                    endDisplay()
                 } else {
                     getNextBatch()
                 }

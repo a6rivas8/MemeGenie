@@ -80,7 +80,10 @@ class TrendingViewController: UITableViewController {
             if let document = document, document.exists {
                 captionLabel.text = (document.get("caption") as! String)
                 let imgString = URL(string: (document.get("download_url") as! String))
-                imageView.loadImg(url: imgString!)
+                DispatchQueue.main.async {
+                    imageView.loadImg(url: imgString!)
+                }
+                
             } else {
                 print("Document does not exist")
             }
