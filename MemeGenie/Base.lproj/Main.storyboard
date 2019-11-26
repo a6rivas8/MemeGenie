@@ -632,8 +632,8 @@
                                 <rect key="frame" x="6" y="56" width="394" height="584"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lWC-gN-VAt">
-                                    <size key="itemSize" width="190" height="322"/>
-                                    <size key="estimatedItemSize" width="190" height="290"/>
+                                    <size key="itemSize" width="190" height="310"/>
+                                    <size key="estimatedItemSize" width="190" height="260"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -643,10 +643,10 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="tSP-tu-qS8" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="190" height="295"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="tSP-tu-qS8" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="190" height="260"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dd-Zn-0vP" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="190" height="295"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="190" height="260"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image_loading" translatesAutoresizingMaskIntoConstraints="NO" id="vi1-tE-SrR">
                                                     <rect key="frame" x="8" y="43" width="174" height="150"/>
@@ -684,14 +684,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08a-AW-jkV">
-                                                    <rect key="frame" x="8" y="254" width="174" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.73425721290000001" green="0.24565289339999999" blue="0.19230550569999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <state key="normal" title="Delete Meme">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                </button>
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -701,7 +693,7 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="3Dd-Zn-0vP" secondAttribute="bottom" constant="-8" id="Uaf-jH-g8v"/>
                                             <constraint firstItem="3Dd-Zn-0vP" firstAttribute="top" secondItem="tSP-tu-qS8" secondAttribute="topMargin" constant="-8" id="e6Y-pT-YvG"/>
                                         </constraints>
-                                        <size key="customSize" width="190" height="295"/>
+                                        <size key="customSize" width="190" height="260"/>
                                         <connections>
                                             <outlet property="memeCaption" destination="rik-cR-tr0" id="qaG-Id-ld8"/>
                                             <outlet property="memeDate" destination="L1y-6M-f6d" id="KJ0-X2-ZRg"/>
@@ -710,10 +702,10 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iyP-pk-Knk">
-                                        <rect key="frame" x="204" y="0.0" width="190" height="295"/>
+                                        <rect key="frame" x="204" y="0.0" width="190" height="260"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xdR-tV-5AM">
-                                            <rect key="frame" x="0.0" y="0.0" width="190" height="295"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="190" height="260"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
@@ -731,6 +723,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="Your Memes" id="gxF-Gg-ik4">
                         <barButtonItem key="backBarButtonItem" title="Account Details" id="6vQ-fL-YGz"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="SVN-TD-VbS">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x0v-Fl-ycb">
+                                <rect key="frame" x="-23" y="-15" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Edit"/>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="667"/>
                     <connections>
