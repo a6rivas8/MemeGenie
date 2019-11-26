@@ -645,10 +645,8 @@
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="tSP-tu-qS8" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="190" height="295"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dd-Zn-0vP" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dd-Zn-0vP" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="190" height="295"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image_loading" translatesAutoresizingMaskIntoConstraints="NO" id="vi1-tE-SrR">
                                                     <rect key="frame" x="8" y="43" width="174" height="150"/>
@@ -697,6 +695,12 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="3Dd-Zn-0vP" secondAttribute="trailing" constant="-8" id="5Hk-V9-n5X"/>
+                                            <constraint firstItem="3Dd-Zn-0vP" firstAttribute="leading" secondItem="tSP-tu-qS8" secondAttribute="leadingMargin" constant="-8" id="GvB-Mf-Eu2"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="3Dd-Zn-0vP" secondAttribute="bottom" constant="-8" id="Uaf-jH-g8v"/>
+                                            <constraint firstItem="3Dd-Zn-0vP" firstAttribute="top" secondItem="tSP-tu-qS8" secondAttribute="topMargin" constant="-8" id="e6Y-pT-YvG"/>
+                                        </constraints>
                                         <size key="customSize" width="190" height="295"/>
                                         <connections>
                                             <outlet property="memeCaption" destination="rik-cR-tr0" id="qaG-Id-ld8"/>
@@ -1280,9 +1284,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7o6-9V-tsr">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7o6-9V-tsr">
                                 <rect key="frame" x="0.0" y="44" width="414" height="692"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZBd-XB-eyE">
                                     <size key="itemSize" width="190" height="210"/>
@@ -1347,6 +1350,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7o6-9V-tsr" firstAttribute="top" secondItem="dsV-wF-G2O" secondAttribute="top" id="7ul-fJ-rZj"/>
+                            <constraint firstAttribute="bottom" secondItem="7o6-9V-tsr" secondAttribute="bottom" id="NEe-vN-NYP"/>
+                            <constraint firstItem="7o6-9V-tsr" firstAttribute="leading" secondItem="dsV-wF-G2O" secondAttribute="leading" id="WCG-G8-so1"/>
+                            <constraint firstItem="7o6-9V-tsr" firstAttribute="trailing" secondItem="dsV-wF-G2O" secondAttribute="trailing" id="zYQ-h8-Z2A"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dsV-wF-G2O"/>
                     </view>
                     <navigationItem key="navigationItem" title="Liked Memes" id="sv3-xs-q1R"/>
