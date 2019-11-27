@@ -40,7 +40,9 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
         collectionView.delegate = self
-                
+           
+        navigationItem.rightBarButtonItem = editButtonItem
+        
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         
         //Get User Info
@@ -130,8 +132,21 @@ class ViewMemesViewController: UIViewController, UICollectionViewDelegate, UICol
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5
         cell.layer.cornerRadius = 10
+        cell.delegate = self as CollectionViewCellDelegate
         
         return cell
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        if let indexPaths = collectionView?.indexPathsForVisibleItems{
+            for indexPath in indexPaths{
+                if let cell = collectionView?.cellForItem(at: indexPath) as? CollectionViewCell{
+                    cell.isEditing = editing
+                }
+            }
+        }
     }
 }
 
@@ -145,6 +160,20 @@ extension UIImageView {
                     }
                 }
             }
+        }
+    }
+}
+
+extension ViewMemesViewController: CollectionViewCellDelegate{
+    func delete(cell: CollectionViewCell){
+        print("deleting meme...")
+        if let indexPath = collectionView?.indexPath(for: cell){
+            //1. delete meme from firebase
+            imagesArray.remove(at: indexPath.item)
+            //2.delete meme from collectionview
+            collectionView?.deleteItems(at: [indexPath])
+            
+            self.collectionView.reloadData()
         }
     }
 }

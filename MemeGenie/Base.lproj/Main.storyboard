@@ -645,7 +645,8 @@
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="tSP-tu-qS8" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="190" height="260"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dd-Zn-0vP" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dd-Zn-0vP" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="190" height="260"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image_loading" translatesAutoresizingMaskIntoConstraints="NO" id="vi1-tE-SrR">
@@ -684,17 +685,40 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5l3-L2-WAR">
+                                                    <rect key="frame" x="164" y="8" width="20" height="20"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9vu-f2-rQU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTU-7t-tD5">
+                                                                <rect key="frame" x="0.0" y="-1" width="20" height="22"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="tintColor" red="0.73425721290000001" green="0.24565289339999999" blue="0.19230550569999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <state key="normal" image="xmark.circle" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="deleteButtonDidTap:" destination="tSP-tu-qS8" eventType="touchUpInside" id="QiW-Sk-yiv"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </view>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="fhc-db-ori"/>
+                                                        <constraint firstAttribute="height" constant="20" id="sOO-Nv-QmQ"/>
+                                                    </constraints>
+                                                    <blurEffect style="extraLight"/>
+                                                </visualEffectView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5l3-L2-WAR" firstAttribute="top" secondItem="3Dd-Zn-0vP" secondAttribute="top" constant="8" id="5BM-Bi-geE"/>
+                                                <constraint firstAttribute="trailing" secondItem="5l3-L2-WAR" secondAttribute="trailing" constant="8" id="zrg-dM-fIY"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailingMargin" secondItem="3Dd-Zn-0vP" secondAttribute="trailing" constant="-8" id="5Hk-V9-n5X"/>
-                                            <constraint firstItem="3Dd-Zn-0vP" firstAttribute="leading" secondItem="tSP-tu-qS8" secondAttribute="leadingMargin" constant="-8" id="GvB-Mf-Eu2"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="3Dd-Zn-0vP" secondAttribute="bottom" constant="-8" id="Uaf-jH-g8v"/>
-                                            <constraint firstItem="3Dd-Zn-0vP" firstAttribute="top" secondItem="tSP-tu-qS8" secondAttribute="topMargin" constant="-8" id="e6Y-pT-YvG"/>
-                                        </constraints>
                                         <size key="customSize" width="190" height="260"/>
                                         <connections>
+                                            <outlet property="deleteButton" destination="5l3-L2-WAR" id="P4J-7N-gIF"/>
                                             <outlet property="memeCaption" destination="rik-cR-tr0" id="qaG-Id-ld8"/>
                                             <outlet property="memeDate" destination="L1y-6M-f6d" id="KJ0-X2-ZRg"/>
                                             <outlet property="memeImageView" destination="vi1-tE-SrR" id="B6C-ve-j16"/>
@@ -723,14 +747,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Your Memes" id="gxF-Gg-ik4">
                         <barButtonItem key="backBarButtonItem" title="Account Details" id="6vQ-fL-YGz"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="SVN-TD-VbS">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x0v-Fl-ycb">
-                                <rect key="frame" x="-23" y="-15" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Edit"/>
-                            </button>
-                        </barButtonItem>
                     </navigationItem>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="667"/>
                     <connections>
@@ -1299,7 +1315,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="pbl-FT-0q6" customClass="LikedCollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="pbl-FT-0q6" customClass="LikedCollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
                                         <rect key="frame" x="10" y="10" width="190" height="210"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lWc-bO-oQ6">
@@ -1442,6 +1458,7 @@
         <image name="pepe3" width="362" height="465"/>
         <image name="smoke_background" width="602" height="818"/>
         <image name="upload_image" width="980" height="980"/>
+        <image name="xmark.circle" catalog="system" width="64" height="60"/>
         <image name="xmark.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>
