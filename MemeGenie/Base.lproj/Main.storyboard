@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IE1-KR-hgw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IE1-KR-hgw">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -198,6 +198,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ILm-9k-xyv">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="IcN-oa-Vyf"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ifD-fO-ZcA"/>
+                            </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="UEs-os-hrU">
                                 <rect key="frame" x="40" y="83.999999999999972" width="334" height="470.33333333333326"/>
                                 <subviews>
@@ -205,26 +210,41 @@
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="7Pk-98-44z" id="ZhW-TW-v5F"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fjB-iI-DnC">
                                         <rect key="frame" x="0.0" y="75" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="7Pk-98-44z" id="rUM-Vr-wOP"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ab9-H0-xuX">
                                         <rect key="frame" x="0.0" y="150" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="7Pk-98-44z" id="tZV-Qg-BSn"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JUn-6d-TiE">
                                         <rect key="frame" x="0.0" y="225" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="7Pk-98-44z" id="aY9-je-we8"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z3e-DK-rFb">
                                         <rect key="frame" x="0.0" y="300" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="7Pk-98-44z" id="UW0-9n-7qM"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIG-TN-qoV">
                                         <rect key="frame" x="0.0" y="375" width="334" height="50"/>
@@ -255,8 +275,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vAP-Zg-gV7" firstAttribute="trailing" secondItem="UEs-os-hrU" secondAttribute="trailing" constant="40" id="35d-Ft-Nvs"/>
+                            <constraint firstItem="ILm-9k-xyv" firstAttribute="trailing" secondItem="vAP-Zg-gV7" secondAttribute="trailing" id="3w5-oj-TV8"/>
+                            <constraint firstItem="ILm-9k-xyv" firstAttribute="leading" secondItem="vAP-Zg-gV7" secondAttribute="leading" id="8yW-47-RMj"/>
                             <constraint firstItem="UEs-os-hrU" firstAttribute="top" secondItem="vAP-Zg-gV7" secondAttribute="top" constant="40" id="Tm0-Ba-8nY"/>
+                            <constraint firstItem="ILm-9k-xyv" firstAttribute="top" secondItem="vAP-Zg-gV7" secondAttribute="top" id="bHD-LG-pj4"/>
                             <constraint firstItem="UEs-os-hrU" firstAttribute="leading" secondItem="vAP-Zg-gV7" secondAttribute="leading" constant="40" id="dK3-cb-COO"/>
+                            <constraint firstItem="ILm-9k-xyv" firstAttribute="bottom" secondItem="vAP-Zg-gV7" secondAttribute="bottom" id="zrO-nM-jdK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vAP-Zg-gV7"/>
                     </view>
@@ -267,12 +291,13 @@
                         <outlet property="firstNameTextField" destination="aZ4-Ds-qlx" id="6Uy-u1-h6q"/>
                         <outlet property="lastNameTextField" destination="fjB-iI-DnC" id="Zmh-A9-3Pq"/>
                         <outlet property="passwordTextField" destination="JUn-6d-TiE" id="qyI-bx-9hM"/>
+                        <outlet property="scrollView" destination="ILm-9k-xyv" id="pUH-wf-ONZ"/>
                         <outlet property="signUpTextButton" destination="cIG-TN-qoV" id="kgS-uc-ppm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9E-jN-Gcu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1594" y="176"/>
+            <point key="canvasLocation" x="1592.753623188406" y="175.27173913043481"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="sJl-U7-ETt">
@@ -643,7 +668,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="tSP-tu-qS8" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="tSP-tu-qS8" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="190" height="260"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dd-Zn-0vP" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">

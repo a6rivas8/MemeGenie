@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
 
 
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -20,6 +20,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var errorTextField: UILabel!
     @IBOutlet weak var signUpTextButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +28,14 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
         setUpElements()
         
+      
+    
+        
         // listen for keyboard
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
                 NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
                 NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-                
+               
             }
             
            
@@ -43,21 +47,43 @@ class SignUpViewController: UIViewController {
                 NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
             
         }
+ 
+    func textFieldShouldReturn(_ textField: UITextField) ->
+              Bool{
+                textField.resignFirstResponder()
+               return true
+          }
+          
+          func firstNameTextFieldDidBeginEditing(textField: UITextField){
+            if(textField==firstNameTextField){
+              scrollView.setContentOffset((CGPoint(x: 0, y: 250)), animated: true)
+          }
+    }
+    func firstNameTextFieldDidEndEditing(textField: UITextField){
+        scrollView.setContentOffset((CGPoint(x: 0, y: 0)), animated: true)
+             }
+    
         // hide keyboard
         
         func hideKeyboard(){
            firstNameTextField.resignFirstResponder()
             
+        func keyboardWillChange(notification: Notification){
+                     print("keyboard will show: \(notification.name.rawValue)")
+                    
+                    view.frame.origin.y = -0
+                     
+                 }
         }
-        
+     
         @objc func keyboardWillChange(notification: Notification){
             print("keyboard will show: \(notification.name.rawValue)")
            
-           view.frame.origin.y = -75
+           view.frame.origin.y = -0
             
         }
     
-    
+   
     func setUpElements() {
         // hide error label
         errorTextField.alpha = 0
