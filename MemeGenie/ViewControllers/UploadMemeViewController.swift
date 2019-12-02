@@ -131,7 +131,7 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
     
 
     @IBAction func selectPhotoForMeme(_ sender: Any) {
-        let actionAlert = UIAlertController(title: "Picker", message: "Choose one", preferredStyle: .actionSheet)
+        let actionAlert = UIAlertController(title: "Upload", message: "Choose one", preferredStyle: .actionSheet)
         // To open camara but we are only using gallerry
         
         actionAlert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: {_ in
@@ -154,8 +154,6 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
                 self.picker.allowsEditing = false
                 self.picker.sourceType = .photoLibrary
                 self.present(self.picker, animated: true, completion: nil)
-                
-                
             } else {
                 // could not present gallery
                 print("Gallery is not avail")
