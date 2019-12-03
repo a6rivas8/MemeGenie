@@ -73,12 +73,14 @@ class TrendingViewController: UITableViewController {
         let rankLabel = cell.viewWithTag(1) as! UILabel
         let imageView = cell.viewWithTag(2) as! UIImageView
         let captionLabel = cell.viewWithTag(3) as! UILabel
+        let likesLabel = cell.viewWithTag(4) as! UILabel
 
         rankLabel.text = String(indexPath.row + 1)
         
         db.collection("memes").document(memeArr[indexPath.row]).getDocument { (document, error) in
             if let document = document, document.exists {
                 captionLabel.text = (document.get("caption") as! String)
+                likesLabel.text = String(document.get("likes") as! Int)
                 let imgString = URL(string: (document.get("download_url") as! String))
                 DispatchQueue.main.async {
                     imageView.loadImg(url: imgString!)
