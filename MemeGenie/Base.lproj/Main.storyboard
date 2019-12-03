@@ -509,7 +509,7 @@
                                 </constraints>
                                 <color key="tintColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Sign Out">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.96848052740000001" green="0.89175386879999996" blue="0.5766798943" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="titleShadowColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -625,7 +625,9 @@
                                 <rect key="frame" x="302" y="5.6666666666666679" width="92" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Done"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.96848052740000001" green="0.89175386879999996" blue="0.5766798943" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="saveNewPassword:" destination="W45-71-dfH" eventType="touchUpInside" id="O8E-Kz-wvT"/>
                                 </connections>
@@ -795,9 +797,9 @@
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bw7-cW-59c">
                                 <rect key="frame" x="10" y="489" width="394" height="31"/>
-                                <color key="backgroundColor" white="1" alpha="0.75275088030000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <accessibility key="accessibilityConfiguration" hint="Add Caption"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -871,7 +873,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="iyM-pD-KwJ" firstAttribute="bottom" secondItem="Faa-GL-K0F" secondAttribute="bottom" id="0aE-kp-mgi"/>
                             <constraint firstItem="Faa-GL-K0F" firstAttribute="trailing" secondItem="Bw7-cW-59c" secondAttribute="trailing" constant="10" id="257-CW-RgT"/>
@@ -899,7 +901,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Upload A Meme" id="8Y3-In-dTJ">
                         <barButtonItem key="rightBarButtonItem" title="Upload" id="bXI-Cb-lPv">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" red="0.96848052740000001" green="0.89175386879999996" blue="0.5766798943" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="uploadMeme:" destination="LbS-YH-6fW" id="qe2-dp-Dmq"/>
                             </connections>
