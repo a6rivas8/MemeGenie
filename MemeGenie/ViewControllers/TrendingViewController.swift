@@ -91,7 +91,8 @@ class TrendingViewController: UITableViewController {
             }
         }
         
-        cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        //self.memeImage.layer.borderWidth = 5
+        //self.memeImage.layer.borderColor = (UIColor.white as! CGColor)
         
         return cell
     }
