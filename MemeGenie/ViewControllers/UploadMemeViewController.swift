@@ -85,8 +85,10 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
      @objc func keyboardWillChange(notification: Notification){
          print("keyboard will show: \(notification.name.rawValue)")
         
-        view.frame.origin.y = -90
-         
+        view.frame.origin.y = -180
+        if notification.name.rawValue == "UIKeyboardWillHideNotification" {
+            view.frame.origin.y = 0
+        }
      }
     
    
