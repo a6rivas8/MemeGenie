@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IE1-KR-hgw">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1421,7 +1421,7 @@
         <scene sceneID="4Lz-YI-vNU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L1E-ov-7gK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Trending" image="fire" selectedImage="fire" id="dra-WH-mns"/>
+                    <tabBarItem key="tabBarItem" title="Trending" image="FIRESKETCH" selectedImage="FIRESKETCH" id="dra-WH-mns"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lny-gc-p7x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -1457,13 +1457,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="FIRESKETCH" width="22" height="30"/>
         <image name="Genie Transparent" width="720" height="511"/>
         <image name="Image_loading" width="225" height="225"/>
         <image name="Meme Genie1" width="355" height="52"/>
         <image name="account" width="26" height="24"/>
         <image name="add" width="26" height="24"/>
         <image name="clock.fill" catalog="system" width="64" height="60"/>
-        <image name="fire" width="20" height="28"/>
         <image name="go_to_selection_arrow" width="439" height="35"/>
         <image name="green-checkmark" width="512" height="512"/>
         <image name="hand.thumbsup.fill" catalog="system" width="64" height="62"/>
