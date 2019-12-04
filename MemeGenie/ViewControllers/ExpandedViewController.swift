@@ -19,10 +19,11 @@ class ExpandedViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet weak var card: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         db.collection("memes").document(meme).getDocument { (document, error) in
             if let document = document, document.exists {
@@ -39,6 +40,9 @@ class ExpandedViewController: UIViewController {
                 print("Document does not exist")
             }
         }
+        card.layer.cornerRadius = 8
+        //self.imageView.layer.borderWidth = 2
+        //self.imageView.layer.borderColor = UIColor.black.cgColor
     }
 }
 

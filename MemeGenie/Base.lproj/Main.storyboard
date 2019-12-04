@@ -509,7 +509,7 @@
                                 </constraints>
                                 <color key="tintColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Sign Out">
-                                    <color key="titleColor" red="0.96848052740000001" green="0.89175386879999996" blue="0.5766798943" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -626,7 +626,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Done">
-                                    <color key="titleColor" red="0.96848052740000001" green="0.89175386879999996" blue="0.5766798943" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="saveNewPassword:" destination="W45-71-dfH" eventType="touchUpInside" id="O8E-Kz-wvT"/>
@@ -901,7 +901,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Upload A Meme" id="8Y3-In-dTJ">
                         <barButtonItem key="rightBarButtonItem" title="Upload" id="bXI-Cb-lPv">
-                            <color key="tintColor" red="0.96848052740000001" green="0.89175386879999996" blue="0.5766798943" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="uploadMeme:" destination="LbS-YH-6fW" id="qe2-dp-Dmq"/>
                             </connections>
@@ -927,21 +927,21 @@
             <objects>
                 <viewController title="Meme Genie" id="MiS-aa-1yi" userLabel="Home Swipe" customClass="HomeSwipeViewController" customModule="MemeGenie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tKz-TG-MwA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smoke_background" translatesAutoresizingMaskIntoConstraints="NO" id="DvP-Ar-m6V">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Meme Genie1" translatesAutoresizingMaskIntoConstraints="NO" id="9UX-9j-h70">
-                                <rect key="frame" x="10" y="0.6666666666666714" width="394" height="152"/>
+                                <rect key="frame" x="10" y="0.66666666666665719" width="394" height="152"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="152" id="pyg-bC-4Eq"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L81-N2-KSJ" userLabel="card">
-                                <rect key="frame" x="10" y="161" width="394" height="414"/>
+                                <rect key="frame" x="10" y="139" width="394" height="414"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8xt-SX-oN3">
                                         <rect key="frame" x="10" y="73" width="374" height="325"/>
@@ -1009,6 +1009,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Home" image="home" selectedImage="home" id="QB4-Uh-YTh" userLabel="Home Swipe"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="captionLabel" destination="gWa-8K-a2m" id="wDL-f4-Bnm"/>
                         <outlet property="card" destination="L81-N2-KSJ" id="tEU-U8-fIv"/>
@@ -1222,11 +1223,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smoke_background" translatesAutoresizingMaskIntoConstraints="NO" id="NRA-lN-pDn">
                                 <rect key="frame" x="0.0" y="44" width="414" height="643"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z5s-SM-Krq">
-                                <rect key="frame" x="40" y="64" width="334" height="422"/>
-                            </imageView>
                             <stackView contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nOo-qh-pTn">
-                                <rect key="frame" x="40" y="525" width="255" height="80"/>
+                                <rect key="frame" x="40" y="466" width="255" height="80"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="J2v-1C-mPQ">
                                         <rect key="frame" x="0.0" y="0.0" width="255" height="30"/>
@@ -1278,25 +1276,42 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeK-h2-KEM" userLabel="card">
+                                <rect key="frame" x="20" y="119" width="374" height="327"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z5s-SM-Krq">
+                                        <rect key="frame" x="10" y="10" width="354" height="307"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.17011443661971837" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="z5s-SM-Krq" secondAttribute="bottom" constant="10" id="08y-w4-F6X"/>
+                                    <constraint firstAttribute="trailing" secondItem="z5s-SM-Krq" secondAttribute="trailing" constant="10" id="5M1-sO-GqS"/>
+                                    <constraint firstItem="z5s-SM-Krq" firstAttribute="leading" secondItem="eeK-h2-KEM" secondAttribute="leading" constant="10" id="7gO-yW-fcT"/>
+                                    <constraint firstAttribute="height" constant="327" id="O3p-Nl-QLl"/>
+                                    <constraint firstItem="z5s-SM-Krq" firstAttribute="top" secondItem="eeK-h2-KEM" secondAttribute="top" constant="10" id="iAd-Eb-cXv"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Iqw-op-B5p" firstAttribute="trailing" secondItem="z5s-SM-Krq" secondAttribute="trailing" constant="40" id="0Fv-jV-axH"/>
                             <constraint firstItem="NRA-lN-pDn" firstAttribute="top" secondItem="Iqw-op-B5p" secondAttribute="top" id="8QI-7r-jXn"/>
                             <constraint firstItem="NRA-lN-pDn" firstAttribute="leading" secondItem="Iqw-op-B5p" secondAttribute="leading" id="8ki-ua-pK7"/>
                             <constraint firstItem="NRA-lN-pDn" firstAttribute="bottom" secondItem="Iqw-op-B5p" secondAttribute="bottom" id="Dkl-PQ-AkJ"/>
-                            <constraint firstItem="z5s-SM-Krq" firstAttribute="leading" secondItem="Iqw-op-B5p" secondAttribute="leading" constant="40" id="EjO-Fq-SZQ"/>
-                            <constraint firstItem="z5s-SM-Krq" firstAttribute="top" secondItem="Iqw-op-B5p" secondAttribute="top" constant="20" id="G6Q-dv-wAG"/>
                             <constraint firstItem="NRA-lN-pDn" firstAttribute="centerX" secondItem="yfX-Pq-ugB" secondAttribute="centerX" id="ONM-VW-CDx"/>
+                            <constraint firstItem="eeK-h2-KEM" firstAttribute="centerX" secondItem="yfX-Pq-ugB" secondAttribute="centerX" id="RQt-fN-pRc"/>
                             <constraint firstItem="Iqw-op-B5p" firstAttribute="trailing" secondItem="NRA-lN-pDn" secondAttribute="trailing" id="bwi-CE-aGk"/>
-                            <constraint firstItem="nOo-qh-pTn" firstAttribute="top" secondItem="z5s-SM-Krq" secondAttribute="bottom" constant="39" id="dqI-Zw-c0z"/>
                             <constraint firstItem="nOo-qh-pTn" firstAttribute="leading" secondItem="Iqw-op-B5p" secondAttribute="leading" constant="40" id="elI-6E-UaO"/>
-                            <constraint firstItem="Iqw-op-B5p" firstAttribute="bottom" secondItem="nOo-qh-pTn" secondAttribute="bottom" constant="82" id="udl-TR-7nn"/>
+                            <constraint firstItem="nOo-qh-pTn" firstAttribute="top" secondItem="eeK-h2-KEM" secondAttribute="bottom" constant="20" id="hVM-uZ-Mw7"/>
+                            <constraint firstItem="eeK-h2-KEM" firstAttribute="top" secondItem="Iqw-op-B5p" secondAttribute="top" constant="75" id="lXI-dV-5k7"/>
+                            <constraint firstItem="eeK-h2-KEM" firstAttribute="leading" secondItem="Iqw-op-B5p" secondAttribute="leading" constant="20" id="q7P-Ij-Nug"/>
+                            <constraint firstItem="Iqw-op-B5p" firstAttribute="trailing" secondItem="eeK-h2-KEM" secondAttribute="trailing" constant="20" id="su2-Wy-BRw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Iqw-op-B5p"/>
                     </view>
                     <navigationItem key="navigationItem" id="KlY-os-K18"/>
                     <connections>
+                        <outlet property="card" destination="eeK-h2-KEM" id="AvN-ua-e4t"/>
                         <outlet property="imageView" destination="z5s-SM-Krq" id="a3F-mB-0CC"/>
                         <outlet property="likesLabel" destination="WqV-kU-QYK" id="Qg5-IL-blD"/>
                         <outlet property="timestampLabel" destination="SIJ-j0-ABB" id="OFy-Ww-L8y"/>
