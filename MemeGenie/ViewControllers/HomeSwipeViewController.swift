@@ -181,7 +181,7 @@ class HomeSwipeViewController: UIViewController {
     // TASK:
     // Image view and caption will be set to end of batch display
     func endDisplay() {
-        imageView.image = UIImage(named: "noImage")
+        imageView.image = UIImage(named: "Genie-MemeGenie")
         captionLabel.text = "Come back tomorrow for more memes!"
     }
     
