@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xde-Qs-xzl">
-                                <rect key="frame" x="40" y="576" width="334" height="120"/>
+                                <rect key="frame" x="40" y="526" width="334" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caK-0n-G0J">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -42,9 +42,9 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMC-fK-h3F" customClass="CSAnimationView">
-                                <rect key="frame" x="87" y="399" width="240" height="110"/>
+                                <rect key="frame" x="87" y="349" width="240" height="110"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOw-X0-Qqe">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOw-X0-Qqe">
                                         <rect key="frame" x="0.0" y="-13" width="240" height="136"/>
                                         <state key="normal" image="Genie Transparent"/>
                                         <connections>
@@ -52,10 +52,10 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="2sn-bK-R9I"/>
-                                    <constraint firstItem="FOw-X0-Qqe" firstAttribute="height" secondItem="MMC-fK-h3F" secondAttribute="height" id="Er1-0Y-qxD"/>
+                                    <constraint firstItem="FOw-X0-Qqe" firstAttribute="height" secondItem="MMC-fK-h3F" secondAttribute="height" constant="26" id="Er1-0Y-qxD"/>
                                     <constraint firstItem="FOw-X0-Qqe" firstAttribute="centerX" secondItem="MMC-fK-h3F" secondAttribute="centerX" id="b8E-5R-BeO"/>
                                     <constraint firstAttribute="height" constant="110" id="mTF-a1-aiR"/>
                                     <constraint firstItem="FOw-X0-Qqe" firstAttribute="width" secondItem="MMC-fK-h3F" secondAttribute="width" id="vTN-R9-Djg"/>
@@ -85,7 +85,7 @@
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="ck8-ot-ufo" firstAttribute="leading" secondItem="MOU-jr-82z" secondAttribute="leadingMargin" id="F2m-KP-AXO"/>
                                             <constraint firstItem="ck8-ot-ufo" firstAttribute="centerY" secondItem="MOU-jr-82z" secondAttribute="centerY" id="Sbb-MY-ydN"/>
@@ -111,7 +111,7 @@
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="AOL-1P-2HR" firstAttribute="centerY" secondItem="afP-jF-ctJ" secondAttribute="centerY" id="3wE-yP-8J1"/>
                                             <constraint firstItem="AOL-1P-2HR" firstAttribute="trailing" secondItem="afP-jF-ctJ" secondAttribute="trailingMargin" id="x5I-ya-mT1"/>
@@ -132,7 +132,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEq-8i-mcZ" customClass="CSAnimationView">
-                                <rect key="frame" x="26" y="223" width="362" height="156"/>
+                                <rect key="frame" x="26" y="171" width="362" height="156"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Meme Genie1" translatesAutoresizingMaskIntoConstraints="NO" id="4qV-pe-uYe">
                                         <rect key="frame" x="25.666666666666657" y="25.666666666666657" width="311" height="105"/>
@@ -142,7 +142,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="4qV-pe-uYe" firstAttribute="centerY" secondItem="YEq-8i-mcZ" secondAttribute="centerY" id="hG5-9F-pRC"/>
                                     <constraint firstItem="4qV-pe-uYe" firstAttribute="centerX" secondItem="YEq-8i-mcZ" secondAttribute="centerX" id="vnb-p3-bRT"/>
@@ -158,21 +158,21 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="MMC-fK-h3F" firstAttribute="top" secondItem="YEq-8i-mcZ" secondAttribute="bottom" constant="20" id="0W1-lJ-Uby"/>
+                            <constraint firstItem="MMC-fK-h3F" firstAttribute="top" secondItem="YEq-8i-mcZ" secondAttribute="bottom" constant="22" id="0W1-lJ-Uby"/>
                             <constraint firstItem="MMC-fK-h3F" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3s4-nO-Zko"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xde-Qs-xzl" secondAttribute="trailing" constant="40" id="CiG-hg-Q4h"/>
                             <constraint firstItem="Xde-Qs-xzl" firstAttribute="top" secondItem="MMC-fK-h3F" secondAttribute="bottom" constant="67" id="IGx-bA-5Ya"/>
                             <constraint firstItem="Xde-Qs-xzl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="LFn-RF-Qoz"/>
                             <constraint firstItem="sRi-qE-EGV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QhE-Eb-MJf"/>
                             <constraint firstItem="YEq-8i-mcZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="26" id="UAS-02-m6N"/>
-                            <constraint firstItem="YEq-8i-mcZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="223" id="UI3-te-gHK"/>
+                            <constraint firstItem="YEq-8i-mcZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="171" id="UI3-te-gHK"/>
                             <constraint firstItem="sRi-qE-EGV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UcO-lG-qWy"/>
                             <constraint firstItem="sRi-qE-EGV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="33" id="coc-38-ZdO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xde-Qs-xzl" secondAttribute="bottom" constant="40" id="d4x-Tf-Q99"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xde-Qs-xzl" secondAttribute="bottom" constant="90" id="d4x-Tf-Q99"/>
                             <constraint firstItem="YEq-8i-mcZ" firstAttribute="centerX" secondItem="sRi-qE-EGV" secondAttribute="centerX" id="iqG-5K-0nY"/>
-                            <constraint firstItem="YEq-8i-mcZ" firstAttribute="top" secondItem="sRi-qE-EGV" secondAttribute="bottom" constant="35" id="rjW-0l-CGv"/>
+                            <constraint firstItem="YEq-8i-mcZ" firstAttribute="top" secondItem="sRi-qE-EGV" secondAttribute="bottom" constant="-17" id="rjW-0l-CGv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -272,7 +272,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vAP-Zg-gV7" firstAttribute="trailing" secondItem="UEs-os-hrU" secondAttribute="trailing" constant="40" id="35d-Ft-Nvs"/>
                             <constraint firstItem="ILm-9k-xyv" firstAttribute="trailing" secondItem="vAP-Zg-gV7" secondAttribute="trailing" id="3w5-oj-TV8"/>
@@ -343,7 +343,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fxX-nz-d1b" firstAttribute="trailing" secondItem="eXX-dE-79a" secondAttribute="trailing" constant="40" id="A2a-38-f6U"/>
                             <constraint firstItem="eXX-dE-79a" firstAttribute="leading" secondItem="fxX-nz-d1b" secondAttribute="leading" constant="40" id="Ell-qm-2hu"/>
