@@ -13,7 +13,7 @@ class CustomTextField {
         let bottomLine = CALayer()
         
         textfield.borderStyle = .none
-        bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - 2, width: textfield.frame.width-10, height: 2)
+        bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - 2, width: textfield.frame.width-20, height: 2)
         bottomLine.backgroundColor = UIColor.black.cgColor
         
         textfield.layer.addSublayer(bottomLine)

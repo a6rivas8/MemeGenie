@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IE1-KR-hgw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IE1-KR-hgw">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,11 +13,14 @@
             <objects>
                 <viewController storyboardIdentifier="LoginSignUp" id="BYZ-38-t0r" customClass="ViewController" customModule="MemeGenie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smoke_background" translatesAutoresizingMaskIntoConstraints="NO" id="XZa-9o-CVS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xde-Qs-xzl">
-                                <rect key="frame" x="40" y="526" width="334" height="120"/>
+                                <rect key="frame" x="40" y="482" width="334" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caK-0n-G0J">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -42,7 +45,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMC-fK-h3F" customClass="CSAnimationView">
-                                <rect key="frame" x="87" y="349" width="240" height="110"/>
+                                <rect key="frame" x="87" y="305" width="240" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOw-X0-Qqe">
                                         <rect key="frame" x="0.0" y="-13" width="240" height="136"/>
@@ -72,13 +75,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="173" translatesAutoresizingMaskIntoConstraints="NO" id="sRi-qE-EGV">
-                                <rect key="frame" x="0.0" y="77" width="414" height="111"/>
+                                <rect key="frame" x="0.0" y="33" width="414" height="155"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOU-jr-82z" customClass="CSAnimationView">
-                                        <rect key="frame" x="0.0" y="0.0" width="101" height="111"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="101" height="155"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pepe1" translatesAutoresizingMaskIntoConstraints="NO" id="ck8-ot-ufo">
-                                                <rect key="frame" x="8" y="0.0" width="101" height="111"/>
+                                                <rect key="frame" x="8" y="22" width="101" height="111"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="101" id="WTk-i1-Uux"/>
                                                     <constraint firstAttribute="height" constant="111" id="XKF-j2-lLJ"/>
@@ -101,10 +104,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afP-jF-ctJ" customClass="CSAnimationView">
-                                        <rect key="frame" x="274" y="0.0" width="140" height="111"/>
+                                        <rect key="frame" x="274" y="0.0" width="140" height="155"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pepe3" translatesAutoresizingMaskIntoConstraints="NO" id="AOL-1P-2HR">
-                                                <rect key="frame" x="31" y="0.0" width="101" height="111"/>
+                                                <rect key="frame" x="31" y="22" width="101" height="111"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="101" id="UFg-TQ-YjX"/>
                                                     <constraint firstAttribute="height" constant="111" id="lbc-Ux-OVP"/>
@@ -132,10 +135,10 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEq-8i-mcZ" customClass="CSAnimationView">
-                                <rect key="frame" x="26" y="171" width="362" height="156"/>
+                                <rect key="frame" x="26" y="171" width="362" height="112"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Meme Genie1" translatesAutoresizingMaskIntoConstraints="NO" id="4qV-pe-uYe">
-                                        <rect key="frame" x="25.666666666666657" y="25.666666666666657" width="311" height="105"/>
+                                        <rect key="frame" x="25.666666666666657" y="3.6666666666666572" width="311" height="105"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="105" id="Iwe-fc-MWU"/>
                                             <constraint firstAttribute="width" constant="311" id="qUz-5O-Lmo"/>
@@ -161,10 +164,12 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MMC-fK-h3F" firstAttribute="top" secondItem="YEq-8i-mcZ" secondAttribute="bottom" constant="22" id="0W1-lJ-Uby"/>
+                            <constraint firstItem="XZa-9o-CVS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2cR-Ww-yt9"/>
                             <constraint firstItem="MMC-fK-h3F" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3s4-nO-Zko"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xde-Qs-xzl" secondAttribute="trailing" constant="40" id="CiG-hg-Q4h"/>
                             <constraint firstItem="Xde-Qs-xzl" firstAttribute="top" secondItem="MMC-fK-h3F" secondAttribute="bottom" constant="67" id="IGx-bA-5Ya"/>
                             <constraint firstItem="Xde-Qs-xzl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="LFn-RF-Qoz"/>
+                            <constraint firstItem="XZa-9o-CVS" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="QaA-1Z-THr"/>
                             <constraint firstItem="sRi-qE-EGV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QhE-Eb-MJf"/>
                             <constraint firstItem="YEq-8i-mcZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="26" id="UAS-02-m6N"/>
                             <constraint firstItem="YEq-8i-mcZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="171" id="UI3-te-gHK"/>
@@ -172,10 +177,13 @@
                             <constraint firstItem="sRi-qE-EGV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="33" id="coc-38-ZdO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xde-Qs-xzl" secondAttribute="bottom" constant="90" id="d4x-Tf-Q99"/>
                             <constraint firstItem="YEq-8i-mcZ" firstAttribute="centerX" secondItem="sRi-qE-EGV" secondAttribute="centerX" id="iqG-5K-0nY"/>
+                            <constraint firstItem="XZa-9o-CVS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jzf-c9-7Gd"/>
                             <constraint firstItem="YEq-8i-mcZ" firstAttribute="top" secondItem="sRi-qE-EGV" secondAttribute="bottom" constant="-17" id="rjW-0l-CGv"/>
+                            <constraint firstItem="XZa-9o-CVS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rww-ep-y9K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="2ku-p6-HjD"/>
                     <connections>
                         <outlet property="Logo" destination="YEq-8i-mcZ" id="5iJ-bx-aLV"/>
@@ -188,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="590" y="779"/>
+            <point key="canvasLocation" x="589.85507246376812" y="778.53260869565224"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="ii0-HN-mLr">
@@ -368,9 +376,11 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IE1-KR-hgw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rF6-VX-HB2">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="rF6-VX-HB2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.96848052740000001" green="0.89175386879999996" blue="0.5766798943" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nqV-Zj-ptj">
@@ -650,14 +660,14 @@
         <!--Your Memes-->
         <scene sceneID="tTn-Ro-Qgz">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="13e-8M-N5k" customClass="ViewMemesViewController" customModule="MemeGenie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="13e-8M-N5k" customClass="ViewMemesViewController" customModule="MemeGenie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Le-aZ-HMz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeJ-rZ-1Jo">
-                                <rect key="frame" x="6" y="56" width="394" height="584"/>
-                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeJ-rZ-1Jo">
+                                <rect key="frame" x="10" y="54" width="394" height="672"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lWC-gN-VAt">
                                     <size key="itemSize" width="190" height="310"/>
                                     <size key="estimatedItemSize" width="190" height="260"/>
@@ -666,7 +676,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <imageView key="backgroundView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smoke_background" id="kvr-OF-lRY">
-                                    <rect key="frame" x="0.0" y="0.0" width="394" height="584"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="394" height="672"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <cells>
@@ -675,6 +685,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dd-Zn-0vP" customClass="CollectionViewCell" customModule="MemeGenie" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="190" height="260"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image_loading" translatesAutoresizingMaskIntoConstraints="NO" id="vi1-tE-SrR">
                                                     <rect key="frame" x="8" y="43" width="174" height="150"/>
@@ -712,40 +723,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5l3-L2-WAR">
-                                                    <rect key="frame" x="164" y="8" width="20" height="20"/>
-                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9vu-f2-rQU">
-                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTU-7t-tD5">
-                                                                <rect key="frame" x="0.0" y="-1" width="20" height="22"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <color key="tintColor" red="0.73425721290000001" green="0.24565289339999999" blue="0.19230550569999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <state key="normal" image="xmark.circle" catalog="system"/>
-                                                                <connections>
-                                                                    <action selector="deleteButtonDidTap:" destination="tSP-tu-qS8" eventType="touchUpInside" id="QiW-Sk-yiv"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                    </view>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="fhc-db-ori"/>
-                                                        <constraint firstAttribute="height" constant="20" id="sOO-Nv-QmQ"/>
-                                                    </constraints>
-                                                    <blurEffect style="extraLight"/>
-                                                </visualEffectView>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="5l3-L2-WAR" firstAttribute="top" secondItem="3Dd-Zn-0vP" secondAttribute="top" constant="8" id="5BM-Bi-geE"/>
-                                                <constraint firstAttribute="trailing" secondItem="5l3-L2-WAR" secondAttribute="trailing" constant="8" id="zrg-dM-fIY"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="190" height="260"/>
                                         <connections>
-                                            <outlet property="deleteButton" destination="5l3-L2-WAR" id="P4J-7N-gIF"/>
                                             <outlet property="memeCaption" destination="rik-cR-tr0" id="qaG-Id-ld8"/>
                                             <outlet property="memeDate" destination="L1y-6M-f6d" id="KJ0-X2-ZRg"/>
                                             <outlet property="memeImageView" destination="vi1-tE-SrR" id="B6C-ve-j16"/>
@@ -765,9 +747,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="qeJ-rZ-1Jo" secondAttribute="bottom" constant="10" id="2d3-Ti-o0i"/>
                             <constraint firstItem="qeJ-rZ-1Jo" firstAttribute="leading" secondItem="QO5-uh-NgY" secondAttribute="leading" constant="10" id="2oy-Az-AW2"/>
                             <constraint firstItem="qeJ-rZ-1Jo" firstAttribute="trailing" secondItem="QO5-uh-NgY" secondAttribute="trailing" constant="-10" id="fX9-9q-lgh"/>
-                            <constraint firstItem="QO5-uh-NgY" firstAttribute="bottom" secondItem="qeJ-rZ-1Jo" secondAttribute="bottom" id="gwM-uk-fiU"/>
                             <constraint firstItem="qeJ-rZ-1Jo" firstAttribute="top" secondItem="QO5-uh-NgY" secondAttribute="top" constant="10" id="qtL-fa-ACR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QO5-uh-NgY"/>
@@ -775,7 +757,6 @@
                     <navigationItem key="navigationItem" title="Your Memes" id="gxF-Gg-ik4">
                         <barButtonItem key="backBarButtonItem" title="Account Details" id="6vQ-fL-YGz"/>
                     </navigationItem>
-                    <value key="contentSizeForViewInPopover" type="size" width="375" height="667"/>
                     <connections>
                         <outlet property="collectionView" destination="qeJ-rZ-1Jo" id="1kz-Ye-JDh"/>
                     </connections>
@@ -1415,8 +1396,7 @@
         <!--Navigation Controller-->
         <scene sceneID="j6G-8j-min">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="yhi-Qd-cs7" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yhi-Qd-cs7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="4MR-9V-XFD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YTB-uG-kGT">
@@ -1487,7 +1467,6 @@
         <image name="pepe3" width="362" height="465"/>
         <image name="smoke_background" width="602" height="818"/>
         <image name="upload_image" width="980" height="980"/>
-        <image name="xmark.circle" catalog="system" width="64" height="60"/>
         <image name="xmark.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>
