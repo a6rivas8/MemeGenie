@@ -33,7 +33,8 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
         setUpElements()
         
@@ -61,7 +62,32 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate{
                 }
             }
         }
-    }
+    
+    // listen for keyboard
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+                
+            }
+            
+           
+            
+            deinit {
+                //Stop listening for keyboard hide/show events
+                NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+                NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+                NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+            
+        }
+    
+    @objc func keyboardWillChange(notification: Notification){
+          
+          view.frame.origin.y = -120
+          if notification.name.rawValue == "UIKeyboardWillHideNotification" {
+              view.frame.origin.y = 0
+          }
+       }
+    
     func textFieldShouldReturn(_ textField: UITextField) ->
                 Bool{
                   textField.resignFirstResponder()
