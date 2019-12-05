@@ -43,13 +43,11 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
         
         uploadImageView.layer.borderColor = UIColor.black.cgColor
         uploadImageView.layer.borderWidth = 2
-        //uploadImageView.layer.cornerRadius = 8
         
         // Do any additional setup after loading the view.
         uploadImageView.image = defaultImage
         
         uploadImageProgress.setProgress(0, animated: false)
-        //uploadImageProgress.progressTintColor = UIColor.black
         
         picker.delegate = self
     

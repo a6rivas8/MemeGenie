@@ -41,8 +41,6 @@ class ExpandedViewController: UIViewController {
             }
         }
         card.layer.cornerRadius = 8
-        //self.imageView.layer.borderWidth = 2
-        //self.imageView.layer.borderColor = UIColor.black.cgColor
     }
 }
 

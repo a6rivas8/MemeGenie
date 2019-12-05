@@ -2,7 +2,7 @@
 //  CardView.swift
 //  MemeGenie
 //
-//  Created by Antoya Ellis on 11/22/19.
+//  Created by Team 6 on 11/22/19.
 //  Copyright © 2019 Team6. All rights reserved.
 //
 

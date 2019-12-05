@@ -2,7 +2,7 @@
 //  LikedCollectionViewCell.swift
 //  MemeGenie
 //
-//  Created by Derrick Ellis on 11/14/19.
+//  Created by Team6 on 11/14/19.
 //  Copyright © 2019 Team6. All rights reserved.
 //
 

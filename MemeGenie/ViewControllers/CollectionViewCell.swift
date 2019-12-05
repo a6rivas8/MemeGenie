@@ -2,7 +2,7 @@
 //  CollectionViewCell.swift
 //  MemeGenie
 //
-//  Created by Derrick Ellis on 11/8/19.
+//  Created by Team 6 on 11/8/19.
 //  Copyright © 2019 Team6. All rights reserved.
 //
 

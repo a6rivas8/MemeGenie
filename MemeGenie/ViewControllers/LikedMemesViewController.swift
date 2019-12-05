@@ -2,7 +2,7 @@
 //  LikedMemesViewController.swift
 //  MemeGenie
 //
-//  Created by Derrick Ellis on 11/14/19.
+//  Created by Team6 on 11/14/19.
 //  Copyright © 2019 Team6. All rights reserved.
 //
 
@@ -45,7 +45,6 @@ class LikedMemesViewController: UIViewController, UICollectionViewDelegate, UICo
             let uid = user.uid
             
             //Get all memes that user has posted
-            //db.collection("memes").whereField(<#T##field: String##String#>, arrayContains: <#T##Any#>)
             db.collection("memes").whereField("liked_by", arrayContains: uid).getDocuments(){(querySnapshot, err) in
                 if let err = err{
                     print("Error getting images: \(err)")

@@ -25,12 +25,6 @@ class TrendingViewController: UITableViewController {
         trendingTableView.dataSource = self
         trendingTableView.delegate = self
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
         getTrending()
     }
     
@@ -90,9 +84,6 @@ class TrendingViewController: UITableViewController {
                 print("Document does not exist")
             }
         }
-        
-        //self.memeImage.layer.borderWidth = 5
-        //self.memeImage.layer.borderColor = (UIColor.white as! CGColor)
         
         return cell
     }

@@ -27,7 +27,6 @@
 		24EF607623555FD8005FE3A2 /* credentialValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EF607523555FD8005FE3A2 /* credentialValidator.swift */; };
 		24F033D6235546C0002DB897 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24F033D5235546C0002DB897 /* GoogleService-Info.plist */; };
 		5C13E7267E0FB5667A4F084F /* Pods_MemeGenie_MemeGenieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2FDF0B27E608AE38347BDB /* Pods_MemeGenie_MemeGenieUITests.framework */; };
-		5C62C428237B1ACC00706356 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62C427237B1ACC00706356 /* TagsViewController.swift */; };
 		5C97D77E2384EC8800192B19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C97D77D2384EC8800192B19 /* Assets.xcassets */; };
 		702B4F192375D34000F2D499 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702B4F182375D34000F2D499 /* CollectionViewCell.swift */; };
 		70B38BA123682AD40087FED7 /* ViewMemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B38BA023682AD40087FED7 /* ViewMemesViewController.swift */; };
@@ -85,7 +84,6 @@
 		24D58816235684A00099CC2B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		24EF607523555FD8005FE3A2 /* credentialValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = credentialValidator.swift; sourceTree = "<group>"; };
 		24F033D5235546C0002DB897 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		5C62C427237B1ACC00706356 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 		5C97D77D2384EC8800192B19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F8AE0B3731A7B52C78495B7 /* Pods-MemeGenieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenieTests.release.xcconfig"; path = "Target Support Files/Pods-MemeGenieTests/Pods-MemeGenieTests.release.xcconfig"; sourceTree = "<group>"; };
 		702B4F182375D34000F2D499 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 				2428F3F42384C159000D62FA /* ExpandedViewController.swift */,
 				70C759CC2377E65A001B358C /* ChangePasswordViewController.swift */,
 				702B4F182375D34000F2D499 /* CollectionViewCell.swift */,
-				5C62C427237B1ACC00706356 /* TagsViewController.swift */,
 				70B43DF0237DD22A00467995 /* LikedMemesViewController.swift */,
 				70E1AE1A2387B69D00F95F78 /* CardView.swift */,
 			);
@@ -491,7 +488,6 @@
 				24C9A03B2350592200A083FE /* CustomTextField.swift in Sources */,
 				24D58817235684A00099CC2B /* AccountViewController.swift in Sources */,
 				70B38BA123682AD40087FED7 /* ViewMemesViewController.swift in Sources */,
-				5C62C428237B1ACC00706356 /* TagsViewController.swift in Sources */,
 				70E1AE1B2387B69E00F95F78 /* CardView.swift in Sources */,
 				24EF607623555FD8005FE3A2 /* credentialValidator.swift in Sources */,
 				702B4F192375D34000F2D499 /* CollectionViewCell.swift in Sources */,

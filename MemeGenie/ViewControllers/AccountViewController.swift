@@ -33,9 +33,6 @@ class AccountViewController: UIViewController {
         // Do any additional setup after loading the view.
         setUpElements()
         
-        //Button radius
-        //saveNewPassword.layer.cornerRadius = 25
-        
         //Set User Info in Labels
         let user = Auth.auth().currentUser
         let db = Firestore.firestore()
@@ -54,7 +51,6 @@ class AccountViewController: UIViewController {
                     let lastname = document.get("last_name")
                     
                     self.nameText.text = " "+(firstname as! String)+" "+(lastname as! String);
-                    //self.lastNameText.text = " "+(lastname as! String);
                     self.emailText.text = " "+(email!);
                 }
             }
@@ -62,20 +58,9 @@ class AccountViewController: UIViewController {
     }
     
     func setUpElements() {
-        // hide error label
-        //errorTextField.alpha = 0
         
-        // style elements
-        //CustomButton.styleButton(saveButton)
-        //CustomButton.styleButton(viewMemesPosted)
-        
-        //CustomTextField.styleTextField(nameText)
         nameText.font = UIFont.boldSystemFont(ofSize: 25)
-        //userActivityLabel.font = UIFont.boldSystemFont(ofSize: 18)
-
-        //CustomTextField.styleTextField(emailText)
-        //CustomTextField.styleTextField(newPasswordText)
-        //CustomTextField.styleTextField(confirmPasswordText)
+        
     }
         
     //Sign Out Button
@@ -103,19 +88,5 @@ class AccountViewController: UIViewController {
         view.window?.rootViewController = viewController
         view.window?.makeKeyAndVisible()
         
-        /*var rootVC : UIViewController?
-        rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginSignUp") as! ViewController
-         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-         appDelegate.window?.rootViewController = rootVC*/
     }
-    
-    /*
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

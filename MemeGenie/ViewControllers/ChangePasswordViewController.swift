@@ -2,7 +2,7 @@
 //  ChangePasswordViewController.swift
 //  MemeGenie
 //
-//  Created by Derrick Ellis on 11/10/19.
+//  Created by Team6 on 11/10/19.
 //  Copyright © 2019 Team6. All rights reserved.
 //
 
@@ -52,7 +52,6 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate{
                
         if let user = user {
             let uid = user.uid
-            //let email = user.email
                 
             db.collection("users").whereField("uid", isEqualTo: uid).getDocuments(){(querySnapshot, err) in
                 if let err = err{
