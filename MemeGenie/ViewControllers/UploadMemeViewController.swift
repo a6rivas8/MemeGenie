@@ -70,6 +70,12 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
          
      }
      // hide keyboard
+    func textFieldShouldReturn(_ textField: UITextField) ->
+                Bool{
+                  textField.resignFirstResponder()
+                 return true
+            }
+            
      
      func hideKeyboard(){
         uploadImageCaption.resignFirstResponder()
@@ -83,7 +89,6 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
      }
      
      @objc func keyboardWillChange(notification: Notification){
-         print("keyboard will show: \(notification.name.rawValue)")
         
         view.frame.origin.y = -180
         if notification.name.rawValue == "UIKeyboardWillHideNotification" {
@@ -92,25 +97,6 @@ class UploadMemeViewController: UIViewController, UIImagePickerControllerDelegat
      }
     
    
-    override func viewDidAppear(_ animated: Bool) {
-      // 1
-      //let nav = self.navigationController?.navigationBar
-    
-      // 2
-      //nav?.barStyle = UIBarStyle.black
-      //nav?.tintColor = UIColor.yellow
-    
-      // 3
-      //let imageView = UIImageView(frame: CGRect(x: 20, y: 0, width: 30, height: 30))
-        //imageView.contentMode = .scaleAspectFit
-        
-      // 4
-      //let image = UIImage(named: "Meme Genie")
-      //imageView.image = image
-        
-      // 5
-      //navigationItem.titleView = imageView
-    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else {

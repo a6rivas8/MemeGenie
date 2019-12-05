@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -35,7 +35,12 @@ class LoginViewController: UIViewController {
         
         CustomButton.styleButton(loginTextButton)
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) ->
+                Bool{
+                  textField.resignFirstResponder()
+                 return true
+            }
+            
     func validateFields() -> String? {
         // Check all fields are not empty
         if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""

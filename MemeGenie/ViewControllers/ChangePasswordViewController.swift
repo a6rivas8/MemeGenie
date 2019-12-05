@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class ChangePasswordViewController: UIViewController{
+class ChangePasswordViewController: UIViewController, UITextFieldDelegate{
     
     //New Password Text
     @IBOutlet weak var newPasswordText: UITextField!
@@ -63,6 +63,12 @@ class ChangePasswordViewController: UIViewController{
             }
         }
     }
+    func textFieldShouldReturn(_ textField: UITextField) ->
+                Bool{
+                  textField.resignFirstResponder()
+                 return true
+            }
+            
         
     func setUpElements() {
          // nothing...
