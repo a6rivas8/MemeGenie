@@ -14,10 +14,10 @@ exports.updateRank = functions.https.onRequest((req, res) => {
 		.get()
 		.then(function(querySnapshot) {
 			querySnapshot.forEach(function(doc) {
+				const var refreshInt = 45000;
 				var data = doc.data();
 				
 				var likes = data.likes;
-				var numLikes = likes + 1;
 				var passes = data.passes;
 				var diff = likes - passes;
 
@@ -33,7 +33,7 @@ exports.updateRank = functions.https.onRequest((req, res) => {
 				var maximal = (Math.abs(diff) >= 1) ? (Math.abs(diff)) : 1;
 				console.log("Current rank: ", data.rank);
 
-				var rank = Math.log10(maximal) + (score * data.date_uploaded._seconds) / 45000;
+				var rank = Math.log10(maximal) + (score * data.date_uploaded._seconds) / refreshInt;
 				console.log("RANK <rank>: ", rank);
 
 				var memeRef = db.collection('memes').doc(doc.id);
