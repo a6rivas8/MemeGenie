@@ -1,6 +1,0 @@
-framework module Pods_MemeGenie_MemeGenieUITests {
-  umbrella header "Pods-MemeGenie-MemeGenieUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,6 +1,0 @@
-framework module Pods_MemeGenie {
-  umbrella header "Pods-MemeGenie-umbrella.h"
-
-  export *
-  module * { export * }
-}
